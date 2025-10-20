@@ -1,0 +1,134 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="cs_page_heading cs_style_1 cs_bg_filed cs_heading_bg" data-src="{% static 'assets/img/project_heading_bg.jpg' %}">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Accueil</a></li>
+                <li class="breadcrumb-item active">Événements</li>
+            </ol>
+            <h1 class="cs_page_title mb-0 cs_fs_80 wow fadeInUp">NOS ÉVÉNEMENTS</h1>
+        </div>
+    </section>
+    
+    <!-- Événements à venir -->
+    {% if upcoming_events %}
+    <div class="cs_section_heading cs_style_1 text-center">
+        <div class="container">
+            <h2 class="cs_section_title cs_fs_50 mb-0">ÉVÉNEMENTS À VENIR</h2>
+        </div>
+    </div>
+    
+    <div class="cs_height_100 cs_height_lg_70"></div>
+    
+    <div class="container">
+        {% for event in upcoming_events %}
+        <div class="cs_card cs_style_5 mb-5">
+            {% if event.media.first %}
+            <a href="{% url 'event-detail' event.slug %}" class="cs_card_thumb">
+                <img src="{{ event.media.first.image.url }}" alt="{{ event.title }}">
+            </a>
+            {% endif %}
+            <div class="cs_card_right">
+                <h2 class="cs_card_title cs_fs_80 mb-0">
+                    <a href="{% url 'event-detail' event.slug %}">{{ event.title|upper }}</a>
+                </h2>
+                <div class="cs_height_30 cs_height_lg_20"></div>
+                <p>{{ event.short_description }}</p>
+                <div class="cs_height_30 cs_height_lg_20"></div>
+                <ul class="cs_card_info_list cs_mp_0">
+                    <li>
+                        <p class="mb-0">DATE</p>
+                        <h4 class="mb-0 cs_fs_20 cs_bold">{{ event.start_date|date:"d F Y" }}</h4>
+                        {% if event.end_date %}
+                        <p class="mb-0">au {{ event.end_date|date:"d F Y" }}</p>
+                        {% endif %}
+                    </li>
+                    <li>
+                        <p class="mb-0">LIEU</p>
+                        <h4 class="mb-0 cs_fs_20 cs_bold">{{ event.location|upper }}</h4>
+                        {% if event.address %}
+                        <p class="mb-0">{{ event.address }}</p>
+                        {% endif %}
+                    </li>
+                    {% if event.registration_required %}
+                    <li>
+                        <p class="mb-0">INSCRIPTION</p>
+                        {% if event.registration_deadline and event.registration_deadline >= now %}
+                        <h4 class="mb-0 cs_fs_20 cs_bold text-success">OUVERTE</h4>
+                        <p class="mb-0">Jusqu'au {{ event.registration_deadline|date:"d/m/Y" }}</p>
+                        {% else %}
+                        <h4 class="mb-0 cs_fs_20 cs_bold text-muted">FERMÉE</h4>
+                        {% endif %}
+                    </li>
+                    {% endif %}
+                </ul>
+                <div class="cs_height_30 cs_height_lg_20"></div>
+                <a href="{% url 'event-detail' event.slug %}" class="cs_btn cs_style_1">
+                    <span>En savoir plus</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <!-- Événements passés -->
+    {% if past_events %}
+    <div class="cs_section_heading cs_style_1 text-center">
+        <div class="container">
+            <h2 class="cs_section_title cs_fs_50 mb-0">ÉVÉNEMENTS PASSÉS</h2>
+        </div>
+    </div>
+    
+    <div class="cs_height_100 cs_height_lg_70"></div>
+    
+    <div class="container">
+        {% for event in past_events %}
+        <div class="cs_card cs_style_5 mb-5">
+            {% if event.media.first %}
+            <a href="{% url 'event-detail' event.slug %}" class="cs_card_thumb">
+                <img src="{{ event.media.first.image.url }}" alt="{{ event.title }}">
+            </a>
+            {% endif %}
+            <div class="cs_card_right">
+                <h2 class="cs_card_title cs_fs_60 mb-0">
+                    <a href="{% url 'event-detail' event.slug %}">{{ event.title|upper }}</a>
+                </h2>
+                <div class="cs_height_20"></div>
+                <p>{{ event.short_description }}</p>
+                <div class="cs_height_20"></div>
+                <ul class="cs_card_info_list cs_mp_0">
+                    <li>
+                        <p class="mb-0">DATE</p>
+                        <h4 class="mb-0 cs_fs_18">{{ event.start_date|date:"d F Y" }}</h4>
+                        {% if event.end_date %}
+                        <p class="mb-0">au {{ event.end_date|date:"d F Y" }}</p>
+                        {% endif %}
+                    </li>
+                    <li>
+                        <p class="mb-0">LIEU</p>
+                        <h4 class="mb-0 cs_fs_18">{{ event.location }}</h4>
+                    </li>
+                </ul>
+                <div class="cs_height_20"></div>
+                <a href="{% url 'event-detail' event.slug %}" class="cs_btn cs_style_1">
+                    <span>Voir le récapitulatif</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    {% if not upcoming_events and not past_events %}
+    <div class="container text-center py-5">
+        <p class="lead">Aucun événement n'est prévu pour le moment. Revenez bientôt !</p>
+    </div>
+    {% endif %}
+    
+    <div class="cs_height_100 cs_height_lg_70"></div>
+{% endblock %}

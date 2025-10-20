@@ -1,0 +1,458 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+
+    <section class="cs_page_heading cs_style_1 cs_bg_filed cs_heading_bg" data-src="{% static 'assets/img/about_heading_bg.jpg' %}">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Accueil</a></li>
+                <li class="breadcrumb-item active">À propos</li>
+            </ol>
+            <h1 class="cs_page_title mb-0 cs_fs_80 wow fadeInUp">À PROPOS DE NOUS</h1>
+        </div>
+    </section>
+    <!-- End Page Heading Sectoin -->
+    <!-- Start About Section -->
+    <section>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+        <div class="container">
+            <div class="row cs_gap_x_40 cs_gap_y_24">
+                <div class="col-lg-4">
+                    <div class="cs_section_heading cs_style_4">
+                        <h2 class="cs_section_title cs_fs_32 cs_bold mb-0 wow fadeInDown">Utiliser la technologie <br><span>au service de</span> <br>l’écologie.</h2>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <p class="cs_fs_20 mb-0">Chez Liyok Green, nous croyons que le développement durable n’est pas une option, mais une responsabilité
+                    commune.
+                    Depuis plusieurs années, nous œuvrons à la mise en place de solutions concrètes pour accompagner les entreprises, les
+                    collectivités et les citoyens vers une transition écologique réelle et mesurable.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p class="cs_fs_20 mb-0">Notre mission est de réconcilier progrès et préservation, en intégrant la durabilité au cœur des stratégies économiques
+                    et sociales.
+                    Grâce à une équipe pluridisciplinaire composée d’experts en environnement, en innovation et en gestion de projets, nous
+                    transformons les idées vertes en actions durables.</p>
+                </div>
+            </div>
+            <div class="cs_height_56 cs_height_lg_35"></div>
+            <div class="row cs_gap_y_30">
+                <div class="col-lg-4 wow fadeInLeft">
+                    <a href="https://www.youtube.com/embed/rRid6GCJtgc"
+                        class="cs_video_block cs_style_1 cs_bg_filed cs_video_open cs_center cs_radius_20"
+                        data-src="{% static 'assets/img/video_block_bg.jpg' %}">
+                        <span class="cs_player_btn cs_heading_color">
+                            <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.5 11L0.5 21.3923V0.607696L18.5 11Z" fill="currentColor" />
+                        </span>
+                    </a>
+                </div>
+                <div class="col-lg-8 wow fadeInRight">
+                    <div class="cs_cta cs_style_2 cs_bg_filed cs_radius_20" data-src="{% static 'assets/img/cta_bg_3.jpg' %}">
+                        <a href="{% url 'galery_categories' %}" class="cs_btn cs_style_2 cs_bold cs_white_color">Découvrez nos réalisations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+    </section>
+    <!-- End About Section -->
+    
+    <!-- Start Statistics Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="cs_counter cs_style_1">
+                        <div class="cs_counter_number cs_fs_60 cs_heading_color cs_bold mb-2">
+                            <span class="counter" data-to="{{ stats.projects_completed }}" data-speed="2000">0</span>+
+                        </div>
+                        <p class="cs_fs_20 mb-0">Projets réalisés</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="cs_counter cs_style_1">
+                        <div class="cs_counter_number cs_fs_60 cs_heading_color cs_bold mb-2">
+                            <span class="counter" data-to="{{ stats.happy_clients }}" data-speed="2000">0</span>+
+                        </div>
+                        <p class="cs_fs_20 mb-0">Clients satisfaits</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="cs_counter cs_style_1">
+                        <div class="cs_counter_number cs_fs_60 cs_heading_color cs_bold mb-2">
+                            <span class="counter" data-to="{{ stats.years_experience }}" data-speed="2000">0</span>+
+                        </div>
+                        <p class="cs_fs_20 mb-0">Années d'expérience</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="cs_counter cs_style_1">
+                        <div class="cs_counter_number cs_fs_60 cs_heading_color cs_bold mb-2">
+                            <span class="counter" data-to="{{ stats.team_members }}" data-speed="2000">0</span>+
+                        </div>
+                        <p class="cs_fs_20 mb-0">Membres d'équipe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Statistics Section -->
+    
+    <!-- Start Features Section -->
+    <div class="cs_heading_bg cs_white_color">
+        <!-- Start Values Section -->
+        <div class="cs_height_100 cs_height_lg_70"></div>
+        <div class="container">
+            <div class="cs_values_card cs_style_1">
+                <div class="cs_values_card_left">
+                    <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0 wow fadeInDown">VALUES</h3>
+                </div>
+                <div class="cs_values_card_left">
+                    <ul class="cs_values cs_mp_0 cs_heading_color cs_fs_20">
+                        <li>
+                            <span>Landscape Design</span>
+                            <span class="cs_bold">01</span>
+                        </li>
+                        <li>
+                            <span>Indoor Garden</span>
+                            <span class="cs_bold">02</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End Values Section -->
+        <!-- Start Feature Section -->
+        <section>
+            <div class="cs_height_100 cs_height_lg_70"></div>
+            <div class="container">
+                <div class="cs_section_heading cs_style_1">
+                    <h2 class="cs_section_title cs_fs_80 mb-0 wow fadeInUp">NOTRE <span>ÉQUIPE</span> D'EXPERTS</h2>
+                    <div class="cs_section_right">
+                        <a href="{% url 'contact' %}" 
+                            class="cs_btn cs_style_1 cs_bold cs_heading_bg cs_white_color w-100 wow fadeInRight">
+                            Nous contacter
+                        </a>
+                    </div>
+                </div>
+                <div class="cs_height_64 cs_height_lg_50"></div>
+                <div class="row align-items-end cs_gap_y_50">
+                    <div class="col-lg-4">
+                        <div class="cs_img_box cs_style_1 wow fadeInLeft">
+                            <img src="{% static 'assets/img/feature_thumb.jpg' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row cs_gap_y_64">
+                            <div class="col-sm-6">
+                                <div class="cs_iconbox cs_style_1">
+                                    <div class="cs_iconbox_icon cs_center cs_mb_24">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                    <h3 class="cs_fs_24 cs_mb_12">Passion in every work</h3>
+                                    <p class="mb-0 cs_fs_20">We are deeply passionate about creating beautiful, sustainable
+                                        green landscapes for our clients.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="cs_iconbox cs_style_1">
+                                    <div class="cs_iconbox_icon cs_center cs_mb_24">
+                                        <i class="fa-solid fa-link"></i>
+                                    </div>
+                                    <h3 class="cs_fs_24 cs_mb_12">Collaboration on top</h3>
+                                    <p class="mb-0 cs_fs_20">We make your dream design come true by combining your ideas
+                                        with our 10+ years of garden design expertise.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="cs_iconbox cs_style_1">
+                                    <div class="cs_iconbox_icon cs_center cs_mb_24">
+                                        <i class="fa-brands fa-buffer"></i>
+                                    </div>
+                                    <h3 class="cs_fs_24 cs_mb_12">Sustainability in check</h3>
+                                    <p class="mb-0 cs_fs_20">We love nurturing nature, one garden at a time, so that you can
+                                        enjoy the beautiful landscape of our garden even longer.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="cs_iconbox cs_style_1">
+                                    <div class="cs_iconbox_icon cs_center cs_mb_24">
+                                        <i class="fa-brands fa-ubuntu"></i>
+                                    </div>
+                                    <h3 class="cs_fs_24 cs_mb_12">Creativity unleashed</h3>
+                                    <p class="mb-0 cs_fs_20">We make sure to only give you our innovative designs that stand
+                                        out to make sure that your garden is not like the others.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cs_height_100 cs_height_lg_70"></div>
+        </section>
+        <!-- End Feature Section -->
+    </div>
+    <!-- End Features Section -->
+    <!-- Start Team Member Section -->
+    <section>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+        <div class="container">
+            <div class="cs_slider cs_style_1 cs_slider_gap_24">
+                <div class="cs_section_heading cs_style_2 cs_color_1">
+                    <h2 class="cs_section_title cs_fs_80 mb-0 wow fadeInDown">OUR TEAM <br><span>OF</span> DEDICATION</h2>
+                    <div class="cs_section_right">
+                        <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0">WORKS</h3>
+                        <div class="cs_slider_arrows cs_style_4 cs_hide_lg">
+                            <div class="cs_left_arrow cs_heading_color">
+                                <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0.499953 9.00005C0.499953 8.80823 0.573265 8.61623 0.719703 8.4698L8.2197 0.969797C8.51277 0.676734 8.98733 0.676734 9.2802 0.969797C9.57308 1.26286 9.57327 1.73742 9.2802 2.0303L2.31045 9.00005L9.2802 15.9698C9.57327 16.2629 9.57327 16.7374 9.2802 17.0303C8.98714 17.3232 8.51258 17.3234 8.2197 17.0303L0.719703 9.5303C0.573265 9.38386 0.499953 9.19186 0.499953 9.00005Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </div>
+                            <div class="cs_slider_number cs_style_2 cs_bold"></div>
+                            <div class="cs_right_arrow cs_heading_color">
+                                <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.50005 8.99995C9.50005 9.19177 9.42673 9.38377 9.2803 9.5302L1.7803 17.0302C1.48723 17.3233 1.01267 17.3233 0.719797 17.0302C0.426922 16.7371 0.426734 16.2626 0.719797 15.9697L7.68955 8.99995L0.719797 2.0302C0.426734 1.73714 0.426734 1.26258 0.719797 0.969702C1.01286 0.676826 1.48742 0.67664 1.7803 0.969702L9.2803 8.4697C9.42673 8.61614 9.50005 8.80814 9.50005 8.99995Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cs_height_64 cs_height_lg_50"></div>
+                <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0"
+                    data-variable-width="0" data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2"
+                    data-md-slides="3" data-lg-slides="4" data-add-slides="4">
+                    <div class="cs_slider_wrapper wow fadeInUp">
+                        {% for member in team_members %}
+                        <div class="cs_slide">
+                            <div class="cs_team_member cs_style_1">
+                                {% if member.photo %}
+                                    <img src="{{ member.photo.url }}" alt="{{ member.name }}" class="cs_team_member_img">
+                                {% else %}
+                                    <img src="{% static 'assets/img/team_member_placeholder.jpg' %}" alt="{{ member.name }}" class="cs_team_member_img">
+                                {% endif %}
+                                <div class="cs_team_member_info">
+                                    <h3 class="cs_team_member_name cs_white_color cs_fs_20 cs_bold mb-0">{{ member.name }}</h3>
+                                    <p class="cs_team_member_designation cs_white_color cs_fs_20 mb-0">{{ member.role }}</p>
+                                    {% if member.description %}
+                                        <p class="cs_team_member_desc cs_white_color mb-0">{{ member.description|truncatewords:15 }}</p>
+                                    {% endif %}
+                                    <div class="cs_team_social mt-3">
+                                        {% if member.facebook %}
+                                            <a href="{{ member.facebook }}" target="_blank" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                                        {% endif %}
+                                        {% if member.twitter %}
+                                            <a href="{{ member.twitter }}" target="_blank" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                                        {% endif %}
+                                        {% if member.linkedin %}
+                                            <a href="{{ member.linkedin }}" target="_blank" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="col-12 text-center">
+                            <p class="cs_fs_20">Notre équipe est en cours de constitution. Revenez bientôt pour faire connaissance avec nos experts !</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="cs_pagination cs_style_2 cs_show_lg"></div>
+            </div>
+        </div>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+    </section>
+    <!-- End Team Member Section -->
+    <!-- Start Brand Section -->
+    <div class="cs_gray_bg">
+        <div class="cs_height_64 cs_height_lg_50"></div>
+        <div class="container">
+            <div class="cs_slider cs_style_1 cs_slider_gap_24">
+                <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0"
+                    data-variable-width="0" data-slides-per-view="responsive" data-xs-slides="2" data-sm-slides="3"
+                    data-md-slides="5" data-lg-slides="6" data-add-slides="6">
+                    <div class="cs_slider_wrapper">
+                        <div class="cs_slide">
+                            <div class="cs_brand cs_style_1">
+                                <img src="{% static 'assets/img/brand_logo_1.svg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_brand cs_style_1">
+                                <img src="{% static 'assets/img/brand_logo_2.svg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_brand cs_style_1">
+                                <img src="{% static 'assets/img/brand_logo_3.svg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_brand cs_style_1">
+                                <img src="{% static 'assets/img/brand_logo_4.svg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_brand cs_style_1">
+                                <img src="{% static 'assets/img/brand_logo_5.svg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_brand cs_style_1">
+                                <img src="{% static 'assets/img/brand_logo_6.svg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_brand cs_style_1">
+                                <img src="{% static 'assets/img/brand_logo_3.svg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cs_height_64 cs_height_lg_50"></div>
+    </div>
+    <!-- End Brand Section -->
+    <!-- Start Work Section -->
+    <section>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+        <div class="container">
+            <div class="row align-items-end cs_gap_y_50">
+                <div class="col-xl-3">
+                    <div class="cs_section_heading cs_style_5">
+                        <h3 class="cs_brackets_title cs_normal cs_fs_16">GALLERY</h3>
+                        <h2 class="cs_section_title cs_fs_80 mb-0">OUR <span>WORK</span></h2>
+                    </div>
+                </div>
+                <div class="col-xl-9">
+                    <div class="cs_isotop cs_style_1 cs_isotop_col_3 cs_has_gutter_24 cs_lightgallery">
+                        <div class="cs_grid_sizer"></div>
+                        <div class="cs_isotop_item wow fadeInLeft">
+                            <a href="assets/img/work_thumb_1.jpg" class="cs_gallery cs_style_1 cs_center cs_gallery_item">
+                                <img src="{% static 'assets/img/work_thumb_1.jpg' %}" alt="">
+                                <span class="cs_gallery_info_wrap cs_center">
+                                    <span class="cs_gallery_info text-center cs_center">
+                                        <span class="cs_white_color cs_fs_16 cs_bold cs_mb_4 d-block">Gallery A</span>
+                                        <span class="cs_white_color d-block">2024</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="cs_isotop_item">
+                            <a href="assets/img/work_thumb_2.jpg" class="cs_gallery cs_style_1 cs_center cs_gallery_item">
+                                <img src="{% static 'assets/img/work_thumb_2.jpg' %}" alt="">
+                                <span class="cs_gallery_info_wrap cs_center">
+                                    <span class="cs_gallery_info text-center cs_center">
+                                        <span class="cs_white_color cs_fs_16 cs_bold cs_mb_4 d-block">Gallery B</span>
+                                        <span class="cs_white_color d-block">2024</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="cs_isotop_item wow fadeInRight">
+                            <a href="assets/img/work_thumb_3.jpg" class="cs_gallery cs_style_1 cs_center cs_gallery_item">
+                                <img src="{% static 'assets/img/work_thumb_3.jpg' %}" alt="">
+                                <span class="cs_gallery_info_wrap cs_center">
+                                    <span class="cs_gallery_info text-center cs_center">
+                                        <span class="cs_white_color cs_fs_16 cs_bold cs_mb_4 d-block">Gallery C</span>
+                                        <span class="cs_white_color d-block">2024</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="cs_isotop_item">
+                            <a href="assets/img/work_thumb_4.jpg" class="cs_gallery cs_style_1 cs_center cs_gallery_item">
+                                <img src="{% static 'assets/img/work_thumb_4.jpg' %}" alt="">
+                                <span class="cs_gallery_info_wrap cs_center">
+                                    <span class="cs_gallery_info text-center cs_center">
+                                        <span class="cs_white_color cs_fs_16 cs_bold cs_mb_4 d-block">Gallery D</span>
+                                        <span class="cs_white_color d-block">2024</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="cs_isotop_item">
+                            <a href="assets/img/work_thumb_5.jpg" class="cs_gallery cs_style_1 cs_center cs_gallery_item">
+                                <img src="{% static 'assets/img/work_thumb_5.jpg' %}" alt="">
+                                <span class="cs_gallery_info_wrap cs_center">
+                                    <span class="cs_gallery_info text-center cs_center">
+                                        <span class="cs_white_color cs_fs_16 cs_bold cs_mb_4 d-block">Gallery E</span>
+                                        <span class="cs_white_color d-block">2024</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+    </section>
+    <!-- End Work Section -->
+    <!-- Start Testimonials Section -->
+    <section class="cs_half_bg">
+        <div class="container">
+            <div class="cs_card cs_style_1 cs_heading_bg cs_bg_filed" data-src="{% static 'assets/img/card_bg.jpg' %}">
+                <div class="cs_card_top text-center">
+                    <h3 class="cs_brackets_title cs_normal cs_fs_16 text-white mb-0">TÉMOIGNAGES</h3>
+                </div>
+                <div class="cs_card_bottom text-center">
+                    <h2 class="cs_card_title cs_gradient_color_1 cs_fs_80 mb-0 wow fadeInUp">CE QUE DISENT NOS <br>CLIENTS
+                    </h2>
+                </div>
+    
+                <div class="container py-5">
+                    <div class="row">
+                        {% for testimonial in testimonials %}
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100 border-0 bg-transparent">
+                                <div class="card-body text-center">
+                                    {% if testimonial.photo %}
+                                    <img src="{{ testimonial.photo.url }}" class="rounded-circle mb-3" width="80"
+                                        alt="{{ testimonial.name }}">
+                                    {% else %}
+                                    <div class="rounded-circle bg-light d-inline-flex align-items-center justify-content-center mb-3"
+                                        style="width: 80px; height: 80px;">
+                                        <i class="fas fa-user fa-2x text-muted"></i>
+                                    </div>
+                                    {% endif %}
+                                    <p class="cs_fs_20 text-white mb-3">"{{ testimonial.message|truncatewords:30 }}"</p>
+                                    <h5 class="text-white mb-0">{{ testimonial.name }}</h5>
+                                    {% if testimonial.role %}
+                                    <p class="text-white-50 mb-0">{{ testimonial.role }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="col-12 text-center">
+                            <p class="cs_fs_20 text-white">Soyez le premier à partager votre expérience avec nous !</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+    
+                <div class="text-center pb-5">
+                    <a href="{% url 'contact' %}" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                        <span class="me-2">Laisser un témoignage</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Testimonials Section -->
+
+{% endblock %}

@@ -1,0 +1,641 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}{{ event.title }} - Liyok{% endblock %}
+
+{% block content %}
+<!-- En-tête de la page événement -->
+<section class="cs_page_heading cs_style_1 cs_bg_filed cs_heading_bg" data-src="{{ event.image.url|default:'assets/img/project_heading_bg.jpg' }}">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'event' %}">Événements</a></li>
+                <li class="breadcrumb-item active">{{ event.title }}</li>
+            </ol>
+            <h1 class="cs_page_title mb-0 cs_fs_80 wow fadeInUp">{{ event.title|upper }}</h1>
+        </div>
+    </section>
+    <!-- End Page Heading Sectoin -->
+    <!-- Start Projects -->
+    <div class="container">
+        <div class="cs_height_100 cs_height_lg_70"></div>
+        <div class="row cs_gap_x_40 cs_gap_y_30">
+            <div class="col-lg-7">
+                <ul class="cs_project_details_info cs_mp_0">
+                    {% if event.event_date %}
+                    <li>
+                        <p class="mb-0">DATE</p>
+                        <h4 class="mb-0 cs_fs_20 cs_bold">{{ event.event_date|date:"d F Y" }}</h4>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <p class="mb-0">LIEU</p>
+                        <h4 class="mb-0 cs_fs_20 cs_bold">{{ event.location|default:"À confirmer" }}</h4>
+                    </li>
+                    {% if event.registration_deadline %}
+                    <li>
+                        <p class="mb-0">DATE LIMITE D'INSCRIPTION</p>
+                        <h4 class="mb-0 cs_fs_20 cs_bold">{{ event.registration_deadline|date:"d/m/Y" }}</h4>
+                    </li>
+                    {% endif %}
+                </ul>
+                
+                {% if registration_open %}
+                <div class="cs_height_30"></div>
+                <button type="button" 
+                        class="cs_btn cs_style_1" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#registrationModal"
+                        id="registerButton">
+                    <span>S'inscrire à l'événement</span>
+                    <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.5 11L0.5 21.3923V0.607696L18.5 11Z" fill="currentColor"></path>
+                    </svg>
+                </button>
+                {% else %}
+                <div class="alert alert-warning mt-4">
+                    {% if event.registration_required %}
+                        {% if event.registration_deadline and event.registration_deadline < now %}
+                            Les inscriptions à cet événement sont closes depuis le {{ event.registration_deadline|date:"d/m/Y" }}.
+                        {% else %}
+                            Les inscriptions pour cet événement ne sont pas encore ouvertes.
+                        {% endif %}
+                    {% else %}
+                        Les inscriptions ne sont pas nécessaires pour cet événement.
+                    {% endif %}
+                </div>
+                {% endif %}
+                {% if event.video_url %}
+                <div class="cs_height_30"></div>
+                {% with bg_image=event.image.url|default:'' %}
+                <div class="cs_video_block cs_style_1 cs_type_1 cs_bg_filed cs_video_open cs_center cs_radius_20"
+                    data-src="{{ bg_image }}"
+                    {% if bg_image %}style="background-image: url('{{ bg_image }}')"{% endif %}>
+                    <a href="{{ event.video_url }}" class="cs_player_btn cs_heading_color">
+                        <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.5 11L0.5 21.3923V0.607696L18.5 11Z" fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </div>
+                {% endwith %}
+                {% endif %}
+            </div>
+            <div class="col-lg-5">
+                <div class="cs_slider cs_style_1">
+                    <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0"
+                        data-variable-width="0" data-slides-per-view="1">
+                        <div class="cs_slider_wrapper">
+                            {% for media in event.media.all %}
+                                {% if media.media_type == 'image' and media.image %}
+                                <div class="cs_slide">
+                                    <div class="cs_project_details_image">
+                                        <img src="{{ media.image.url }}" alt="{{ media.caption|default:event.title }}" class="img-fluid">
+                                        {% if media.caption %}
+                                        <p class="text-center mt-2">{{ media.caption }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% empty %}
+                                <div class="cs_slide">
+                                    <div class="cs_project_details_image">
+                                        <img src="{% static 'img/placeholder-event.jpg' %}" alt="{{ event.title }}" class="img-fluid">
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center cs_slider_arrows_4_transparent_wrap">
+                        <div class="cs_slider_arrows cs_style_4">
+                            <div class="cs_left_arrow cs_white_color">
+                                <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0.499953 9.00005C0.499953 8.80823 0.573265 8.61623 0.719703 8.4698L8.2197 0.969797C8.51277 0.676734 8.98733 0.676734 9.2802 0.969797C9.57308 1.26286 9.57327 1.73742 9.2802 2.0303L2.31045 9.00005L9.2802 15.9698C9.57327 16.2629 9.57327 16.7374 9.2802 17.0303C8.98714 17.3232 8.51258 17.3234 8.2197 17.0303L0.719703 9.5303C0.573265 9.38386 0.499953 9.19186 0.499953 9.00005Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </div>
+                            <div class="cs_slider_number cs_style_2 cs_bold"></div>
+                            <div class="cs_right_arrow cs_white_color">
+                                <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.50005 8.99995C9.50005 9.19177 9.42673 9.38377 9.2803 9.5302L1.7803 17.0302C1.48723 17.3233 1.01267 17.3233 0.719797 17.0302C0.426922 16.7371 0.426734 16.2626 0.719797 15.9697L7.68955 8.99995L0.719797 2.0302C0.426734 1.73714 0.426734 1.26258 0.719797 0.969702C1.01286 0.676826 1.48742 0.67664 1.7803 0.969702L9.2803 8.4697C9.42673 8.61614 9.50005 8.80814 9.50005 8.99995Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cs_height_70 cs_height_lg_50"></div>
+        <div class="row cs_gap_x_40 cs_gap_y_30">
+            <div class="col-xl-7">
+                <div class="cs_fs_20">
+                    <h2 class="cs_fs_42 mb-4">À propos de l'événement</h2>
+                    <div class="mb-4">
+                        {{ event.description|safe }}
+                    </div>
+                    
+                    {% if event.short_description %}
+                    <div class="mb-4">
+                        <h3 class="cs_fs_32 mb-3">Résumé</h3>
+                        {{ event.short_description|safe }}
+                    </div>
+                    {% endif %}
+                    
+                    {% if event.address %}
+                    <div class="mb-4">
+                        <h3 class="cs_fs_32 mb-3">Adresse</h3>
+                        <p>{{ event.address|linebreaksbr }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if event.speakers.all %}
+                    <h3 class="cs_fs_32 mb-4">Intervenants</h3>
+                    <div class="row">
+                        {% for speaker in event.speakers.all %}
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                {% if speaker.photo %}
+                                <img src="{{ speaker.photo.url }}" class="card-img-top" alt="{{ speaker.name }}">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ speaker.name }}</h5>
+                                    {% if speaker.title %}<p class="text-muted">{{ speaker.title }}</p>{% endif %}
+                                    {% if speaker.bio %}<p class="card-text">{{ speaker.bio|truncatewords:30 }}</p>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-xl-5">
+                <div class="row cs_gap_x_20 cs_gap_y_20">
+                    <div class="col-sm-6">
+                        <div class="cs_iconbox cs_style_2">
+                            <div class="cs_iconbox_icon">
+                                <i class="fa-solid fa-hand-holding-droplet"></i>
+                            </div>
+                            <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Customized Garden Designs</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="cs_iconbox cs_style_2">
+                            <div class="cs_iconbox_icon">
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
+                            <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Guaranteed Maintenance Plans
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="cs_iconbox cs_style_2">
+                            <div class="cs_iconbox_icon">
+                                <i class="fa-solid fa-vials"></i>
+                            </div>
+                            <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Soil Testing and Improvement
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="cs_iconbox cs_style_2">
+                            <div class="cs_iconbox_icon">
+                                <i class="fa-solid fa-feather"></i>
+                            </div>
+                            <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Hardscape and Aquascape
+                                Feature</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="cs_iconbox cs_style_2">
+                            <div class="cs_iconbox_icon">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Plant Selection and
+                                Installation</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="cs_iconbox cs_style_2">
+                            <div class="cs_iconbox_icon">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Sustainable Eco-Friendly
+                                Options</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+    </div>
+    <!-- End Projects -->
+     <!-- cette section est reserver a l'affichage de cervice  -->
+    <!-- Start Accordion Section -->
+    <section class="cs_gray_bg">
+        <div class="cs_height_100 cs_height_lg_70"></div>
+        <div class="container">
+            <div class="cs_slider cs_style_1 cs_slider_gap_24">
+                <div class="cs_section_heading cs_style_2 cs_color_1">
+                    <h2 class="cs_section_title cs_fs_80 mb-0">CHOOSE OUR <br>SPECIAL <span>SERVICES</span></h2>
+                    <div class="cs_section_right">
+                        <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0">SERVICES</h3>
+                        <div class="cs_slider_arrows cs_style_4 cs_hide_lg">
+                            <div class="cs_left_arrow cs_heading_color">
+                                <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0.499953 9.00005C0.499953 8.80823 0.573265 8.61623 0.719703 8.4698L8.2197 0.969797C8.51277 0.676734 8.98733 0.676734 9.2802 0.969797C9.57308 1.26286 9.57327 1.73742 9.2802 2.0303L2.31045 9.00005L9.2802 15.9698C9.57327 16.2629 9.57327 16.7374 9.2802 17.0303C8.98714 17.3232 8.51258 17.3234 8.2197 17.0303L0.719703 9.5303C0.573265 9.38386 0.499953 9.19186 0.499953 9.00005Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </div>
+                            <div class="cs_slider_number cs_style_2 cs_bold"></div>
+                            <div class="cs_right_arrow cs_heading_color">
+                                <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.50005 8.99995C9.50005 9.19177 9.42673 9.38377 9.2803 9.5302L1.7803 17.0302C1.48723 17.3233 1.01267 17.3233 0.719797 17.0302C0.426922 16.7371 0.426734 16.2626 0.719797 15.9697L7.68955 8.99995L0.719797 2.0302C0.426734 1.73714 0.426734 1.26258 0.719797 0.969702C1.01286 0.676826 1.48742 0.67664 1.7803 0.969702L9.2803 8.4697C9.42673 8.61614 9.50005 8.80814 9.50005 8.99995Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cs_height_64 cs_height_lg_50"></div>
+                <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0"
+                    data-variable-width="0" data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="1"
+                    data-md-slides="2" data-lg-slides="2" data-add-slides="2">
+                    <div class="cs_slider_wrapper">
+                        <div class="cs_slide">
+                            <div class="cs_card cs_style_2">
+                                <a href="service-details.html" class="cs_card_thumb">
+                                    <img src="assets/img/project_thumb_1.jpg" alt="">
+                                </a>
+                                <div class="cs_card_info">
+                                    <h2 class="cs_card_title cs_fs_32 cs_white_color cs_bold cs_mb_8">
+                                        <a href="service-details.html">GARDEN DESIGN</a>
+                                    </h2>
+                                    <p class="cs_card_subtitle mb-0 cs_white_color">Crafting the perfect garden space. We
+                                        will design a garden that suits your lifestyle and enhances your property's beauty.
+                                    </p>
+                                </div>
+                                <a href="service-details.html"
+                                    class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_card cs_style_2">
+                                <a href="service-details.html" class="cs_card_thumb">
+                                    <img src="assets/img/project_thumb_2.jpg" alt="">
+                                </a>
+                                <div class="cs_card_info">
+                                    <h2 class="cs_card_title cs_fs_32 cs_white_color cs_bold cs_mb_8">
+                                        <a href="service-details.html">PLANT SELECTION</a>
+                                    </h2>
+                                    <p class="cs_card_subtitle mb-0 cs_white_color">Hand-picked greenery for your oasis. Our
+                                        experts select the right plants, ensuring they thrive in your garden's unique
+                                        conditions.</p>
+                                </div>
+                                <a href="service-details.html"
+                                    class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_card cs_style_2">
+                                <a href="service-details.html" class="cs_card_thumb">
+                                    <img src="assets/img/project_thumb_3.jpg" alt="">
+                                </a>
+                                <div class="cs_card_info">
+                                    <h2 class="cs_card_title cs_fs_32 cs_white_color cs_bold cs_mb_8">
+                                        <a href="service-details.html">HARDSCAPING</a>
+                                    </h2>
+                                    <p class="cs_card_subtitle mb-0 cs_white_color">Adding structure to your landscape. We
+                                        create functional and aesthetic hardscape features like patios, walkways, and
+                                        retaining walls.</p>
+                                </div>
+                                <a href="service-details.html"
+                                    class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="cs_slide">
+                            <div class="cs_card cs_style_2">
+                                <a href="service-details.html" class="cs_card_thumb">
+                                    <img src="assets/img/project_thumb_4.jpg" alt="">
+                                </a>
+                                <div class="cs_card_info">
+                                    <h2 class="cs_card_title cs_fs_32 cs_white_color cs_bold cs_mb_8">
+                                        <a href="service-details.html">GARDEN MAINTENANCE</a>
+                                    </h2>
+                                    <p class="cs_card_subtitle mb-0 cs_white_color">Preserving your garden's allure. We
+                                        offer ongoing maintenance services to ensure your garden looks its best year-round.
+                                    </p>
+                                </div>
+                                <a href="service-details.html"
+                                    class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cs_pagination cs_style_2 cs_show_lg"></div>
+            </div>
+        </div>
+        <div class="cs_height_100 cs_height_lg_70"></div>
+    </section>
+
+    <!-- Script pour l'initialisation du carrousel -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vérifie si le slider existe sur la page
+            const sliderContainer = document.querySelector('.cs_slider_container');
+            if (sliderContainer) {
+                // Initialisation du carrousel
+                const eventSlider = new Swiper('.cs_slider_container', {
+                    loop: true,
+                    speed: 800,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: '.cs_right_arrow',
+                        prevEl: '.cs_left_arrow',
+                    },
+                    pagination: {
+                        el: '.cs_slider_number',
+                        type: 'fraction',
+                    },
+                    effect: 'fade',
+                    fadeEffect: {
+                        crossFade: true
+                    },
+                    on: {
+                        init: function() {
+                            // Mise à jour du compteur à l'initialisation
+                            updateSlideCounter(this);
+                        },
+                        slideChange: function() {
+                            // Mise à jour du compteur à chaque changement de slide
+                            updateSlideCounter(this);
+                        }
+                    }
+                });
+
+                // Fonction pour mettre à jour le compteur
+                function updateSlideCounter(slider) {
+                    const current = slider.realIndex + 1;
+                    const total = slider.slides.length;
+                    const counter = document.querySelector('.cs_slider_number');
+                    if (counter) {
+                        counter.textContent = `${current} / ${total}`;
+                    }
+                }
+            }
+        });
+    </script>
+
+    {% if registration_open %}
+        <!-- Débogage : Le formulaire d'inscription est inclus ci-dessous -->
+        {% include 'includes/registration_form.html' %}
+        <!-- Fin du formulaire d'inscription -->
+        
+        <!-- Script pour la gestion du formulaire d'inscription -->
+        <script src="{% static 'assets/js/event_registration.js' %}"></script>
+        
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM chargé, initialisation du formulaire d\'inscription...');
+            
+            const form = document.getElementById('eventRegistrationForm');
+            const modalElement = document.getElementById('registrationModal');
+            
+            if (!modalElement) {
+                console.error('Erreur: L\'élément #registrationModal n\'a pas été trouvé dans le DOM');
+                return;
+            }
+            
+            if (!form) {
+                console.error('Erreur: Le formulaire #eventRegistrationForm n\'a pas été trouvé dans le DOM');
+                return;
+            }
+            
+            const modal = new bootstrap.Modal(modalElement);
+            
+            // Ajouter un gestionnaire d'événement pour le bouton d'inscription
+            const registerButton = document.getElementById('registerButton');
+            if (registerButton) {
+                registerButton.addEventListener('click', function() {
+                    console.log('Bouton d\'inscription cliqué');
+                    modal.show();
+                });
+            } else {
+                console.error('Erreur: Le bouton d\'inscription #registerButton n\'a pas été trouvé');
+            }
+            
+            // Gestionnaire pour le bouton de fermeture
+            const closeButtons = document.querySelectorAll('.btn-close, [data-bs-dismiss="modal"]');
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('Bouton de fermeture cliqué');
+                    modal.hide();
+                });
+            });
+            
+            console.log('Modal et formulaire initialisés avec succès');
+            
+            // Gestion de la soumission du formulaire
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                console.log('Début de la soumission du formulaire');
+                
+                // Afficher le spinner de chargement
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const spinner = submitBtn.querySelector('.spinner-border');
+                const btnText = submitBtn.querySelector('.btn-text');
+                
+                submitBtn.disabled = true;
+                spinner.classList.remove('d-none');
+                btnText.textContent = 'Traitement...';
+                
+                try {
+                    // Créer l'objet FormData et afficher les données
+                    const formData = new FormData(form);
+                    console.log('Données du formulaire:');
+                    for (let [key, value] of formData.entries()) {
+                        console.log(`${key}: ${value}`);
+                    }
+                    
+                    // Récupérer le token CSRF
+                    const csrfElement = document.querySelector('[name=csrfmiddlewaretoken]');
+                    if (!csrfElement) {
+                        throw new Error('Token CSRF introuvable dans le formulaire');
+                    }
+                    const csrfToken = csrfElement.value;
+                    console.log('CSRF Token:', csrfToken);
+                    
+                    // Configuration de la requête
+                    const url = form.action || window.location.href;
+                    console.log('URL de la requête:', url);
+                    
+                    // Vérifier que l'URL est valide
+                    if (!url) {
+                        throw new Error('URL du formulaire non définie');
+                    }
+                    
+                    // Créer les en-têtes
+                    const headers = {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRFToken': csrfToken
+                    };
+                    
+                    console.log('En-têtes de la requête:', headers);
+                    
+                    // Effectuer la requête
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: headers,
+                        body: formData,
+                        credentials: 'same-origin'  // Important pour les cookies de session
+                    });
+                    
+                    console.log('Réponse du serveur - Statut:', response.status);
+                    
+                    // Vérifier si la réponse est au format JSON
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        const text = await response.text();
+                        console.error('Réponse non-JSON reçue:', text);
+                        throw new Error('Le serveur a retourné une réponse inattendue');
+                    }
+                    
+                    const data = await response.json();
+                    console.log('Données de la réponse:', data);
+                    
+                    if (data.success) {
+                        // Fermer le modal
+                        modal.hide();
+                        
+                        // Afficher le message de succès
+                        const alertHtml = `
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                Votre inscription a bien été enregistrée !
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                            </div>
+                        `;
+                        
+                        // Insérer l'alerte avant le formulaire
+                        document.querySelector('.cs_style_1').insertAdjacentHTML('beforebegin', alertHtml);
+                        
+                        // Fermer l'alerte après 5 secondes
+                        setTimeout(() => {
+                            const alert = document.querySelector('.alert');
+                            if (alert) {
+                                new bootstrap.Alert(alert).close();
+                            }
+                        }, 5000);
+                        
+                        // Réinitialiser le formulaire
+                        form.reset();
+                    } else {
+                        // Afficher les erreurs de validation
+                        if (data.errors) {
+                            // Réinitialiser les erreurs précédentes
+                            form.querySelectorAll('.is-invalid').forEach(el => {
+                                el.classList.remove('is-invalid');
+                            });
+                            
+                            // Afficher les nouvelles erreurs
+                            Object.entries(data.errors).forEach(([field, errors]) => {
+                                const input = document.getElementById(`id_${field}`);
+                                if (input) {
+                                    input.classList.add('is-invalid');
+                                    const feedback = input.nextElementSibling;
+                                    if (feedback && feedback.classList.contains('invalid-feedback')) {
+                                        feedback.textContent = errors[0];
+                                    }
+                                }
+                            });
+                        }
+                    }
+                } catch (error) {
+                    console.error('Erreur lors de l\'envoi du formulaire:', error);
+                    
+                    // Afficher un message d'erreur plus détaillé
+                    let errorMessage = 'Une erreur est survenue lors de l\'envoi du formulaire. ';
+                    
+                    if (error instanceof TypeError) {
+                        errorMessage += 'Erreur réseau ou serveur injoignable. ';
+                    } else if (error.message) {
+                        errorMessage += `Détails : ${error.message}`;
+                    }
+                    
+                    const errorAlert = document.createElement('div');
+                    errorAlert.className = 'alert alert-danger alert-dismissible fade show mt-3';
+                    errorAlert.role = 'alert';
+                    errorAlert.innerHTML = `
+                        ${errorMessage}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                    `;
+                    
+                    // Insérer l'alerte avant le formulaire
+                    form.parentNode.insertBefore(errorAlert, form);
+                    
+                    // Fermer l'alerte après 10 secondes
+                    setTimeout(() => {
+                        const bsAlert = new bootstrap.Alert(errorAlert);
+                        bsAlert.close();
+                    }, 10000);
+                } finally {
+                    // Réinitialiser le bouton
+                    submitBtn.disabled = false;
+                    spinner.classList.add('d-none');
+                    btnText.textContent = "S'inscrire";
+                }
+            });
+            
+            // Réinitialiser le formulaire à l'ouverture du modal
+            document.getElementById('registrationModal').addEventListener('show.bs.modal', function () {
+                form.reset();
+                form.querySelectorAll('.is-invalid').forEach(el => {
+                    el.classList.remove('is-invalid');
+                });
+                form.querySelectorAll('.invalid-feedback').forEach(el => {
+                    el.textContent = '';
+                });
+            });
+        });
+        </script>
+    {% endif %}
+{% endblock %}

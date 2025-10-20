@@ -1,0 +1,78 @@
+<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="registrationModalLabel">Inscription à l'événement</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+            </div>
+            <div class="modal-body">
+                <form id="eventRegistrationForm" method="post" action="{% url 'event-detail' event.slug %}" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form.first_name.label_tag }}
+                                {{ form.first_name }}
+                                <div class="invalid-feedback">{{ form.first_name.errors|first }}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form.last_name.label_tag }}
+                                {{ form.last_name }}
+                                <div class="invalid-feedback">{{ form.last_name.errors|first }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form.email.label_tag }}
+                                {{ form.email }}
+                                <div class="invalid-feedback">{{ form.email.errors|first }}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form.phone.label_tag }}
+                                {{ form.phone }}
+                                <div class="invalid-feedback">{{ form.phone.errors|first }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form.company.label_tag }}
+                                {{ form.company }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                {{ form.position.label_tag }}
+                                {{ form.position }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.number_of_people.label_tag }}
+                        {{ form.number_of_people }}
+                        <small class="form-text text-muted">Nombre de personnes à inscrire</small>
+                        <div class="invalid-feedback">{{ form.number_of_people.errors|first }}</div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.special_requirements.label_tag }}
+                        {{ form.special_requirements }}
+                        <small class="form-text text-muted">Précisez vos besoins spécifiques (allergies, mobilité réduite, etc.)</small>
+                    </div>
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            <span class="btn-text">S'inscrire</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
