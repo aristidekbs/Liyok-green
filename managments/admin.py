@@ -9,7 +9,7 @@ from .models import (
     ContactMessage, Project, ProjectMedia,
     Category, Galerie, ImageGalerie,
     Service, ServiceMedia, TeamMember, Tag,
-    Article, MediaArticle
+    Article, MediaArticle, Document
 )
 
 # Inline Classes
@@ -207,20 +207,26 @@ class ServiceMediaInline(TabularInline):
 
 @admin.register(Service)
 class ServiceAdmin(ModelAdmin):
-    list_display = ('title', 'is_active', 'order', 'created_at')
+    list_display = ('title', 'is_active', 'order', 'created_at', 'image_preview')
     list_filter = ('is_active', 'created_at')
     search_fields = ('title', 'short_description', 'description')
     prepopulated_fields = {'slug': ('title',)}
     inlines = [ServiceMediaInline]
+    readonly_fields = ('image_preview',)
     fieldsets = (
         (None, {
             'fields': ('title', 'slug', 'short_description', 'description', 'is_active', 'order')
         }),
         ('Médias', {
-            'fields': ('icon', 'image'),
-            'classes': ('collapse',)
+            'fields': ('icon', 'image', 'image_preview')
         }),
     )
+
+    def image_preview(self, obj):
+        if obj.image:
+            return mark_safe(f'<img src="{obj.image.url}" style="max-height: 100px;" />')
+        return "Aucune image"
+    image_preview.short_description = 'Aperçu de l\'image'
 
 @admin.register(ServiceMedia)
 class ServiceMediaAdmin(ModelAdmin):
@@ -306,4 +312,29 @@ class MediaArticleAdmin(ModelAdmin):
     search_fields = ('article__title', 'caption')
     ordering = ('article', 'order', '-created_at')
     list_editable = ('order', 'is_featured')
+
+
+@admin.register(Document)
+class DocumentAdmin(ModelAdmin):
+    list_display = ('title', 'category', 'is_active', 'file_size', 'download_count', 'created_at')
+    list_filter = ('is_active', 'category', 'created_at')
+    search_fields = ('title', 'description')
+    prepopulated_fields = {'slug': ('title',)}
+    readonly_fields = ('download_count', 'created_at', 'updated_at', 'file_size_display')
+    fieldsets = (
+        ('Informations générales', {
+            'fields': ('title', 'slug', 'description', 'category', 'is_active')
+        }),
+        ('Fichier', {
+            'fields': ('file', 'file_size_display')
+        }),
+        ('Statistiques', {
+            'fields': ('download_count', 'created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )
+
+    def file_size_display(self, obj):
+        return obj.file_size
+    file_size_display.short_description = 'Taille du fichier'
 

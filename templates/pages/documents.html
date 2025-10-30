@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="cs_page_heading cs_style_1 cs_bg_filed cs_heading_bg" data-src="{% static 'assets/img/service_heading_bg.jpg' %}">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="breadcrumb-item active">Documents</li>
+        </ol>
+        <h1 class="cs_page_title mb-0 cs_fs_80 wow fadeInUp">Nos Documents</h1>
+    </div>
+</section>
+<!-- End Page Heading Sectoin -->
+<!-- Start Documents Section -->
+<div class="cs_height_100 cs_height_lg_70"></div>
+<div class="cs_height_100 cs_height_lg_70"></div>
+<div class="container">
+    <div class="row cs_gap_y_40 cs_gap_x_40">
+        {% for document in documents %}
+        <div class="">
+            <div class="cs_card cs_style_2">
+                <div class="cs_card_info">
+                    <a href="{% url 'document_detail' document.slug %}">
+                    <h2 class="cs_card_title cs_fs_32 cs_black_color cs_bold cs_mb_8">
+                        {{ document.title }}
+                    </h2>
+                    </a>
+                    <p class="cs_card_subtitle mb-0 ">{{ document.description|truncatechars:50 }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+            <p>Aucun document disponible pour le moment.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="cs_height_100 cs_height_lg_70"></div>
+<div class="cs_height_100 cs_height_lg_70"></div>
+
+<!-- End Documents Section -->
+{% endblock %}

@@ -7,7 +7,7 @@ from django.template.loader import render_to_string
 from django.db import models
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
-from .models import Galerie, Category, Service, ServiceMedia, Event, EventRegistration, TeamMember, Testimonial, Tag, Article, MediaArticle
+from .models import Galerie, Category, Service, ServiceMedia, Event, EventRegistration, TeamMember, Testimonial, Tag, Article, MediaArticle, Document
 from .forms import EventRegistrationForm
 
 def Home(request):
@@ -407,6 +407,60 @@ def article_list_old(request):
 
 def article_detail_old(request):
     return render(request, 'pages/article_detail.html')
+
+
+def document_list(request):
+    """Vue pour afficher la liste des documents actifs"""
+    documents = Document.objects.filter(is_active=True).order_by('-created_at')
+
+    # Filtrage par catégorie si demandé
+    category_slug = request.GET.get('category')
+    if category_slug:
+        documents = documents.filter(category__slug=category_slug)
+
+    context = {
+        'documents': documents,
+        'title': 'Documents'
+    }
+    return render(request, 'pages/documents.html', context)
+
+
+def document_detail(request, slug):
+    """Vue pour afficher le détail d'un document et permettre le téléchargement"""
+    document = get_object_or_404(Document, slug=slug, is_active=True)
+
+    # Incrémenter le compteur de téléchargements
+    document.download_count = models.F('download_count') + 1
+    document.save(update_fields=['download_count'])
+    document.refresh_from_db()
+
+    # Récupérer d'autres documents (exclure le document actuel)
+    documents = Document.objects.filter(is_active=True).exclude(slug=slug)[:6]
+
+    context = {
+        'document': document,
+        'documents': documents,
+        'title': document.title
+    }
+    return render(request, 'pages/document_detail.html', context)
+
+
+def document_download(request, slug):
+    """Vue pour télécharger un document"""
+    document = get_object_or_404(Document, slug=slug, is_active=True)
+
+    # Incrémenter le compteur de téléchargements
+    document.download_count = models.F('download_count') + 1
+    document.save(update_fields=['download_count'])
+
+    # Retourner le fichier pour téléchargement
+    from django.http import FileResponse
+    try:
+        response = FileResponse(document.file.open(), as_attachment=True, filename=document.file.name.split('/')[-1])
+        return response
+    except FileNotFoundError:
+        from django.http import Http404
+        raise Http404("Fichier non trouvé")
 
 
 

@@ -154,10 +154,10 @@ UNFOLD = {
     "SHOW_VIEW_ON_SITE": True,
     "THEME": "auto",
     "STYLES": [
-        lambda request: "/static/assets/css/style.css",
+        lambda request: "/static/assets/css/",
     ],
     "SCRIPTS": [
-        lambda request: "/static/assets/js/main.js",
+        lambda request: "/static/assets/js/",
     ],
     "COLORS": {
         "primary": {
@@ -225,6 +225,11 @@ UNFOLD = {
                         "title": "Services",
                         "icon": "build",
                         "link": "/admin/managments/service/",
+                    },
+                    {
+                        "title": "Documents",
+                        "icon": "description",
+                        "link": "/admin/managments/document/",
                     },
                 ],
             },

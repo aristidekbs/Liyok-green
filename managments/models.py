@@ -173,10 +173,10 @@ class EventMedia(models.Model):
             bool(self.video),
             bool(self.video_url)
         ])
-        
+
         if media_count > 1:
             raise ValidationError('Vous ne pouvez sélectionner qu\'un seul type de média à la fois.')
-        
+
         if self.media_type == 'youtube' and not self.video_url:
             raise ValidationError('Une URL YouTube est requise pour ce type de média.')
         elif self.media_type == 'vimeo' and not self.video_url:
@@ -185,6 +185,57 @@ class EventMedia(models.Model):
             raise ValidationError('Un fichier vidéo est requis pour ce type de média.')
         elif self.media_type == 'image' and not self.image:
             raise ValidationError('Une image est requise pour ce type de média.')
+
+
+class Document(models.Model):
+    """Modèle pour gérer les documents PDF"""
+    title = models.CharField(max_length=255, verbose_name='Titre du document')
+    slug = models.SlugField(max_length=255, unique=True, blank=True, verbose_name='Slug')
+    description = models.TextField(blank=True, null=True, verbose_name='Description')
+    file = models.FileField(upload_to='documents/%Y/%m/', verbose_name='Fichier PDF')
+    category = models.ForeignKey(
+        'Category',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='documents',
+        verbose_name='Catégorie'
+    )
+    is_active = models.BooleanField(default=True, verbose_name='Actif')
+    download_count = models.PositiveIntegerField(default=0, verbose_name='Nombre de téléchargements')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Date de création')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Dernière mise à jour')
+
+    class Meta:
+        verbose_name = 'Document'
+        verbose_name_plural = 'Documents'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    @property
+    def file_size(self):
+        """Retourne la taille du fichier en format lisible"""
+        if self.file:
+            size = self.file.size
+            for unit in ['B', 'KB', 'MB', 'GB']:
+                if size < 1024.0:
+                    return f"{size:.1f} {unit}"
+                size /= 1024.0
+        return "0 B"
+
+    @property
+    def file_extension(self):
+        """Retourne l'extension du fichier"""
+        if self.file:
+            return self.file.name.split('.')[-1].upper()
+        return ""
 
 
 class EventRegistration(models.Model):

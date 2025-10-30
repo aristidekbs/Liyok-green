@@ -1,0 +1,80 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="cs_page_heading cs_style_1 cs_bg_filed cs_heading_bg"
+    data-src="{% static 'assets/img/project_heading_bg.jpg' %}">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'document_list' %}">Documents</a></li>
+            <li class="breadcrumb-item active">{{ document.title }}</li>
+        </ol>
+        <h1 class="cs_page_title mb-0 cs_fs_80 wow fadeInUp">{{ document.title|upper }}</h1>
+    </div>
+</section>
+<!-- End Page Heading Sectoin -->
+<!-- Start Projects -->
+<div class="container">
+    <div class="cs_height_100 cs_height_lg_70"></div>
+    <div class="row cs_gap_x_40 cs_gap_y_30">
+        <div class="col-lg-7">
+            <ul class="cs_project_details_info cs_mp_0">
+                {% if document.created_at %}
+                <li>
+                    <p class="mb-0">DEPUIS</p>
+                    <h4 class="mb-0 cs_fs_20 cs_bold">{{ document.created_at|date:"Y" }}</h4>
+                </li>
+                {% endif %}
+                <li>
+                    <p class="mb-0">CATÉGORIE</p>
+                    <h4 class="mb-0 cs_fs_20 cs_bold">{{ document.category.name|default:"GÉNÉRAL"|upper }}</h4>
+                </li>
+                <li>
+                    <p class="mb-0">TAILLE</p>
+                    <h4 class="mb-0 cs_fs_20 cs_bold">{{ document.file_size }}</h4>
+                </li>
+                <li>
+                    <p class="mb-0">TÉLÉCHARGEMENTS</p>
+                    <h4 class="mb-0 cs_fs_20 cs_bold">{{ document.download_count }}</h4>
+                </li>
+            </ul>
+            <div class="cs_height_50 cs_height_lg_40"></div>
+            <div class="cs_radius_15 overflow-hidden cs_center" style="background-color: #f8f9fa; padding: 60px 20px;">
+                <div class="text-center">
+                    <i class="fa-solid fa-file-pdf cs_fs_80 cs_heading_color cs_mb_24"></i>
+                    <h3 class="cs_heading_color cs_bold">{{ document.file_extension|upper }}</h3>
+                    <p class="cs_body_color">Document PDF</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="cs_fs_20">
+                <b class="cs_heading_color">DESCRIPTION :</b><br>
+                <div class="mb-4">
+                    {{ document.description|safe|default:"Aucune description disponible." }}
+                </div>
+
+                <div class="cs_height_30"></div>
+
+                <div class="text-center">
+                    <a href="{% url 'document_download' document.slug %}" class="cs_btn cs_style_1 cs_heading_color cs_white_bg cs_mb_16" target="_blank">
+                        <i class="fa-solid fa-download cs_mb_8"></i>
+                        Télécharger le document
+                    </a>
+                    <br>
+                    <a href="{% url 'document_list' %}" class="cs_btn cs_style_2 cs_white_color">
+                        <i class="fa-solid fa-arrow-left cs_mb_8"></i>
+                        Retour aux documents
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cs_height_100 cs_height_lg_70"></div>
+</div>
+
+
+
+{% endblock %}

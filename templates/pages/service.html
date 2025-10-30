@@ -8,7 +8,7 @@
             <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
             <li class="breadcrumb-item active">Services</li>
         </ol>
-        <h1 class="cs_page_title mb-0 cs_fs_80 wow fadeInUp">OUR SERVICES</h1>
+        <h1 class="cs_page_title mb-0 cs_fs_80 wow fadeInUp">Nos Service</h1>
     </div>
 </section>
 <!-- End Page Heading Sectoin -->
@@ -20,13 +20,16 @@
         <div class="col-lg-6">
             <div class="cs_card cs_style_2">
                 {% if service.image %}
+                
                 <a href="{% url 'service-detail' service.slug %}" class="cs_card_thumb">
-                    <img src="{{ service.image.url }}" alt="{{ service.title }}">
+
+                    <img src="{{ service.image.url }}" alt="{{ service.title }}" style="width: auto; height: 50%; object-fit: cover; max-width: auto; max-height: 50%;">
+
                 </a>
                 {% endif %}
                 <div class="cs_card_info">
                     <h2 class="cs_card_title cs_fs_32 cs_white_color cs_bold cs_mb_8">
-                        <a href="{% url 'service-detail' service.slug %}">{{ service.title|upper }}</a>
+                        {{ service.title }}
                     </h2>
                     <p class="cs_card_subtitle mb-0 cs_white_color">{{ service.short_description }}</p>
                 </div>
@@ -41,7 +44,9 @@
         </div>
         {% empty %}
         <div class="col-12 text-center">
+            
             <p>Aucun service disponible pour le moment.</p>
+            
         </div>
         {% endfor %}
     </div>
@@ -50,16 +55,6 @@
 <!-- End Services Section -->
 <!-- Start CTA Section -->
 
-<!-- Cette section est resserver pour le blog et on en reviendra dessus -->
-<section class="cs_cta cs_style_1 cs_type_1 cs_heading_bg cs_bg_filed" data-src="{% static 'assets/img/cta_bg_2.jpg' %}">
-    <div class="cs_height_100 cs_height_lg_70"></div>
-    <div class="container">
-        <div class="cs_cta_in">
-            <h2 class="cs_cta_title cs_fs_80 cs_white_color cs_mb_40">READY TO DESIGN YOUR GARDEN?</h2>
-            <a href="{% url 'contact' %}" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg">Contact Us</a>
-        </div>
-    </div>
-    <div class="cs_height_100 cs_height_lg_70"></div>
-</section>
+
 
 {% endblock %}

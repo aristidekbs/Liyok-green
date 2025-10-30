@@ -4854,6 +4854,16 @@ hr {
   left: 0;
   top: 0;
 }
+.cs_hero.cs_style_1 .cs_hero_bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
 .cs_hero.cs_style_1 .cs_hero_bg .cs_slider,
 .cs_hero.cs_style_1 .cs_hero_bg .cs_slider_container,
 .cs_hero.cs_style_1 .cs_hero_bg .cs_slider_wrapper,

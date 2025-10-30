@@ -69,15 +69,16 @@
                         <div class="cs_nav cs_heading_color">
                             <nav class="cs_nav_list_wrap text-uppercase">
                                 <ul class="cs_nav_list">
-                                    <li><a href="{% url 'about' %}">ABOUT</a></li>
+                                    <li><a href="{% url 'about' %}">A PROPOS</a></li>
                                     <li><a href="{% url 'service' %}">SERVICES</a></li>
                                     <li><a href="{% url 'event' %}">EVENEMENT</a></li>
                                     <li class="menu-item-has-children">
                                         <a href="">MORE</a>
                                         <ul>
-                                            <li><a href="{% url 'galery_categories' %}">GALLERY</a></li>
-                                            <li><a href="{% url 'article_list' %}">BLOG</a></li>
+                                            <li><a href="{% url 'galery_categories' %}">REALISATIONS</a></li>
+                                            <li><a href="{% url 'article_list' %}">ARTICLES</a></li>
                                             <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                                            <li><a href="{% url 'document_list' %}">DOCUMENTS</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -153,8 +154,8 @@
                             {% else %}
                             <h1>{{ site_setting.site_name }}</h1>
                             {% endif %}
-                            <p>Stay updated with our latest <br>
-                                projects and gardening tips.</p>
+                            <p>ACCÉLÉRER LA TRANSITION
+                            VERS UNE ÉCONOMIE BAS-CARBONE EN AFRIQUE.</p>
                         </div>
                     </div>
                     <div class="cs_footer_widget">
@@ -175,7 +176,7 @@
                     <div class="cs_footer_widget">
                         <h4 class="cs_footer_widget_title">SUPPORT</h4>
                         <ul class="cs_footer_widget_menu cs_mp_0">
-                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="#">FAQ</a></li>
                             <li><a href="#">USER GUIDE</a></li>
                             <li><a href="#">TESTIMONIAL</a></li>
                             <li><a href="#">CUSTOMER</a></li>
@@ -186,28 +187,18 @@
                     <div class="cs_footer_widget">
                         <h4 class="cs_footer_widget_title">LINKS</h4>
                         <ul class="cs_footer_widget_menu cs_mp_0">
-                            <li><a href="about.html">ABOUT US</a></li>
-                            <li><a href="gallery.html">GALLERY</a></li>
-                            <li><a href="projects.html">PROJECTS</a></li>
-                            <li><a href="blog.html">BLOG</a></li>
+                            <li><a href="{% url 'about' %}">ABOUT US</a></li>
+                            <li><a href="{% url 'galery_categories' %}">GALLERY</a></li>
+                            <li><a href="{% url 'service' %}">SERVICE</a></li>
+                            <li><a href="{% url 'article_list' %}">BLOG</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="cs_footer_col">
-                    <div class="cs_footer_widget">
-                        <h4 class="cs_footer_widget_title">SERVICES</h4>
-                        <ul class="cs_footer_widget_menu cs_mp_0">
-                            <li><a href="service-details.html">HOME GARDEN</a></li>
-                            <li><a href="service-details.html">PLANT SELECTION</a></li>
-                            <li><a href="service-details.html">HARDSCAPING</a></li>
-                            <li><a href="service-details.html">PUBLIC GARDEN</a></li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
             <div class="cs_bottom_footer">
                 <div class="cs_bottom_footer_left wow fadeInLeft">
-                    <div class="cs_copyright">COURTESY © 2025. ALL RIGHTS RESERVED.</div>
+                    <div class="cs_copyright">LIYOK-GREEN © 2025.TOUS DROIT RESERVÉ.</div>
                 </div>
                 <div class="cs_bottom_footer_right wow fadeInRight">
                     <ul class="cs_footer_links cs_mp_0">

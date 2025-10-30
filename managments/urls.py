@@ -21,5 +21,10 @@ urlpatterns = [
     path('articles/<slug:slug>/', views.article_detail, name='article_detail'),
 
     path('articles/', views.article_list, name='article_list'),
-    path('articles_detail/', views.article_detail, name='article_detail'),
+    path('articles/<slug:slug>/', views.article_detail, name='article_detail'),
+
+    # URLs pour les documents
+    path('documents/', views.document_list, name='document_list'),
+    path('documents/<slug:slug>/', views.document_detail, name='document_detail'),
+    path('documents/<slug:slug>/download/', views.document_download, name='document_download'),
 ]
