@@ -18,13 +18,13 @@
                             <div class="breadcrumb-nav" data-aos="fade-up" data-aos-duration="1000"
                                 data-aos-delay="200">
                                 <ul>
-                                    <li><a href='index.html'>Home</a></li>
-                                    <li><a href="about.html#">About Us</a></li>
+                                    <li><a href='{% url "index" %}'>Accueil</a></li>
+                                    <li><a href="{% url "about" %}">A propos</a></li>
                                 </ul>
                             </div>
                             <div class="breadcrumb-title" data-aos="fade-up" data-aos-duration="1000"
                                 data-aos-delay="400">
-                                <h2>Who We Are</h2>
+                                <h2>Qui sommes-nous</h2>
                             </div>
                             <div class="shape-1">
                                 <img src="{% static 'assets/img/shapes/shape-1.webp' %}" alt="shape" />
@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-xl-6 col-lg-6 d-none d-lg-block">
                         <div class="breadcrumb-thumb">
-                            <img src="{% static 'assets/img/thumbs/thumb-1.webp' %}" alt="thumb" />
+                            <img src="{% static 'assets/img/71.png' %}" alt="thumb" />
                             <a href="https://www.youtube.com/watch?v=fLeJJPxua3E&amp;ab_channel=Motiversity"
                                 data-fancybox="" class="video-play-btn">
                                 <i class="fa-solid fa-play"></i>
@@ -47,127 +47,179 @@
 
         <!-- why-us-section start -->
         <section class="why-us-section-6 p-t-100 p-t-xs-80" style="
-            background-image: url(assets/img/bg/why-us-bg.webp),
-              url(assets/img/bg/who-we-are-bg.webp);
+            background-image: url({% static 'assets/img/bg/why-us-bg.webp' %}),
+              url({% static 'assets/img/bg/who-we-are-bg.webp' %});
           ">
             <div class="container">
                 <div class="row align-items-center p-b-80">
                     <div class="col-xl-6">
                         <div class="thumb px-lg-5" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
                             <div class="thumb-1">
-                                <img src="{% static 'assets/img/thumbs/thumb-24.webp' %}" alt="thumb-1" />
+                                <img src="{% static 'assets/img/80.jpg' %}" alt="" />
                                 <div class="s-shape">
                                     <img src="{% static 'assets/img/shapes/shape-14.webp' %}" alt="shape-1" />
                                 </div>
                             </div>
                             <div class="thumb-2">
-                                <img src="{% static 'assets/img/thumbs/thumb-25.webp' %}" alt="thumb-2" />
+                                <img src="{% static 'assets/img/81.jpg' %}" alt="" />
                             </div>
                             <div class="thumb-3">
                                 <div class="shape-wrapped-thumb">
-                                    <img src="{% static 'assets/img/thumbs/thumb-26.webp' %}" alt="thumb-3" />
+                                    <img src="{% static 'assets/img/73.jpg' %}" alt="thumb-3" />
                                     <div class="experience-shape">
                                         <h3>
                                             <span class="purecounter" data-purecounter-duration="2"
-                                                data-purecounter-end="29">0</span>+
+                                                data-purecounter-end="3">0</span>+
                                         </h3>
-                                        <p>Years of experience</p>
+                                        <p>Annees d'experience</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-6">
-                        <div class="why-us-content" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <div class="about-us-content px-xxl-5 px-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                             <div class="common-subtitle">
                                 <img src="{% static 'assets/img/icons/icon-2.svg' %}" alt="icon-2" />
-                                <span>Who We Are</span>
+                                <span>A propos</span>
                             </div>
                             <div class="common-title text-start">
-                                <h2>Some Reasons to Choose (Econest Organization)</h2>
+                                <h2>Mieux pour vous, mieux pour la planète</h2>
                             </div>
-                            <div class="text">
-                                <p>
-                                    The implant fixture is first placed, so that it ilikely to
-                                    then a dental prosthetic is added then dental prosthetic
-                                    occaecat laborum.
-                                </p>
-                            </div>
-                            <div class="services">
-                                <div class="service-left">
-                                    <div class="service">
-                                        <i class="fa-solid fa-check"></i>
-                                        <p>Specialized Company</p>
+                            <div class="c-tabs-wrapper">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="c-tab-1" data-bs-toggle="tab" data-bs-target="#c-tab-1-pane"
+                                            type="button" role="tab" aria-controls="c-tab-1-pane" aria-selected="true">
+                                            Notre Histoire
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="c-tab-2" data-bs-toggle="tab" data-bs-target="#c-tab-2-pane"
+                                            type="button" role="tab" aria-controls="c-tab-2-pane" aria-selected="false">
+                                            Notre Mission
+                                        </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="c-tab-3" data-bs-toggle="tab" data-bs-target="#c-tab-3-pane"
+                                            type="button" role="tab" aria-controls="c-tab-3-pane" aria-selected="false">
+                                            Notre Vision
+                                        </button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="c-tab-1-pane" role="tabpanel" aria-labelledby="c-tab-1"
+                                        tabindex="0">
+                                        <div class="text">
+                                            <p>
+                                                Liyok Green a été fondée en 2022 par un groupe d'entrepreneurs passionnés par la protection
+                                                de l'environnement et la durabilité. Depuis sa création, Liyok Green a été à la vanguardie
+                                                des efforts pour promouvoir une société plus durable et plus responsable.
+                                            </p>
+                                        </div>
+                                        <div class="benefits">
+                                            <ul>
+                                                <li>
+                                                    Protection de l'environnement, encouragement du reboursement
+                    
+                                                </li>
+                                                <li>
+                                                    Promotion de la durabilité, encouragement du développement durable, l'adoptions des
+                                                    energies renouvelables
+                                                </li>
+                                                <li>Encouragement du développement économique et social</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="service">
-                                        <i class="fa-solid fa-check"></i>
-                                        <p>Licensed & Insured</p>
+                                    <div class="tab-pane fade" id="c-tab-2-pane" role="tabpanel" aria-labelledby="c-tab-2" tabindex="0">
+                                        <div class="text">
+                                            <p>
+                                                Contribuer activement à la protection de l'environnement et à la lutte contre le changement
+                                                climatique
+                                            </p>
+                                        </div>
+                                        <div class="benefits">
+                                            <ul>
+                                                <li>
+                                                    Développer et proposer des projets permettant aux entreprises d'acquérir des crédits
+                                                    carbone
+                                                </li>
+                                                <li>
+                                                    Organiser des formations et des ateliers pour sensibiliser les acteurs de la chaîne
+                                                    logistique aux enjeux
+                                                    environnementaux et aux meilleures pratiques durables.
+                                                </li>
+                                                <li>Faciliter l'adoption de pratiques durables à travers des projets spécifiques, incluant
+                                                    l'achat de crédits carbone.</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="service-right">
-                                    <div class="service">
-                                        <i class="fa-solid fa-check"></i>
-                                        <p>Dependable Services</p>
-                                    </div>
-                                    <div class="service">
-                                        <i class="fa-solid fa-check"></i>
-                                        <p>Day Scheduling</p>
+                                    <div class="tab-pane fade" id="c-tab-3-pane" role="tabpanel" aria-labelledby="c-tab-3" tabindex="0">
+                                        <div class="text">
+                                            <p>
+                                                aspire à devenir un leader reconnu dans le domaine de la durabilité, avec un impact tangible
+                                                sur la réduction des
+                                                émissions de CO2 et l'amélioration des pratiques RSE au sein de la chaîne logistique
+                                                mondiale.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="annual-donation-wrap">
-                                <div class="blog-btn">
-                                    <a class='e-primary-btn has-icon' href='project.html'>
-                                        Explore More
-                                        <span class="icon-wrap">
-                                            <span class="icon"><i class="fa-regular fa-arrow-right"></i><i
-                                                    class="fa-regular fa-arrow-right"></i></span>
-                                        </span>
-                                    </a>
-                                </div>
-                                <div class="annual-donation">
-                                    <img src="{% static 'assets/img/icons/icon-4.svg' %}" alt="icon-4" />
-                                    <div class="annual-text">
-                                        <p>Annual Donation</p>
-                                        <h5>$2,056,00</h5>
+                                <a class='e-primary-btn has-icon' href=''>
+                                    Devenir partenaire
+                                    <span class="icon-wrap"><span class="icon"><i class="fa-regular fa-arrow-right"></i><i
+                                                class="fa-regular fa-arrow-right"></i></span></span>
+                                </a>
+                                <div class="rating-wrap">
+                                    <div class="star-rating">
+                    
+                                        <div class="stars">
+                                            <i class="fa-solid fa-star-sharp"></i>
+                                            <i class="fa-solid fa-star-sharp"></i>
+                                            <i class="fa-solid fa-star-sharp"></i>
+                                            <i class="fa-solid fa-star-sharp"></i>
+                                            <i class="fa-solid fa-star-sharp"></i>
+                                        </div>
                                     </div>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        </div>
                 </div>
                 <!-- company-achievements start -->
-                <div class="company-achievements p-b-100 p-b-xs-80" data-aos="fade-up" data-aos-duration="1000"
-                    data-aos-delay="200">
-                    <div class="achievement achievement-2">
+                <div class="company-achievements" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                    <div class="achievement">
                         <i class="fa-light fa-chart-mixed"></i>
                         <h2>
-                            <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="98">0</span>%
+                            <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="9">0</span>
                         </h2>
-                        <p>Company Success</p>
+                        <p>Projets en cours</p>
                     </div>
-                    <div class="achievement achievement-2">
+                    <div class="achievement">
                         <i class="fa-light fa-lightbulb-exclamation-on"></i>
                         <h2>
-                            <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="565">0</span>+
+                            <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="4">0</span>+
                         </h2>
-                        <p>Company Strategies</p>
+                        <p>Solution numériques</p>
                     </div>
-                    <div class="achievement achievement-2">
+                    <div class="achievement">
                         <i class="fa-light fa-thumbs-up"></i>
                         <h2>
-                            <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="36">0</span>k
+                            <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="1000">0</span>k
                         </h2>
-                        <p>Complete Projects</p>
+                        <p>Plants plantées</p>
                     </div>
-                    <div class="achievement achievement-2">
+                    <div class="achievement">
                         <i class="fa-light fa-users-medical"></i>
                         <h2>
-                            <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="100">0</span>+
+                            <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="3">0</span>+
                         </h2>
-                        <p>Experienced Members</p>
+                        <p>Partenaires</p>
                     </div>
-                </div>
+                    </div>
                 <!-- company-achievements end -->
             </div>
         </section>
@@ -176,8 +228,8 @@
 
     <!-- about-us-section-3 start -->
     <section class="about-us-section-3" style="
-          background-image: url(assets/img/bg/why-us-bg.webp),
-            url(assets/img/bg/about-us-bg.webp);
+          background-image: url({% static 'assets/img/bg/why-us-bg.webp' %}),
+            url({% static 'assets/img/bg/about-us-bg.webp' %});
         ">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -219,13 +271,6 @@
                                         data-bs-target="#c-tab-4-pane" type="button" role="tab"
                                         aria-controls="c-tab-4-pane" aria-selected="false">
                                         2023
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="c-tab-5" data-bs-toggle="tab"
-                                        data-bs-target="#c-tab-5-pane" type="button" role="tab"
-                                        aria-controls="c-tab-5-pane" aria-selected="false">
-                                        2024
                                     </button>
                                 </li>
                             </ul>
@@ -342,7 +387,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="c-tab-5-pane" role="tabpanel" aria-labelledby="c-tab-5"
+                                <!-- <div class="tab-pane fade" id="c-tab-5-pane" role="tabpanel" aria-labelledby="c-tab-5"
                                     tabindex="0">
                                     <div class="tab-content">
                                         <div class="year">
@@ -369,7 +414,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -386,17 +431,17 @@
                 <div class="left">
                     <div class="common-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                         <img src="{% static 'assets/img/icons/icon-2.svg' %}" alt="icon-2" />
-                        <span>We Are Volunteer</span>
+                        <span>Notre équipe</span>
                     </div>
                     <div class="common-title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                        <h2>Together For The Planet</h2>
+                        <h2></h2>
                     </div>
                 </div>
                 <div class="right">
                     <div class="contact-details" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
                         <div class="details-btn">
                             <a class='e-primary-btn has-icon' href='volunteer.html'>
-                                View All Volunteer
+                                Voir plus
                                 <span class="icon-wrap">
                                     <span class="icon"><i class="fa-regular fa-arrow-right"></i><i
                                             class="fa-regular fa-arrow-right"></i></span>
@@ -406,7 +451,7 @@
                         <div class="join-us-btn">
                             <img src="{% static 'assets/img/shapes/shape-12.webp' %}" alt="shape-12" />
                             <a class='review-btn' href='be-volunteer.html'>
-                                <span>If you want can join us</span>
+                                <span>Devenir partenaires</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
@@ -414,93 +459,6 @@
                 </div>
             </div>
             <div class="row row-gap-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="volunteer-card-4">
-                        <a href='volunteer-details.html'>
-                            <div class="thumb">
-                                <img src="{% static 'assets/img/thumbs/thumb-17.webp' %}" alt="thumb-17" />
-                            </div>
-                            <div class="author-info">
-                                <h5>Joshua Sendu</h5>
-                                <p>CEO-Founder</p>
-                            </div>
-                        </a>
-                        <div class="socials">
-                            <button class="share-button">
-                                <i class="fa-light fa-share-nodes"></i>
-                            </button>
-                            <div class="social-links">
-                                <a href="https://facebook.com">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://twitter.com">
-                                    <i class="fab fa-x-twitter"></i>
-                                </a>
-                                <a href="https://www.instagram.com">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="volunteer-card-4">
-                        <a href='volunteer-details.html'>
-                            <div class="thumb">
-                                <img src="{% static 'assets/img/thumbs/thumb-18.webp' %}" alt="thumb-18" />
-                            </div>
-                            <div class="author-info">
-                                <h5>John Maxwell</h5>
-                                <p>Team Leader</p>
-                            </div>
-                        </a>
-                        <div class="socials">
-                            <button class="share-button">
-                                <i class="fa-light fa-share-nodes"></i>
-                            </button>
-                            <div class="social-links">
-                                <a href="https://facebook.com">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://twitter.com">
-                                    <i class="fab fa-x-twitter"></i>
-                                </a>
-                                <a href="https://www.instagram.com">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="volunteer-card-4">
-                        <a href='volunteer-details.html'>
-                            <div class="thumb">
-                                <img src="{% static 'assets/img/thumbs/thumb-19.webp' %}" alt="thumb-19" />
-                            </div>
-                            <div class="author-info">
-                                <h5>Bm Ashik (Moni)</h5>
-                                <p>Sr. Volunteer</p>
-                            </div>
-                        </a>
-                        <div class="socials">
-                            <button class="share-button">
-                                <i class="fa-light fa-share-nodes"></i>
-                            </button>
-                            <div class="social-links">
-                                <a href="https://facebook.com">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://twitter.com">
-                                    <i class="fab fa-x-twitter"></i>
-                                </a>
-                                <a href="https://www.instagram.com">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="volunteer-card-4">
                         <a href='volunteer-details.html'>

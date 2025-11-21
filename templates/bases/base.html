@@ -175,16 +175,16 @@
                     </div>
                     <div class="text">
                         <h6>Email</h6>
-                        <p>Support@example.com</p>
+                        <p>liyokgreen@gmail.com</p>
                     </div>
                 </a>
-                <a href="tel:+70264566579" class="off-canvas-contact-item">
+                <a href="tel:+22800000000" class="off-canvas-contact-item">
                     <div class="icon">
                         <i class="fa-solid fa-phone-arrow-up-right"></i>
                     </div>
                     <div class="text">
                         <h6>Phone</h6>
-                        <p>+70 264 566 579</p>
+                        <p>+228 00 00 00 00</p>
                     </div>
                 </a>
             </div>
@@ -212,7 +212,7 @@
         <div class="off-canvas-menubar-body">
             <div class="off-canvas-head">
                 <div class="off-canvas-logo">
-                    <a href='index.html'>
+                    <a href='{% url "index" %}'>
                         <img src="{% static 'assets/img/logo.png' %}" alt="logo" />
                     </a>
                 </div>
@@ -224,32 +224,39 @@
             <div class="off-canvas-menu">
                 <ul>
                     <li class="has-dropdown">
-                        <a href="index.html#">Durabilité</a>
+                        <a href="{% url 'index' %}">Durabilité</a>
                         <ul class="sub-menu">
-                            <li><a href='index.html'>Sociale</a></li>
-                            <li><a href='index-2.html'>Environnementale</a></li>
-                            <li><a href='index-3.html'>Economique</a></li>
+                            <li><a href='{% url "social" %}'>Sociale</a></li>
+                            <li><a href='{% url "index" %}'>Environnementale</a></li>
+                            <li><a href='{% url "economique" %}'>Economique</a></li>
                         </ul>
                     </li>
                     <li class="has-dropdown">
-                        <a href="index.html#">Technologie</a>
+                        <a href="{% url 'index' %}">Technologie</a>
                         <ul class="sub-menu">
-                            <li><a href='index.html'>Nos solutions</a></li>
-                            <li><a href='index-2.html'>Nos projets</a></li>
-                            <li><a href='calcul-emprunte-carbone/'>Calcul l'empreinte carbone</a></li>
-                        </ul>
+                            <li><a href='{% url 'solution' %}'>Nos solutions</a></li>
+                            <li><a href='{% url 'project' %}'>Nos projets</a></li>
+                            <li><a href='{% url 'calcul' %}'>Calcul l'empreinte carbone</a></li>
+                            </ul>
+                       
                     </li>
-                    <li><a href='services.html'>Services</a></li>
-                    <li><a href=''>A propos</a></li>
+                    <li >
+                        <a href="{% url 'about' %}">A Propos</a>
+                        
+                    </li>
+                    <li>
+                        <a href="{% url 'services' %}">Services</a>
+                    
+                    </li>
                     <li class="has-dropdown">
-                        <a href="index.html#">Actualités</a>
+                        <a href="">Actualités</a>
                         <ul class="sub-menu">
-                            <li><a href='blog-grid.html'>Blog</a></li>
-                            <li><a href='blog-details.html'>Articles</a></li>
-                            <li><a href='index-3.html'>Nos événements</a></li>
+                            <li><a href='{% url 'blog' %}'>Blog</a></li>
+                            
+                            <li><a href='{% url 'event' %}'>Nos événements</a></li>
                         </ul>
                     </li>
-                    <li><a href='contact.html'>Contactez-nous</a></li>
+                    
                 </ul>
             </div>
         </div>
@@ -274,20 +281,19 @@
                 <div class="footer-widget">
                     <div class="about-widget">
                         <div class="footer-logo">
-                            <a href='index.html'>
-                                <img src="{% static 'assets/img/logo/logo-white.svg' %}" alt="logo" />
+                            <a href='{% url "index" %}'>
+                                <img src="{% static 'assets/img/logo.png' %}" alt="logo" />
                             </a>
                         </div>
                         <div class="text">
                             <p>
-                                Introducing our team of talented and skilled professionals
-                                who are ready to increase your productivity and bring your
-                                business.
+                                Stop le plastique sauve le Pacifique ! Triez, recyclez, la planète sera en bonne santé ! Stoppe le plastique et la vie
+                                sera fantastique !
                             </p>
                         </div>
                         <div class="info">
-                            <p><b>We Are Available !!</b></p>
-                            <p>Mon-Sat: <span>10:00am to 07:30pm</span></p>
+                            <p><b>Horaires d'ouverture</b></p>
+                            <p>Lun - Dim : <span>8h00 - 18h00</span></p>
                         </div>
                         <div class="social-links">
                             <a href="https://facebook.com">
@@ -310,15 +316,13 @@
                 <div class="footer-widget">
                     <h3 class="w-title">
                         <span><img src="{% static 'assets/img/icons/icon-1.svg' %}" alt="icon" /></span>
-                        Quick Links
+                        Liens utiles
                     </h3>
                     <ul>
-                        <li><a href='about.html'>About Company</a></li>
-                        <li><a href='services.html'>Our Causes</a></li>
-                        <li><a href='camping-donation.html'>Investor Presentation</a></li>
-                        <li><a href='donations.html'>Pricing Plan</a></li>
-                        <li><a href='volunteer.html'>Meet Our Team</a></li>
-                        <li><a href='contact.html'>Contact Us</a></li>
+                        <li><a href='{% url "about" %}'>A propos</a></li>
+                        <li><a href='{% url "services" %}'>Nos services</a></li>
+                        <li><a href=''>Notre Equipe</a></li>
+                        <li><a href=''>Contactez-nous</a></li>
                     </ul>
                 </div>
             </div>
@@ -326,23 +330,16 @@
                 <div class="footer-widget">
                     <h3 class="w-title">
                         <span><img src="{% static 'assets/img/icons/icon-1.svg' %}" alt="icon" /></span>
-                        Our Services
+                        
                     </h3>
-                    <ul>
-                        <li><a href='camping-details.html'>Tree Plantation</a></li>
-                        <li><a href='camping-donation.html'>Forest Cleaning</a></li>
-                        <li><a href='services-details.html'>Plastic Recycling</a></li>
-                        <li><a href='project.html'>Natural Power</a></li>
-                        <li><a href='project.html'>Renewable Energy</a></li>
-                        <li><a href='project-details.html'>Water Refine</a></li>
-                    </ul>
+                    
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-md-5">
                 <div class="footer-widget">
                     <h3 class="w-title">
                         <span><img src="{% static 'assets/img/icons/icon-1.svg' %}" alt="icon" /></span>
-                        Get in Touch
+                        Contactez-nous
                     </h3>
                     <div class="get-in-touch">
                         <a href="index.html#" class="footer-address">
@@ -383,12 +380,12 @@
                 <div class="container">
                     <div class="footer-bottom-layout">
                         <div class="footer-copyright">
-                            © 2025 Econest. All Rights Reserved.
+                            © 2025 Liyok Green. Tous droits reservés.
                         </div>
                         <div class="footer-bottom-menu">
                             <ul>
-                                <li><a href='contact.html'>Terms & Condition</a></li>
-                                <li><a href='contact.html'>Privacy Policy</a></li>
+                                <li><a href='contact.html'>Mentions légales</a></li>
+                                <li><a href='contact.html'>Politique de confidentialité</a></li>
                             </ul>
                         </div>
                     </div>
