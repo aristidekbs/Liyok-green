@@ -31,12 +31,7 @@ class SectionInline(admin.TabularInline):
     fields = ('title', 'subtitle', 'order', 'content')
 
 
-class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('title', 'is_active', 'order', 'created_at')
-    list_editable = ('is_active', 'order')
-    search_fields = ('title',)
-    prepopulated_fields = {'slug': ('title',)}
-    inlines = [SectionInline]
+
 
 
 class EventMediaInline(admin.TabularInline):
@@ -73,18 +68,13 @@ class EventAdmin(admin.ModelAdmin):
 
 
 # Enregistrement des modèles avec leurs classes d'administration personnalisées
-admin.site.register(Service, ServiceAdmin)
-admin.site.register(Event, EventAdmin)
 class TeamMemberAdmin(admin.ModelAdmin):
     list_display = ('name', 'role', 'email', 'experience', 'slug')
     search_fields = ('name', 'role', 'email')
     list_filter = ('role',)
 
-    # Le slug sera généré automatiquement depuis name
+    # Slug pré-rempli depuis le nom
     prepopulated_fields = {'slug': ('name',)}
-
-    # Retirer readonly_fields ici !
-    # readonly_fields = ('slug',)
 
     fieldsets = (
         ('Informations principales', {
@@ -99,16 +89,12 @@ class TeamMemberAdmin(admin.ModelAdmin):
         }),
     )
 
-    def get_readonly_fields(self, request, obj=None):
-        """Rendre slug readonly uniquement APRÈS la création"""
-        if obj:
-            return ('slug',)
-        return ()
 
 
 
 
-
+admin.site.register(Service)
+admin.site.register(Event, EventAdmin)
 # Enregistrement des modèles avec configuration par défaut
 admin.site.register(SiteSetting)
 admin.site.register(Banner)

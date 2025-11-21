@@ -108,11 +108,11 @@
                                 </div>
                                 <div class="header-info-content">
                                     <span>Contactez-nous !</span>
-                                    <p><a href="">+228 00 00 00 00</a></p>
+                                    <p><a href="">{{ site_setting.phone_contact }}</a></p>
                                 </div>
                             </div>
                             <div class="header-btn-wrap d-none d-xl-flex">
-                                <a class='e-primary-btn has-icon' href='services.html'>
+                                <a class='e-primary-btn has-icon' href=''>
                                     Se Connecter
                                     <span class="icon-wrap">
                                         <span class="icon"><i class="fa-regular fa-arrow-right"></i><i
@@ -177,7 +177,7 @@
                 </div>
                 <div class="text">
                     <h6>Email</h6>
-                    <p>Support@example.com</p>
+                    <p>{{ site_setting.email }}</p>
                 </div>
             </a>
             <a href="tel:+70264566579" class="off-canvas-contact-item">
@@ -186,7 +186,7 @@
                 </div>
                 <div class="text">
                     <h6>Phone</h6>
-                    <p>+70 264 566 579</p>
+                    <p>{{ site_setting.phone_contact }}</p>
                 </div>
             </a>
         </div>
@@ -285,13 +285,11 @@
                             </div>
                             <div class="text">
                                 <p>
-                                    Introducing our team of talented and skilled professionals
-                                    who are ready to increase your productivity and bring your
-                                    business.
+                                    {{ site_setting.footer_text }}
                                 </p>
                             </div>
                             <div class="info">
-                                <p><b>We Are Available !!</b></p>
+                                <p><b>Nous sommes disponibles !!</b></p>
                                 <p>Mon-Sat: <span>10:00am to 07:30pm</span></p>
                             </div>
                             <div class="social-links">
@@ -318,12 +316,12 @@
                             Quick Links
                         </h3>
                         <ul>
-                            <li><a href='about.html'>About Company</a></li>
-                            <li><a href='services.html'>Our Causes</a></li>
-                            <li><a href='camping-donation.html'>Investor Presentation</a></li>
-                            <li><a href='donations.html'>Pricing Plan</a></li>
-                            <li><a href='volunteer.html'>Meet Our Team</a></li>
-                            <li><a href='contact.html'>Contact Us</a></li>
+                            <li><a href='{% url 'about' %}'>A propos</a></li>
+                            <li><a href='{% url 'services' %}'>Nos services</a></li>
+                            <li><a href=''>Investor Presentation</a></li>
+                            <li><a href=''>Pricing Plan</a></li>
+                            <li><a href='{% url 'team_list' %}'>Nos Equipes</a></li>
+                            <li><a href=''>Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -356,7 +354,7 @@
                                 </div>
                                 <div class="text">
                                     <h6>Address</h6>
-                                    <p>Jones Street, New York, USA</p>
+                                    <p>{{ site_setting.address }}</p>
                                 </div>
                             </a>
                             <a href="mailto:support@example.com" class="email">
@@ -365,7 +363,7 @@
                                 </div>
                                 <div class="text">
                                     <h6>Email</h6>
-                                    <p>Support@example.com</p>
+                                    <p>{{ site_setting.email }}</p>
                                 </div>
                             </a>
                             <a href="tel:+70264566579" class="phone">
@@ -374,7 +372,7 @@
                                 </div>
                                 <div class="text">
                                     <h6>Phone</h6>
-                                    <p>+70 264 566 579</p>
+                                    <p>{{ site_setting.phone_contact }}</p>
                                 </div>
                             </a>
                         </div>
@@ -388,12 +386,12 @@
                     <div class="container">
                         <div class="footer-bottom-layout">
                             <div class="footer-copyright">
-                                © 2025 Econest. All Rights Reserved.
+                                © 2025 liyok-green. Tous droits réservés.
                             </div>
                             <div class="footer-bottom-menu">
                                 <ul>
-                                    <li><a href='contact.html'>Terms & Condition</a></li>
-                                    <li><a href='contact.html'>Privacy Policy</a></li>
+                                    <li><a href='contact.html'>Mentions légales</a></li>
+                                    <li><a href='contact.html'>Politique de confidentialité</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -412,8 +410,6 @@
     <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
     <script src="{% static 'assets/vendor/fancybox/fancybox.umd.js' %}"></script>
     <script src="{% static 'assets/vendor/counter/purecounter.js' %}"></script>
-
-    <!-- Main Js -->
     <script src="{% static 'assets/js/script.js' %}"></script>
 </body>
 

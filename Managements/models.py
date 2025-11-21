@@ -332,8 +332,7 @@ class EventRegistration(models.Model):
 class Service(models.Model):
     """Modèle pour gérer les services proposés"""
 
-    title = models.CharField(max_length=200, verbose_name='Titre du service' ,blank=False, null=False, default="")
-    slug = models.SlugField(max_length=220, unique=True, blank=True, verbose_name='Slug')
+    
     is_active = models.BooleanField(default=True, verbose_name='Actif')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
