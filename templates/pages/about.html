@@ -440,7 +440,7 @@
                 <div class="right">
                     <div class="contact-details" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
                         <div class="details-btn">
-                            <a class='e-primary-btn has-icon' href='volunteer.html'>
+                            <a class='e-primary-btn has-icon' href='{% url "team_list" %}'>
                                 Voir plus
                                 <span class="icon-wrap">
                                     <span class="icon"><i class="fa-regular fa-arrow-right"></i><i
@@ -460,14 +460,16 @@
             </div>
             <div class="row row-gap-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
                 <div class="col-xl-3 col-lg-4 col-md-6">
+                    {% if team %}
+                    {% for member in team %}
                     <div class="volunteer-card-4">
-                        <a href='volunteer-details.html'>
+                        <a href='{% url "member_detail" member.id %}'>
                             <div class="thumb">
-                                <img src="{% static 'assets/img/thumbs/thumb-20.webp' %}" alt="thumb-20" />
+                                <img src="{{ member.photo.url }}" alt="thumb-20" />
                             </div>
                             <div class="author-info">
-                                <h5>Denial Pasha</h5>
-                                <p>Volunteer</p>
+                                <h5>{{ member.name }}</h5>
+                                <p>{{ member.role }}</p>
                             </div>
                         </a>
                         <div class="socials">
@@ -475,18 +477,22 @@
                                 <i class="fa-light fa-share-nodes"></i>
                             </button>
                             <div class="social-links">
-                                <a href="https://facebook.com">
+                                <a href="{{ member.facebook }}">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="https://twitter.com">
+                                <a href="{{ member.twitter }}">
                                     <i class="fab fa-x-twitter"></i>
                                 </a>
-                                <a href="https://www.instagram.com">
+                                <a href="{{ member.instagram }}">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+                    {% else %}
+                    <h2>Aucun membre trouvé</h2>
+                    {% endif %}
                 </div>
             </div>
         </div>

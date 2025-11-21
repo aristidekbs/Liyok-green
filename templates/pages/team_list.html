@@ -1,0 +1,78 @@
+{% extends 'bases/base1.html' %}
+
+{% load static %}
+
+{% block content %}
+<section class="breadcrumb-section bg-cream">
+    <div class="container-fluid">
+        <div class="row g-0">
+            <div class="col-xl-6 col-lg-6">
+                <div class="breadcrumb-content" style="background-image: url(assets/img/bg/breadcrumb-bg.webp);">
+                    <div class="breadcrumb-nav" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <ul>
+                            <li><a href='index.html'>Home</a></li>
+                            <li><a href="volunteer.html#">Volunteers</a></li>
+                        </ul>
+                    </div>
+                    <div class="breadcrumb-title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                        <h2>We Are Friends</h2>
+                    </div>
+                    <div class="shape-1">
+                        <img src="{% static 'assets/img/shapes/shape-1.webp' %}" alt="shape">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 d-none d-lg-block">
+                <div class="breadcrumb-thumb">
+                    <img src="{% static 'assets/img/thumbs/thumb-1.webp' %}" alt="thumb">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb-section end -->
+
+<!-- volunteer-section start -->
+<section class="volunteer-section p-t-100">
+    <div class="container">
+        <div class="row" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+            {% if team %}
+            {% for member in team %}
+            <div class="col-xl-3 m-b-30">
+                <div class="volunteer-card">
+                    <a href='{% url "member_detail" member.slug %}'>
+                        <div class="thumb">
+                            <img src="{{ member.photo.url }}" alt="thumb-17">
+                        </div>
+                        <div class="author-info">
+                            <h5>{{ member.name }}</h5>
+                            <p>{{ member.role }}</p>
+                        </div>
+                    </a>
+                    <div class="socials">
+                        <button class="share-button">
+                            <i class="fa-light fa-share-nodes"></i>
+                        </button>
+                        <div class="social-links">
+                            <a href="{{ member.facebook }}">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="{{ member.twitter }}">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a href="{{ member.linkedin }}">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>Aucun membre trouvé</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

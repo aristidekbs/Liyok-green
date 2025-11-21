@@ -82,30 +82,29 @@ class Banner(models.Model):
 
     def __str__(self):
         return self.title
-    
-
-class Testimonial(models.Model):
-    name = models.CharField(max_length=150)
-    role = models.CharField(max_length=100, blank=True, null=True)
-    photo = models.ImageField(upload_to='testimonials/', blank=True, null=True)
-    message = models.TextField()
-
-    def __str__(self):
-        return f"{self.name} - {self.role}"
 
 
 class TeamMember(models.Model):
     name = models.CharField(max_length=150)
+    slug = models.SlugField(max_length=200, unique=True, blank=True)
     role = models.CharField(max_length=100)
     photo = models.ImageField(upload_to='team/')
+    phone = models.CharField(max_length=150, blank=False, null=False, default="+228 00 00 00 00")
+    email = models.EmailField(blank=False, null=False, default="liyokgreen@gmail.com")
+    experience = models.IntegerField(blank=False, null=False, default=2)
     facebook = models.URLField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
     linkedin = models.URLField(blank=True, null=True)
-    description = models.TextField(blank = True , null = True)
+    description = models.TextField(blank=True, null=True)
     portofolio = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.name
+        
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(f"{self.name}-{self.id}" if self.id else self.name)
+        super().save(*args, **kwargs)
 
 
 class ContactMessage(models.Model):
@@ -333,7 +332,7 @@ class EventRegistration(models.Model):
 class Service(models.Model):
     """Modèle pour gérer les services proposés"""
 
-    title = models.CharField(max_length=200, verbose_name='Titre du service')
+    title = models.CharField(max_length=200, verbose_name='Titre du service' ,blank=False, null=False, default="")
     slug = models.SlugField(max_length=220, unique=True, blank=True, verbose_name='Slug')
     is_active = models.BooleanField(default=True, verbose_name='Actif')
     created_at = models.DateTimeField(auto_now_add=True)
