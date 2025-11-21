@@ -1,0 +1,81 @@
+{% extends 'bases/base1.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+
+<main>
+    <section class="breadcrumb-section bg-cream">
+        <div class="container-fluid">
+            <div class="row g-0">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="breadcrumb-content" style="background-image: url({% static 'assets/img/bg/breadcrumb-bg.webp' %})">
+                        <div class="breadcrumb-nav" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                            <ul>
+                                <li>
+                                    <a href='index.html'>Home</a>
+                                </li>
+                                <li>
+                                    <a href="services.html#">Service</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="breadcrumb-title" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                            <h2>Our Service</h2>
+                        </div>
+                        <div class="shape-1"><img alt="shape" src="{% static 'assets/img/shapes/shape-1.webp' %}"></div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 d-none d-lg-block">
+                    <div class="breadcrumb-thumb"><img alt="thumb" src="{% static 'assets/img/thumbs/thumb-1.webp' %}"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-section end -->
+    
+    <!-- services-section start -->
+    <section class="services-section bg-cream p-t-100 p-b-70">
+        <div class="container">
+            <div class="row justify-content-center text-center m-b-50 m-b-xs-40">
+                <div class="col-xl-6">
+                    <div class="common-subtitle" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+                        <img alt="icon-1" src="{% static 'assets/img/icons/icon-2.svg' %}"> <span>What We Do</span>
+                    </div>
+                    <div class="common-title m-b-0" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000">
+                        <h2>We Offer Different Services For Helped You</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="col-xl-4 m-b-30">
+                    <div class="project-card style-service">
+                        <div class="thumb">
+                            <a href='services-details.html'><img alt="thumb-63" src="{% static 'assets/img/thumbs/thumb-63.webp' %}"></a>
+                            <div class="tag">
+                                <p>No - 01</p>
+                            </div>
+                            <div class="content">
+                                <h5>Waste Management</h5>
+                                <p>Energy consulting involves providing of advice and guidance on energy</p>
+                                <div class="join-us">
+                                    <a class='e-primary-btn has-icon is-hover-white' href='services-details.html'>Read More
+                                        <span class="icon-wrap"><span class="icon"><i class="fa-regular fa-arrow-right"></i>
+                                                <i class="fa-regular fa-arrow-right"></i></span></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="c-shape-1"><img alt="shape-30" src="{% static 'assets/img/shapes/shape-30.webp' %}"></div>
+        <div class="c-shape-2"><img alt="shape-31" src="{% static 'assets/img/shapes/shape-31.webp' %}"></div>
+    </section>
+</main>
+{% endblock %}

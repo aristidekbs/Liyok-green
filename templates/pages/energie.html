@@ -1,0 +1,247 @@
+{% extends 'bases/base1.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="breadcrumb-section">
+    <div class="container-fluid">
+        <div class="row g-0">
+            <div class="col-xl-6 col-lg-6">
+                <div class="breadcrumb-content" style="background-image: url(assets/img/bg/breadcrumb-bg.webp);">
+                    <div class="breadcrumb-nav" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <ul>
+                            <li><a href='/'>Home</a></li>
+                            <li><a href=''>Technologie</a></li>
+                            <li><a href="calcul/">Energie renouvelable</a></li>
+                        </ul>
+                    </div>
+                    <div class="breadcrumb-title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                        <h2>Energie renouvelable</h2>
+                    </div>
+                    <div class="shape-1">
+                        <img src="{% static 'assets/img/shapes/shape-1.webp' %}" alt="shape">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 d-none d-lg-block">
+                <div class="breadcrumb-thumb">
+                    <img src="{% static 'assets/img/thumbs/thumb-54.1.webp' %}" alt="thumb">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb-section end -->
+
+<!-- services-details-section start -->
+<section class="services-details-section p-t-120 p-b-250 p-t-lg-80 p-t-md-80 p-t-xs-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="details-layout-wrap">
+                    <div class="details-content" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+                        <div class="thumb-wrap m-b-50"><img alt="thumb" src="{% static 'assets/img/38.jpg' %}"></div>
+                        <div class="details-title m-b-15">
+                            <h2>Qu'est-ce que l'energie renouvelable ?</h2>
+                        </div>
+                        <div class="detail-text m-b-30">
+                            <p><b>“Les énergies renouvelables sont des énergies provenant de sources naturelles qui se renouvellent à un rythme supérieur à
+                            celui de leur consommation. La lumière du soleil et le vent, par exemple, constituent de telles sources qui se
+                            renouvellent constamment. Les sources d’énergie renouvelables sont abondantes et sont présentes partout autour de nous.
+                                    ”</b></p>
+                            <p>En revanche, les combustibles fossiles (charbon, pétrole et gaz) sont des ressources non renouvelables qui mettent des
+                            centaines de millions d’années à se constituer. Les combustibles fossiles, lorsqu’ils sont brûlés pour produire de
+                            l’énergie, provoquent des émissions de gaz à effet de serre nocifs, tels que le dioxyde de carbone.
+                            
+                            La production d’énergie renouvelable génère bien moins d’émissions que la combustion de combustibles fossiles. Afin de
+                            faire face à la crise climatique, il est primordial de passer des combustibles fossiles, qui sont actuellement à
+                            l’origine de la majeure partie des émissions, aux sources d’énergie renouvelables.
+                            
+                            Les énergies renouvelables sont désormais moins chères dans la plupart des pays et permettent de créer trois fois plus
+                            d’emplois que les combustibles fossiles.
+                            </p>
+                        </div>
+                        <div class="details-title m-b-15">
+                            <h2>Existe-t-il des inconvénients aux énergies renouvelables ?</h2>
+                        </div>
+                        <div class="detail-text m-b-25">
+                            <p>L’une des principales limites est l’intermittence, ce qui signifie que leur production dépend des conditions
+                            météorologiques. Par exemple, l’énergie solaire ne peut être produite que lorsque le soleil brille, l’énergie éolienne
+                            nécessite du vent, et l’énergie hydraulique dépend des niveaux d’eau dans les rivières et les barrages.
+                            
+                            Cette dépendance aux conditions naturelles signifie que ces sources d’énergie ne peuvent pas produire de l’électricité
+                            en continu. En conséquence, il devient difficile de répondre en permanence à la demande en électricité uniquement avec
+                            des énergies renouvelables. En effet, l’électricité ne se stocke pas facilement à grande échelle. Il faut la consommer au moment de la production. </p>
+                        </div>
+                        <div class="details-title m-b-15">
+                            <h2>7 Sources d'énergie renouvelables</h2>
+                        </div>
+                        <div class="list-wrapper m-b-40">
+
+
+                            <ul class="list-wrap">
+
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p>l'énergie solaire</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p> l'énergie éolienne</p>
+                                </li>
+                            </ul>
+                            <ul class="list-wrap">
+                            
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p> l'énergie hydraulique</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p> l'énergie géothermique</p>
+                                </li>
+                            </ul>
+                            <ul class="list-wrap">
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p> l'énergie photovoltaïque</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p> l'énergie biomasse</p>
+                                </li>
+
+                            </ul>
+
+                            <ul class="list-wrap">
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p> l'énergie biogaz</p>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="gallery-slider-active m-b-50">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="banner-slide-wrap">
+                                            <div class="thumb">
+                                                <img alt="thumb" src="{% static 'assets/img/39.jpg' %}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="banner-slide-wrap">
+                                            <div class="thumb">
+                                                <img alt="thumb" src="{% static 'assets/img/20.jpg' %}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="banner-slide-wrap">
+                                            <div class="thumb">
+                                                <img alt="thumb" src="{% static 'assets/img/32.jpg' %}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gallery-pagination-wrap">
+                                <div class="gallery-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="testimonial-wrap m-b-60">
+                            <div class="icon"><img alt="icon" src="{% static 'assets/img/icons/icon-17.svg' %}"></div>
+                            <p class="review">Mesurer les émissions, c’est ouvrir la voie à la réduction. Ce qui n’est
+                                pas compté ne peut être corrigé.</p>
+                            <div class="author">
+                                <h3>Jean-Marc Jancovici</h3>
+                                <p>ingénieur et expert climat</p>
+                            </div>
+                        </div>
+                        <div class="details-title m-b-15">
+                            <h2>Quels sont les avantages des énergies renouvelables ?</h2>
+                        </div>
+                        <div class="detail-text m-b-20">
+                            <p>Les énergies renouvelables offrent de nombreux avantages, tant pour l’environnement que pour l’économie Elles permettent
+                            de lutter contre l’effet de serre en réduisant les émissions de gaz carbonique dans l’atmosphère. De plus, elles
+                            favorisent une gestion intelligente des ressources locales et contribuent à la création d’emplois.</p>
+                        </div>
+                        <div class="list-wrapper m-b-50">
+                            <ul class="list-wrap">
+                                <li>
+
+                                    <
+                                </li>
+                                <li>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="detail-sidebar" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000">
+                        <div class="detail-sidebar-inner">
+                            <div class="s-widget-wrap m-b-30">
+                                <div class="w-title">
+                                    <h3>Plus d'Information</h3>
+                                    <div class="bar-wrap">
+                                        <div class="bar-1"></div>
+                                        <div class="bar-2"></div>
+                                    </div>
+                                </div>
+                                <div class="project-info-wrap">
+                                    <div class="project-text">
+                                        <p>Importance des calculs de carbone</p>
+                                    </div>
+                                    <p>Grâce à notre variété de solutions basées sur la nature, vous pouvez faire
+                                        correspondre vos initiatives à vos valeurs et
+                                        montrer à vos parties prenantes que vous vous engagez en faveur de
+                                        l'environnement. Nos projets présentent de nombreux
+                                        avantages environnementaux et socio-économiques, notamment la restauration des
+                                        habitats, l'enrichissement de la
+                                        biodiversité.</p>
+                                </div>
+                            </div>
+                            <div class="s-widget-wrap">
+                                <div class="w-title">
+                                    <h3>Nous suivre</h3>
+                                    <div class="bar-wrap">
+                                        <div class="bar-1"></div>
+                                        <div class="bar-2"></div>
+                                    </div>
+                                </div>
+                                <div class="socials">
+                                    <div class="social-links">
+                                        <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a> <a
+                                            href="https://twitter.com"><i class="fab fa-x-twitter"></i></a> <a
+                                            href="https://www.instagram.com"><i class="fab fa-instagram"></i></a> <a
+                                            href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-shape-1"><img alt="shape-31" src="{% static 'assets/img/shapes/shape-31.webp' %}"></div>
+</section>
+{% endblock %}

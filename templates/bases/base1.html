@@ -1,0 +1,424 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Liyok-Green</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/logo/favicon.webp" />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Vendors Css -->
+    <link rel="stylesheet" href="{% static 'assets/vendor/animate/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/fontawesome-pro/fontawesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/bootstrap/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/aos/aos.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/vendor/fancybox/fancybox.css' %}" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/spacing.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+</head>
+
+<body>
+    <!-- preloader start-->
+
+    <!-- preloader end  -->
+
+    <!-- header-section start -->
+<header class="header-section">
+    <div class="top-bar d-none d-md-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="top-bar-content text-center">
+                        <div class="text-wrap">
+                            <img src="{% static 'assets/img/icons/calendar-time.svg' %}" alt="icon" />
+                            <span> <a href="">Rejoindre Notre Événement (28 Nov, 2025) Lomé, Togo.</a></span>
+                        </div>
+                        <a class='e-primary-btn is-hover-white top-btn' href='donations.html'>S'inscrire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="header-bottom-layout">
+                        <div class="header-left">
+                            <div class="logo-wrap">
+                                <a href='{% url 'index'%}'>
+                                    <img src="{% static 'assets/img/logo.png' %}" alt="logo" />
+                                </a>
+                            </div>
+                            <nav class="main-menu d-none d-xl-block">
+                        <ul>
+                            <li class="has-dropdown">
+                                <a href="">Durabilité</a>
+                                <ul class="sub-menu">
+                                    <li><a href='{% url 'social' %}'>Sociale</a></li>
+                                    <li><a href='{% url 'index' %}'>Environnementale</a></li>
+                                    <li><a href='{% url 'economique' %}'>Economique</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="index.html#">Technologie</a>
+                                <ul class="sub-menu">
+                                    <li><a href='{% url 'solution' %}'>Nos solutions</a></li>
+                                    <li><a href='{% url 'project' %}'>Nos projets</a></li>
+                                    <li><a href='{% url 'calcul' %}'>Calul l'empreinte carbone</a></li>
+                                </ul>
+                            </li>
+                            <li><a href='{% url 'services' %}'>Services</a></li>
+                            <li ">
+                                <a href="{% url 'about' %}">A Propos</a>
+                            
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="">Actualités</a>
+                                <ul class="sub-menu">
+                                    <li><a href='{% url 'blog' %}'>Blog</a></li>
+                                    
+                                    <li><a href='{% url 'event' %}'>Nos événements</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                            </nav>
+                        </div>
+                        <div class="header-right">
+                            <div class="header-info d-none d-xl-flex">
+                                <div class="header-info-icon">
+                                    <i class="fa-regular fa-phone-volume"></i>
+                                </div>
+                                <div class="header-info-content">
+                                    <span>Contactez-nous !</span>
+                                    <p><a href="">+228 00 00 00 00</a></p>
+                                </div>
+                            </div>
+                            <div class="header-btn-wrap d-none d-xl-flex">
+                                <a class='e-primary-btn has-icon' href='services.html'>
+                                    Se Connecter
+                                    <span class="icon-wrap">
+                                        <span class="icon"><i class="fa-regular fa-arrow-right"></i><i
+                                                class="fa-regular fa-arrow-right"></i></span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="header-bar open-sidebar d-none d-xl-flex" data-toggle="sidebar">
+                                <div class="bar bar-1"></div>
+                                <div class="bar bar-2"></div>
+                                <div class="bar bar-3"></div>
+                            </div>
+                            <div class="header-bar open-mobile-menu d-xl-none" data-toggle="menubar">
+                                <div class="bar bar-1"></div>
+                                <div class="bar bar-2"></div>
+                                <div class="bar bar-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header-section end -->
+
+<!-- off-canvas-sidebar start -->
+<div class="off-canvas-sidebar">
+    <div class="off-canvas-sidebar-body">
+        <div class="off-canvas-sidebar-close" data-close="sidebar">
+            <i class="fa-regular fa-xmark"></i>
+        </div>
+        <div class="off-canvas-logo m-b-20">
+            <a href='index.html'>
+                <img src="{% static 'assets/img/logo.png' %}" alt="logo" />
+            </a>
+        </div>
+        <div class="off-canvas-text m-b-30">
+            <p>
+                Nous croyons en une économie fondée sur la transparence, la traçabilité et l’éthique.
+                Nos audits, indicateurs ESG et outils de suivi permettent de mesurer l’impact économique réel des actions durables et de
+                valoriser les organisations engagées dans la transition verte.origines suisses de son savoir-faire
+                an nouveau matériel arrive!
+            </p>
+        </div>
+        <div class="off-canvas-thumb m-b-40">
+            <img src="{% static 'assets/img/thumbs/thumb-3.webp' %}" alt="thumb" />
+        </div>
+        <div class="off-canvas-contact m-b-40">
+            <div class="off-canvas-contact-item">
+                <div class="icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="text">
+                    <h6>Address</h6>
+                    <p>Jones Street, New York, USA</p>
+                </div>
+            </div>
+            <a href="mailto:support@example.com" class="off-canvas-contact-item">
+                <div class="icon">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <div class="text">
+                    <h6>Email</h6>
+                    <p>Support@example.com</p>
+                </div>
+            </a>
+            <a href="tel:+70264566579" class="off-canvas-contact-item">
+                <div class="icon">
+                    <i class="fa-solid fa-phone-arrow-up-right"></i>
+                </div>
+                <div class="text">
+                    <h6>Phone</h6>
+                    <p>+70 264 566 579</p>
+                </div>
+            </a>
+        </div>
+        <div class="off-canvas-social-links">
+            <a href="https://facebook.com">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+    <div class="off-canvas-sidebar-overlay" data-close="sidebar"></div>
+</div>
+<!-- off-canvas-sidebar end -->
+
+<!-- off-canvas-menubar start -->
+<div class="off-canvas-menubar">
+    <div class="off-canvas-menubar-body">
+        <div class="off-canvas-head">
+            <div class="off-canvas-logo">
+                <a href='index.html'>
+                    <img src="{% static 'assets/img/logo/logo.svg' %}" alt="logo" />
+                </a>
+            </div>
+            <div class="off-canvas-menubar-close" data-close="menubar">
+                <i class="fa-regular fa-xmark"></i>
+            </div>
+        </div>
+        <div class="off-canvas-menu">
+                        <ul>
+                            <li class="has-dropdown">
+                                <a href="index.html#">Durabilité</a>
+                                <ul class="sub-menu">
+                                    <li><a href=''>Sociale</a></li>
+                                    <li><a href=''>Environnementale</a></li>
+                                    <li><a href=''>Economique</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="index.html#">Technologie</a>
+                                <ul class="sub-menu">
+                                    <li><a href=''>Nos solutions</a></li>
+                                    <li><a href='index-2.html'>Nos projets</a></li>
+                                    <li><a href='calcul-emprunte-carbone/'>Calul l'empreinte carbone</a></li>
+                                </ul>
+                            </li>
+                            <li><a href='services.html'>Services</a></li>
+                            <li class="has-dropdown">
+                                <a href="index.html#">A Propos</a>
+                                <ul class="sub-menu">
+                                    <li><a href='services-details.html'>Notre histoire</a></li>
+                                    <li><a href='volunteer-details.html'>Notre mission</a></li>
+                                    <li><a href='volunteer-details.html'>Notre équipe</a></li>
+                                    <li><a href='volunteer-details.html'>Devenir bénévole</a></li>
+                        
+                                </ul>
+                            </li>
+                            <li class="has-dropdown">
+                                <a href="index.html#">Actualités</a>
+                                <ul class="sub-menu">
+                                    <li><a href='blog-grid.html'>Blog</a></li>
+                                    <li><a href='blog-details.html'>Articles</a></li>
+                                    <li><a href='index-3.html'>Nos événements</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+        </div>
+    </div>
+    <div class="off-canvas-menubar-overlay" data-close="menubar"></div>
+</div>
+
+    <main>
+
+        {% block content %}
+
+
+
+        {% endblock %}
+
+    </main>
+
+
+    <footer class="footer-section footer-section-2 p-t-125 p-t-md-100 p-t-xs-80 p-b-50">
+        <div class="container">
+            <div class="row justify-content-between row-gap-md-5 row-gap-4 p-b-80">
+                <div class="col-xl-4 col-lg-8 col-md-7">
+                    <div class="footer-widget">
+                        <div class="about-widget">
+                            <div class="footer-logo">
+                                <a href='index.html'>
+                                    <img src="{% static 'assets/img/logo/logo-white.svg' %}" alt="logo" />
+                                </a>
+                            </div>
+                            <div class="text">
+                                <p>
+                                    Introducing our team of talented and skilled professionals
+                                    who are ready to increase your productivity and bring your
+                                    business.
+                                </p>
+                            </div>
+                            <div class="info">
+                                <p><b>We Are Available !!</b></p>
+                                <p>Mon-Sat: <span>10:00am to 07:30pm</span></p>
+                            </div>
+                            <div class="social-links">
+                                <a href="https://facebook.com">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://twitter.com">
+                                    <i class="fab fa-x-twitter"></i>
+                                </a>
+                                <a href="https://www.instagram.com">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://linkedin.com">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-4 col-md-5">
+                    <div class="footer-widget">
+                        <h3 class="w-title">
+                            <span><img src="{% static 'assets/img/icons/icon-1.svg' %}" alt="icon" /></span>
+                            Quick Links
+                        </h3>
+                        <ul>
+                            <li><a href='about.html'>About Company</a></li>
+                            <li><a href='services.html'>Our Causes</a></li>
+                            <li><a href='camping-donation.html'>Investor Presentation</a></li>
+                            <li><a href='donations.html'>Pricing Plan</a></li>
+                            <li><a href='volunteer.html'>Meet Our Team</a></li>
+                            <li><a href='contact.html'>Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-4 col-md-5">
+                    <div class="footer-widget">
+                        <h3 class="w-title">
+                            <span><img src="{% static 'assets/img/icons/icon-1.svg' %}" alt="icon" /></span>
+                            Our Services
+                        </h3>
+                        <ul>
+                            <li><a href='camping-details.html'>Tree Plantation</a></li>
+                            <li><a href='camping-donation.html'>Forest Cleaning</a></li>
+                            <li><a href='services-details.html'>Plastic Recycling</a></li>
+                            <li><a href='project.html'>Natural Power</a></li>
+                            <li><a href='project.html'>Renewable Energy</a></li>
+                            <li><a href='project-details.html'>Water Refine</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-5">
+                    <div class="footer-widget">
+                        <h3 class="w-title">
+                            <span><img src="{% static 'assets/img/icons/icon-1.svg' %}" alt="icon" /></span>
+                            Get in Touch
+                        </h3>
+                        <div class="get-in-touch">
+                            <a href="index.html#" class="footer-address">
+                                <div class="icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="text">
+                                    <h6>Address</h6>
+                                    <p>Jones Street, New York, USA</p>
+                                </div>
+                            </a>
+                            <a href="mailto:support@example.com" class="email">
+                                <div class="icon">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </div>
+                                <div class="text">
+                                    <h6>Email</h6>
+                                    <p>Support@example.com</p>
+                                </div>
+                            </a>
+                            <a href="tel:+70264566579" class="phone">
+                                <div class="icon">
+                                    <i class="fa-solid fa-phone-arrow-up-right"></i>
+                                </div>
+                                <div class="text">
+                                    <h6>Phone</h6>
+                                    <p>+70 264 566 579</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="container">
+                        <div class="footer-bottom-layout">
+                            <div class="footer-copyright">
+                                © 2025 Econest. All Rights Reserved.
+                            </div>
+                            <div class="footer-bottom-menu">
+                                <ul>
+                                    <li><a href='contact.html'>Terms & Condition</a></li>
+                                    <li><a href='contact.html'>Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+
+    <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/popper/popper.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'assets/vendor/fancybox/fancybox.umd.js' %}"></script>
+    <script src="{% static 'assets/vendor/counter/purecounter.js' %}"></script>
+
+    <!-- Main Js -->
+    <script src="{% static 'assets/js/script.js' %}"></script>
+</body>
+
+</html>

@@ -1,264 +1,358 @@
-{% extends 'base/base.html' %}
+{% extends 'bases/base1.html' %}
+
 {% load static %}
+
 {% block content %}
-
-<section class="cs_page_heading cs_style_1 cs_bg_filed cs_heading_bg"
-    data-src="{% static 'assets/img/project_heading_bg.jpg' %}">
-    <div class="container">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}">Accueil</a></li>
-            <li class="breadcrumb-item"><a href="{% url 'service' %}">Services</a></li>
-            <li class="breadcrumb-item active">{{ service.title }}</li>
-        </ol>
-        <h1 class="cs_page_title mb-0 cs_fs_80 wow fadeInUp">{{ service.title|upper }}</h1>
+<section class="breadcrumb-section">
+    <div class="container-fluid">
+        <div class="row g-0">
+            <div class="col-xl-6 col-lg-6">
+                <div class="breadcrumb-content" style="background-image: url(assets/img/bg/breadcrumb-bg.webp);">
+                    <div class="breadcrumb-nav" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <ul>
+                            <li><a href='index.html'>Home</a></li>
+                            <li><a href='services.html'>Service</a></li>
+                            <li><a href="services-details.html#">Service Details</a></li>
+                        </ul>
+                    </div>
+                    <div class="breadcrumb-title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                        <h2>Plastic Recycling</h2>
+                    </div>
+                    <div class="shape-1">
+                        <img src="{% static 'assets/img/shapes/shape-1.webp' %}" alt="shape">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 d-none d-lg-block">
+                <div class="breadcrumb-thumb">
+                    <img src="{% static 'assets/img/thumbs/thumb-153.webp' %}" alt="thumb">
+                </div>
+            </div>
+        </div>
     </div>
 </section>
-<!-- End Page Heading Sectoin -->
-<!-- Start Projects -->
-<div class="container">
-    <div class="cs_height_100 cs_height_lg_70"></div>
-    <div class="row cs_gap_x_40 cs_gap_y_30">
-        <div class="col-lg-7">
-            <ul class="cs_project_details_info cs_mp_0">
-                {% if service.created_at %}
-                <li>
-                    <p class="mb-0">DEPUIS</p>
-                    <h4 class="mb-0 cs_fs_20 cs_bold">{{ service.created_at|date:"Y" }}</h4>
-                </li>
-                {% endif %}
-                <li>
-                    <p class="mb-0">CATÉGORIE</p>
-                    <h4 class="mb-0 cs_fs_20 cs_bold">{{ service.title|upper }}</h4>
-                </li>
-            </ul>
-            <div class="cs_height_50 cs_height_lg_40"></div>
-            {% if service.media.exists %}
-                {% with first_media=service.media.first %}
-                <div class="cs_radius_15 overflow-hidden">
-                    <img src="{{ first_media.image.url }}" alt="{{ first_media.caption|default:service.title }}" class="w-100 cs_radius_15">
-                    {% if first_media.caption %}
-                    <p class="text-center mt-2 cs_fs_14">{{ first_media.caption }}</p>
-                    {% endif %}
-                </div>
-                {% endwith %}
-            {% else %}
-            <a href="#" class="cs_video_block cs_style_1 cs_type_1 cs_bg_filed cs_center cs_radius_20"
-                style="background-image: url({% static 'assets/img/video_block_bg_2.jpg' %})">
-                <span class="cs_player_btn cs_heading_color">
-                    <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.5 11L0.5 21.3923V0.607696L18.5 11Z" fill="currentColor"></path>
-                    </svg>
-                </span>
-            </a>
-            {% endif %}
-        </div>
-        <div class="col-lg-5">
-            <div class="cs_slider cs_style_1">
-                {% if service.media.exists %}
-                <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0"
-                    data-variable-width="0" data-slides-per-view="1">
-                    <div class="cs_slider_wrapper">
-                        {% for media in service.media.all|slice:":3" %}
-                        <div class="cs_slide">
-                            <div class="cs_project_details_image">
-                                <img src="{{ media.image.url }}" alt="{{ media.caption|default:service.title }}">
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="d-flex justify-content-center cs_slider_arrows_4_transparent_wrap">
-                    <div class="cs_slider_arrows cs_style_4">
-                        <div class="cs_left_arrow cs_white_color">
-                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0.499953 9.00005C0.499953 8.80823 0.573265 8.61623 0.719703 8.4698L8.2197 0.969797C8.51277 0.676734 8.98733 0.676734 9.2802 0.969797C9.57308 1.26286 9.57327 1.73742 9.2802 2.0303L2.31045 9.00005L9.2802 15.9698C9.57327 16.2629 9.57327 16.7374 9.2802 17.0303C8.98714 17.3232 8.51258 17.3234 8.2197 17.0303L0.719703 9.5303C0.573265 9.38386 0.499953 9.19186 0.499953 9.00005Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </div>
-                        <div class="cs_slider_number cs_style_2 cs_bold"></div>
-                        <div class="cs_right_arrow cs_white_color">
-                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.50005 8.99995C9.50005 9.19177 9.42673 9.38377 9.2803 9.5302L1.7803 17.0302C1.48723 17.3233 1.01267 17.3233 0.719797 17.0302C0.426922 16.7371 0.426734 16.2626 0.719797 15.9697L7.68955 8.99995L0.719797 2.0302C0.426734 1.73714 0.426734 1.26258 0.719797 0.969702C1.01286 0.676826 1.48742 0.67664 1.7803 0.969702L9.2803 8.4697C9.42673 8.61614 9.50005 8.80814 9.50005 8.99995Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-    <div class="cs_height_70 cs_height_lg_50"></div>
-    <div class="row cs_gap_x_40 cs_gap_y_30">
-        <div class="col-xl-7">
-            <div class="cs_fs_20">
-                <b class="cs_heading_color">DESCRIPTION :</b><br>
-                <div class="mb-4">
-                    {{ service.description|safe }}
-                </div>
-                
-                {% if service.additional_description %}
-                <div class="mt-5">
-                    <b class="cs_heading_color">NOTRE APPROCHE :</b><br>
-                    <div class="mt-2">
-                        {{ service.additional_description|safe }}
-                    </div>
-                </div>
-                {% endif %}
-                
-                {% if service.media.count > 3 %}
-                <div class="cs_height_50 cs_height_lg_30"></div>
-                <div class="row cs_gap_y_20">
-                    {% for media in service.media.all|slice:"3:" %}
-                    <div class="col-md-4">
-                        <div class="cs_radius_15 overflow-hidden">
-                            <img src="{{ media.image.url }}" alt="{{ media.caption|default:service.title }}" class="w-100 cs_radius_15">
-                            {% if media.caption %}
-                            <p class="text-center mt-2 cs_fs_14">{{ media.caption }}</p>
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-                {% endif %}
-            </div>
-        </div>
+<!-- breadcrumb-section end -->
 
-
-                <div class="col-xl-5">
-                    <div class="row cs_gap_x_20 cs_gap_y_20">
-                        <div class="col-sm-6">
-                            <div class="cs_iconbox cs_style_2">
-                                <div class="cs_iconbox_icon">
-                                    <i class="fa-solid fa-hand-holding-droplet"></i>
-                                </div>
-                                <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Customized Garden Designs</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="cs_iconbox cs_style_2">
-                                <div class="cs_iconbox_icon">
-                                    <i class="fa-solid fa-utensils"></i>
-                                </div>
-                                <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Guaranteed Maintenance Plans</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="cs_iconbox cs_style_2">
-                                <div class="cs_iconbox_icon">
-                                    <i class="fa-solid fa-vials"></i>
-                                </div>
-                                <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Soil Testing and Improvement</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="cs_iconbox cs_style_2">
-                                <div class="cs_iconbox_icon">
-                                    <i class="fa-solid fa-feather"></i>
-                                </div>
-                                <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Hardscape and Aquascape Feature</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="cs_iconbox cs_style_2">
-                                <div class="cs_iconbox_icon">
-                                    <i class="fa-solid fa-seedling"></i>
-                                </div>
-                                <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Plant Selection and Installation</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="cs_iconbox cs_style_2">
-                                <div class="cs_iconbox_icon">
-                                    <i class="fa-solid fa-handshake"></i>
-                                </div>
-                                <p class="cs_iconbox_title cs_bold cs_fs_20 mb-0 cs_heading_color">Sustainable Eco-Friendly Options</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-    </div>
-    <div class="cs_height_100 cs_height_lg_70"></div>
-</div>
-<!-- ici on met les cervices  -->
-<section class="cs_gray_bg">
-    <div class="cs_height_100 cs_height_lg_70"></div>
+<!-- services-details-section start -->
+<section class="services-details-section p-t-120 p-b-250 p-t-lg-80 p-t-md-80 p-t-xs-60">
     <div class="container">
-        <div class="cs_slider cs_style_1 cs_slider_gap_24">
-            <div class="cs_section_heading cs_style_2 cs_color_1">
-                <h2 class="cs_section_title cs_fs_80 mb-0">EXPLOREZ NOS<br>RECENTS <span>SERVICES</span></h2>
-                <div class="cs_section_right">
-                    <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0">SERVICES</h3>
-                    <div class="cs_slider_arrows cs_style_4 cs_hide_lg">
-                        <div class="cs_left_arrow cs_heading_color">
-                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0.499953 9.00005C0.499953 8.80823 0.573265 8.61623 0.719703 8.4698L8.2197 0.969797C8.51277 0.676734 8.98733 0.676734 9.2802 0.969797C9.57308 1.26286 9.57327 1.73742 9.2802 2.0303L2.31045 9.00005L9.2802 15.9698C9.57327 16.2629 9.57327 16.7374 9.2802 17.0303C8.98714 17.3232 8.51258 17.3234 8.2197 17.0303L0.719703 9.5303C0.573265 9.38386 0.499953 9.19186 0.499953 9.00005Z"
-                                    fill="currentColor" />
-                            </svg>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="details-layout-wrap">
+                    <div class="details-content" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                        <div class="thumb-wrap m-b-50">
+                            <img src="{% static 'assets/img/thumbs/thumb-108.webp' %}" alt="thumb" />
                         </div>
-                        <div class="cs_slider_number cs_style_2 cs_bold"></div>
-                        <div class="cs_right_arrow cs_heading_color">
-                            <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M9.50005 8.99995C9.50005 9.19177 9.42673 9.38377 9.2803 9.5302L1.7803 17.0302C1.48723 17.3233 1.01267 17.3233 0.719797 17.0302C0.426922 16.7371 0.426734 16.2626 0.719797 15.9697L7.68955 8.99995L0.719797 2.0302C0.426734 1.73714 0.426734 1.26258 0.719797 0.969702C1.01286 0.676826 1.48742 0.67664 1.7803 0.969702L9.2803 8.4697C9.42673 8.61614 9.50005 8.80814 9.50005 8.99995Z"
-                                    fill="currentColor" />
-                            </svg>
+                        <div class="details-title m-b-15">
+                            <h2>Effects of Dust Recycling</h2>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cs_height_64 cs_height_lg_50"></div>
-            <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0"
-                data-variable-width="0" data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="1"
-                data-md-slides="2" data-lg-slides="2" data-add-slides="2">
-                <div class="cs_slider_wrapper">
-                    {% for other in other_services %}
-                    <div class="cs_slide">
-                        <div class="cs_card cs_style_2">
-                            <a href="{% url 'service-detail' other.slug %}" class="cs_card_thumb">
-                                {% if other.image %}
-                                <img src="{{ other.image.url }}" alt="{{ other.title }}">
-                                {% else %}
-                                <img src="{% static 'assets/img/service_placeholder.jpg' %}" alt="{{ other.title }}">
-                                {% endif %}
-                            </a>
-                            <div class="cs_card_info">
-                                <h2 class="cs_card_title cs_fs_32 cs_white_color cs_bold cs_mb_8">
-                                    <a href="{% url 'service-detail' other.slug %}">{{ other.title|upper }}</a>
-                                </h2>
-                                <p class="cs_card_subtitle mb-0 cs_white_color">
-                                    {{ other.short_description }}
-                                </p>
+                        <div class="detail-text m-b-30">
+                            <p>
+                                <b>“Capitalize on low hanging fruit to identify a ballpark value added activity to
+                                    beta
+                                    test. The point of using is that it has a more-or-less normal distribution of
+                                    letters”</b>
+                            </p>
+                            <p>Ratione doloribus optio minus cum ab. Nostrum rerum minus sapiente eveniet fuga quos
+                                tenetur Bicycle rights taxidermy knausgaard,<b> 3 wolf moon schlitz kombucha
+                                    freegan</b> ugh
+                                ethical kogi Déjà en recherche de nouvelle inspiration pour la prochaine collection,
+                                qui
+                                sera toujours inspirée de ses origines suisses de son savoir-faire an nouveau
+                                matériel
+                                arrive!</p>
+                        </div>
+                        <div class="details-title m-b-15">
+                            <h2>Activities & Features</h2>
+                        </div>
+                        <div class="detail-text m-b-25">
+                            <p>
+                                The implant fixture is first placed, so that it ilikely to then a dental prosthetic
+                                is
+                                added.
+                            </p>
+                        </div>
+                        <div class="list-wrapper m-b-40">
+                            <ul class="list-wrap">
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p>Nature ecologically aiming to optimize.</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p>It’s reliable and immune inspirée de ses</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p>Focus on your important to scale</p>
+                                </li>
+                            </ul>
+                            <ul class="list-wrap">
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p>In the long run, solar power aiming to optimize. </p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p>Dental prosthetic is added a leader</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p>Ecology is the study of seeking</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="gallery-slider-active m-b-50">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="banner-slide-wrap">
+                                            <div class="thumb">
+                                                <img src="{% static 'assets/img/thumbs/thumb-109.webp' %}" alt="thumb">
+                                                <a href="https://www.youtube.com/watch?v=fLeJJPxua3E&amp;ab_channel=Motiversity"
+                                                    data-fancybox="" class="play-btn">
+                                                    Play
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="banner-slide-wrap">
+                                            <div class="thumb">
+                                                <img src="{% static 'assets/img/thumbs/thumb-109.webp' %}" alt="thumb">
+                                                <a href="https://www.youtube.com/watch?v=fLeJJPxua3E&amp;ab_channel=Motiversity"
+                                                    data-fancybox="" class="play-btn">
+                                                    Play
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="banner-slide-wrap">
+                                            <div class="thumb">
+                                                <img src="{% static 'assets/img/thumbs/thumb-109.webp' %}" alt="thumb">
+                                                <a href="https://www.youtube.com/watch?v=fLeJJPxua3E&amp;ab_channel=Motiversity"
+                                                    data-fancybox="" class="play-btn">
+                                                    Play
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="{% url 'service-detail' other.slug %}"
-                                class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
-                                        fill="currentColor"></path>
-                                </svg>
-                            </a>
+                            <div class="gallery-pagination-wrap">
+                                <div class="gallery-pagination"></div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-wrap m-b-60">
+                            <div class="icon">
+                                <img src="{% static 'assets/img/icons/icon-17.svg' %}" alt="icon">
+                            </div>
+                            <p class="review">
+                                Readable and Packages editors now use Lorem Ipsum as their default model textlayout.
+                                The
+                                point of using the some is that it has a more-or-less normal distribution of letters
+                                as
+                                opposed to using.
+                            </p>
+                            <div class="author">
+                                <h3>Bm Ashik (Designer)</h3>
+                                <p>UX/UI Designer</p>
+                            </div>
+                        </div>
+                        <div class="details-title m-b-15">
+                            <h2>How To Improvement</h2>
+                        </div>
+                        <div class="detail-text m-b-20">
+                            <p>
+                                Readable and Packages editors now use Lorem Ipsum as their default model textlayout.
+                                The
+                                point of using the some is that it has a more-or-less normal distribution of letters
+                                as
+                                opposed to using.
+                            </p>
+                        </div>
+                        <div class="list-wrapper m-b-50">
+                            <ul class="list-wrap">
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p>Whether you’re an entrepreneur seeking to scale your venture, a leader aiming
+                                        to
+                                        optimize.</p>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <p>That it ilikely to then a dental prosthetic is added then dental recherche de
+                                        nouvelle inspiration.</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="d-cta-wrap">
+                            <div class="content-wrap">
+                                <div class="common-title text-start">
+                                    <h2>We Are Always Ready to Help You And Answer Your Questions <span>😍</span>
+                                    </h2>
+                                </div>
+                                <div class="blog-btn">
+                                    <a class='e-primary-btn has-icon' href='contact.html'>
+                                        Have You Any Questions?
+                                        <span class="icon-wrap">
+                                            <span class="icon"><i class="fa-regular fa-arrow-right"></i><i
+                                                    class="fa-regular fa-arrow-right"></i></span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="thumb-wrap">
+                                <img src="{% static 'assets/img/shapes/shape-45.webp' %}" alt="shape">
+                            </div>
+                            <div class="d-shape-1">
+                                <img src="{% static 'assets/img/shapes/shape-46.webp' %}" alt="shape">
+                            </div>
                         </div>
                     </div>
-                    {% endfor %}
+                    <div class="detail-sidebar" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                        <div class="detail-sidebar-inner">
+                            <div class="s-widget-wrap m-b-30">
+                                <div class="w-title">
+                                    <h3>Services List</h3>
+                                    <div class="bar-wrap">
+                                        <div class="bar-1"></div>
+                                        <div class="bar-2"></div>
+                                    </div>
+                                </div>
+                                <div class="detail-list">
+                                    <ul>
+                                        <li>
+                                            <a href='services.html'>
+                                                Tree Plantation
+                                                <span class="icon"><i class="fa-regular fa-arrow-up-right"></i></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='services.html'>
+                                                Forest Pollution
+                                                <span class="icon"><i class="fa-regular fa-arrow-up-right"></i></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='services.html'>
+                                                Dust Recycling
+                                                <span class="icon"><i class="fa-regular fa-arrow-up-right"></i></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='services.html'>
+                                                Cleaning Ocean
+                                                <span class="icon"><i class="fa-regular fa-arrow-up-right"></i></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='services.html'>
+                                                Plant Seedlings
+                                                <span class="icon"><i class="fa-regular fa-arrow-up-right"></i></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href='services.html'>
+                                                Solar Power Solution
+                                                <span class="icon"><i class="fa-regular fa-arrow-up-right"></i></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="s-widget-wrap">
+                                <div class="detail-contact text-center">
+                                    <div class="thumb">
+                                        <img src="{% static 'assets/img/shapes/shape-47.webp' %}" alt="shape">
+                                    </div>
+                                    <div class="icon-info-wrap">
+                                        <div class="icon-wrap">
+                                            <div class="icon">
+                                                <img src="{% static 'assets/img/icons/icon-18.svg' %}" alt="icon">
+                                            </div>
+                                            <div class="bar-wrap">
+                                                <div class="bar-1"></div>
+                                                <div class="bar-2"></div>
+                                            </div>
+                                        </div>
+                                        <div class="info">
+                                            <h3><a href="tel:+70264566579">+70 264 566 579</a></h3>
+                                            <p>Need Help?</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="cs_pagination cs_style_2 cs_show_lg"></div>
         </div>
     </div>
-    <div class="cs_height_100 cs_height_lg_70"></div>
+    <div class="d-shape-1">
+        <img src="{% static 'assets/img/shapes/shape-31.webp' %}" alt="shape-31" />
+    </div>
 </section>
+<!-- services-details-section end -->
 
-
+<!-- contact-info-section start -->
+<section class="contact-info-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="contact-info-layout">
+                    <a href="mailto:support.econest@gmail.com" class="contact-info active">
+                        <div class="icon-wrap">
+                            <div class="icon-shape"></div>
+                            <div class="icon">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </div>
+                        </div>
+                        <h3>support.econest@gmail.com</h3>
+                        <p>Send a Email</p>
+                    </a>
+                    <a href="tel:+70264566579" class="contact-info">
+                        <div class="icon-wrap">
+                            <div class="icon-shape"></div>
+                            <div class="icon">
+                                <i class="fa-solid fa-phone-arrow-up-right"></i>
+                            </div>
+                        </div>
+                        <h3>+70 264 566 579</h3>
+                        <p>Any Time Call Us</p>
+                    </a>
+                    <a href="services-details.html#" class="contact-info">
+                        <div class="icon-wrap">
+                            <div class="icon-shape"></div>
+                            <div class="icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                        </div>
+                        <h3>Jones Street, New York, USA</h3>
+                        <p>Our Address</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

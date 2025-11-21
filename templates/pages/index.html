@@ -1,403 +1,1064 @@
-{% extends 'base/base.html' %}
-{% load static %}
-{% block content %}
-    <section class="cs_hero cs_style_1 cs_heading_bg cs_white_color">
-        <div class="container">
-            <div class="cs_hero_in">
-                <div class="cs_hero_text">
-                    <h1 class="cs_hero_title cs_fs_100 cs_normal cs_mb_12 cs_white_color cs_gradient_color_1 wow fadeInUp">
-                        Ensemble, cultivons <b>un avenir vert.</b></h1>
-                    <p class="cs_hero_subtitle cs_fs_20 cs_mb_32 cs_opacity_7_5">Engagés pour un avenir plus vert, nous transformons chaque projet en un écosystème équilibré, où la créativité humaine
-                    s’accorde avec les rythmes naturels de la Terre.</p>
-                    <div class="cs_hero_btns">
-                        <a href="services.html"
-                            class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInLeft">Nos Projets</a>
-                        <a href="projects.html" class="cs_btn cs_style_2 cs_bold cs_white_color wow fadeInRight">Acceder a notre plateforme</a>
-                    </div>
-                </div>
-                <div class="cs_hero_funfact_wrap wow fadeInRight">
-                    <div class="cs_hero_funfact">
-                        <h3 class="cs_fs_24 cs_bold cs_white_color mb-0">500+</h3>
-                        <p class="cs_fs_20 cs_white_color cs_opacity_7_5 cs_mb_16">Entreprises Siblées</p>
-                        <div class="cs_circle_group">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="cs_hero_box wow fadeInUp">
-                    <div class="cs_hero_box_icon cs_mb_29">
-                        <svg width="22" height="30" viewBox="0 0 22 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11 0C4.93447 0 0 4.97132 0 11.0821C0 13.0939 0.895529 15.2575 0.933059 15.3488C1.22229 16.0404 1.793 17.1147 2.20453 17.7445L9.74665 29.2575C10.0553 29.7295 10.5121 30 11 30C11.4879 30 11.9447 29.7295 12.2534 29.2581L19.7961 17.7445C20.2083 17.1147 20.7784 16.0404 21.0676 15.3488C21.1051 15.2581 22 13.0945 22 11.0821C22 4.97132 17.0655 0 11 0ZM19.8744 14.8429C19.6162 15.4628 19.085 16.4622 18.7155 17.0267L11.1728 28.5404C11.0239 28.7679 10.9767 28.7679 10.8279 28.5404L3.28512 17.0267C2.91565 16.4622 2.38441 15.4622 2.12624 14.8422C2.11523 14.8155 1.29412 12.824 1.29412 11.0821C1.29412 5.69035 5.64818 1.30378 11 1.30378C16.3518 1.30378 20.7059 5.69035 20.7059 11.0821C20.7059 12.8266 19.8828 14.8233 19.8744 14.8429Z"
-                                fill="currentColor" />
-                            <path
-                                d="M11.0003 5.21578C7.78893 5.21578 5.17676 7.84811 5.17676 11.0828C5.17676 14.3175 7.78893 16.9498 11.0003 16.9498C14.2116 16.9498 16.8238 14.3175 16.8238 11.0828C16.8238 7.84811 14.2116 5.21578 11.0003 5.21578ZM11.0003 15.646C8.50329 15.646 6.47088 13.5991 6.47088 11.0828C6.47088 8.56649 8.50329 6.51956 11.0003 6.51956C13.4973 6.51956 15.5297 8.56649 15.5297 11.0828C15.5297 13.5991 13.4973 15.646 11.0003 15.646Z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
-                    <h3 class="cs_hero_box_title cs_fs_24 cs_mb_12 cs_white_color">calcul ton emprunt carbone</h3>
-                    <p class="cs_hero_box_subtitle mb-0 cs_opacity_7_5">Notre plateforme vous permet de calculer votre emprunt carbone et de savoir combien de CO2 vous pouvez réduire.</p>
-                    <a href="projects.html" class="cs_arrow_btn cs_hero_box_btn cs_center cs_heading_bg cs_white_color">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
-                                fill="currentColor" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="cs_hero_bg">
-            <div class="cs_slider cs_style_1">
-                <div class="cs_slider_container" data-autoplay="5000" data-loop="1" data-speed="800" data-center="0"
-                    data-variable-width="0" data-slides-per-view="1">
-                    <div class="cs_slider_wrapper">
-                        <div class="cs_slide">
-                            <div class="cs_hero_bg_in cs_bg_filed" data-src="{% static 'assets/img/hero_bg.jpg' %}"></div>
-                        </div>
-                        <div class="cs_slide">
-                            <div class="cs_hero_bg_in cs_bg_filed" data-src="{% static 'assets/img/hero_bg_4.jpg' %}"></div>
-                        </div>
-                        <div class="cs_slide">
-                            <div class="cs_hero_bg_in cs_bg_filed" data-src="{% static 'assets/img/hero_bg_2.jpg' %}"></div>
-                        </div>
-                        <div class="cs_slide">
-                            <div class="cs_hero_bg_in cs_bg_filed" data-src="{% static 'assets/img/hero_bg_4.jpg' %}"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cs_pagination_1_wrap">
-                    <div class="container">
-                        <div class="cs_pagination_1_in">
-                            <div class="cs_slider_number cs_style_1 cs_white_color cs_bold"></div>
-                            <div class="cs_pagination cs_style_1"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Hero Section -->
-    <!-- Start Values Section -->
-    <div class="cs_height_100 cs_height_lg_70"></div>
-    <div class="container">
-        <div class="cs_values_card cs_style_1">
-            <div class="cs_values_card_left">
-                <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0">VALUES</h3>
-            </div>
-            <div class="cs_values_card_left">
-                <ul class="cs_values cs_mp_0 cs_heading_color cs_fs_20">
-                    <li>
-                        <span>Landscape Design</span>
-                        <span class="cs_bold">01</span>
-                    </li>
-                    <li>
-                        <span>Indoor Garden</span>
-                        <span class="cs_bold">02</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- End Values Section -->
-    <!-- Start Feature Section -->
-    <section>
-        <div class="cs_height_100 cs_height_lg_70"></div>
-        <div class="container">
-            <div class="cs_section_heading cs_style_1">
-                <h2 class="cs_section_title cs_fs_80 mb-0 wow fadeInDown">NOUS SOMMES <span>DIFFÉRENTS À TOUS</span> LES NIVEAUX</h2>
-                <div class="cs_section_right">
-                    <a href="services.html"
-                        class="cs_btn cs_style_1 cs_bold cs_heading_bg cs_white_color w-100 wow fadeInRight">Get Started</a>
-                </div>
-            </div>
-            <div class="cs_height_64 cs_height_lg_50"></div>
-            <div class="row align-items-end cs_gap_y_50">
-                <div class="col-lg-4">
-                    <div class="cs_img_box cs_style_1 wow fadeInLeft">
-                        <img src="{% static 'assets/img/co2.jpg' %}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="row cs_gap_y_64">
-                        <div class="col-sm-6">
-                            <div class="cs_iconbox cs_style_1">
-                                <div class="cs_iconbox_icon cs_center cs_mb_24">
-                                    <i class="fa-regular fa-heart"></i>
-                                </div>
-                                <h3 class="cs_fs_24 cs_mb_12">Préserver la planète</h3>
-                                <p class="mb-0 cs_fs_20">Nous plaçons la nature au cœur de toutes nos actions. Chaque projet est conçu pour limiter l’impact environnemental et
-                                favoriser la régénération des écosystèmes.</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="cs_iconbox cs_style_1">
-                                <div class="cs_iconbox_icon cs_center cs_mb_24">
-                                    <i class="fa-solid fa-link"></i>
-                                </div>
-                                <h3 class="cs_fs_24 cs_mb_12">Inspirer le changement</h3>
-                                <p class="mb-0 cs_fs_20">Nous croyons en l’influence positive de la beauté naturelle et
-                                nous nous engageons à inspirer des changements positifs dans nos communautés.</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="cs_iconbox cs_style_1">
-                                <div class="cs_iconbox_icon cs_center cs_mb_24">
-                                    <i class="fa-brands fa-buffer"></i>
-                                </div>
-                                <h3 class="cs_fs_24 cs_mb_12">Promouvoir la durabilité</h3>
-                                <p class="mb-0 cs_fs_20">De la conception à la réalisation, nous privilégions des solutions durables : matériaux recyclés, ressources locales et
-                                pratiques respectueuses de la biodiversité.</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="cs_iconbox cs_style_1">
-                                <div class="cs_iconbox_icon cs_center cs_mb_24">
-                                    <i class="fa-brands fa-ubuntu"></i>
-                                </div>
-                                <h3 class="cs_fs_24 cs_mb_12">Créer l'espace vert</h3>
-                                <p class="mb-0 cs_fs_20">Nous nous engageons à créer des espaces verts qui offrent un environnement sain et agréable pour les humains et les animaux.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="cs_height_100 cs_height_lg_70"></div>
-    </section>
-    <!-- End Feature Section -->
-    <!-- Start Working Process -->
-    <section class="cs_heading_bg">
-        <div class="cs_height_100 cs_height_lg_70"></div>
-        <div class="container">
-            <div class="cs_section_heading cs_style_2">
-                <h2 class="cs_section_title cs_white_color cs_fs_80 mb-0 wow fadeInUp">ÉTAPES SIMPLES POUR
-                    <span>NOS</span> ACTIVITÉS</h2>
-                <div class="cs_section_right">
-                    <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0 cs_white_color">NOS PLANS D'ACTION</h3>
-                </div>
-            </div>
-            <div class="cs_height_64 cs_height_lg_50"></div>
-            <div class="cs_card_3_wrap">
-                <div class="cs_card cs_style_3">
-                    <div class="cs_card_in">
-                        <h3 class="cs_fs_24 cs_bold cs_white_color cs_mb_12">01 | Digitalisation pour promouvoir la durabilité</h3>
-                        <p class="mb-0 cs_white_color cs_opacity_5 cs_fs_20">Nous intégrons les outils numériques au service de la transition écologique. Grâce à la digitalisation, nous optimisons
-                        les ressources, réduisons les gaspillages et facilitons la gestion responsable des activités environnementales.</p>
-                    </div>
-                </div>
-                <div class="cs_card cs_style_3">
-                    <div class="cs_card_in">
-                        <h3 class="cs_fs_24 cs_bold cs_white_color cs_mb_12">02 | Dématérialisation de la chaîne de production et logistique</h3>
-                        <p class="mb-0 cs_white_color cs_opacity_5 cs_fs_20">Nous repensons les processus pour minimiser l’utilisation du papier et des ressources physiques. La dématérialisation
-                        permet une traçabilité efficace, une réduction des coûts et une empreinte carbone allégée.</p>
-                    </div>
-                </div>
-                <div class="cs_card cs_style_3">
-                    <div class="cs_card_in">
-                        <h3 class="cs_fs_24 cs_bold cs_white_color cs_mb_12">03 | Proposer des solutions de compensation aux entreprises</h3>
-                        <p class="mb-0 cs_white_color cs_opacity_5 cs_fs_20">Nous accompagnons les organisations dans la mise en place de programmes de compensation carbone : reboisement, énergies
-                        renouvelables et initiatives locales à impact mesurable et durable.</p>
-                    </div>
-                </div>
-                <div class="cs_card cs_style_3">
-                    <div class="cs_card_in">
-                        <h3 class="cs_fs_24 cs_bold cs_white_color cs_mb_12">04 | Responsabilité Sociétale des Entreprises (RSE)</h3>
-                        <p class="mb-0 cs_white_color cs_opacity_5 cs_fs_20">Nous aidons les entreprises à intégrer des pratiques responsables dans leur stratégie globale. Notre approche RSE vise à
-                        concilier performance économique, respect de l’environnement et impact social positif.</p>
-                    </div>
-                </div>
-                <div class="cs_section_logo"><img src="{% static 'assets/img/logo.svg' %}" alt=""></div>
-            </div>
-        </div>
-        <div class="cs_height_100 cs_height_lg_70"></div>
-    </section>
-    <!-- End Working Process -->
-    <!-- Start Services Section -->
-    <section>
-        <div class="cs_height_100 cs_height_lg_70"></div>
-        <div class="container">
-            <div class="cs_section_heading cs_style_3">
-                <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0 wow fadeInUp">SERVICES</h3>
-                <div class="cs_section_right">
-                    <a href="services.html" class="cs_btn cs_style_2 cs_bold cs_heading_color">Voir plus de services</a>
-                </div>
-            </div>
-            <div class="cs_height_64 cs_height_lg_50"></div>
-            <div class="cs_card_1_group">
-                {% for service in services %}
-                <div class="cs_card cs_style_1 cs_hover_active cs_heading_bg cs_bg_filed {% if forloop.first %}active{% endif %} wow fadeInLeft"
-                    data-src="{% if service.image %}{{ service.image.url }}{% else %}{% static 'assets/img/service_thumb_1.jpg' %}{% endif %}">
-                    <div class="cs_card_top">
-                        <div class="cs_card_tags">
-                            {% if service.category %}
-                            <a href="{% url 'article_list_by_category' service.category.slug %}" class="cs_card_tag">{{ service.category.name }}</a>
-                            {% endif %}
-                            <a href="#" class="cs_card_tag">Service</a>
-                            {% if service.icon %}
-                            <a href="#" class="cs_card_tag">{{ service.icon }}</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="cs_card_bottom">
-                        <h2 class="cs_card_title cs_white_color cs_fs_32">{{ service.title }}</h2>
-                        <p class="cs_card_subtitle mb-0 cs_white_color">{{ service.short_description }}</p>
-                    </div>
-                    <a href="{% url 'service_detail' service.slug %}" class="cs_arrow_btn cs_size_lg cs_center cs_white_bg cs_heading_color">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M15.3846 0H0.615385C0.275692 0 0 0.275692 0 0.615385C0 0.955077 0.275692 1.23077 0.615385 1.23077H13.8988L0.180308 14.9495C-0.06 15.1898 -0.06 15.5794 0.180308 15.8197C0.300615 15.94 0.457846 16 0.615385 16C0.772923 16 0.930461 15.94 1.05046 15.8197L14.7692 2.10092V15.3846C14.7692 15.7243 15.0449 16 15.3846 16C15.7243 16 16 15.7243 16 15.3846V0.615385C16 0.275692 15.7243 0 15.3846 0Z"
-                                fill="currentColor"></path>
-                        </svg>
-                    </a>
-                </div>
-                {% endfor %}
+{% extends 'bases/base.html' %}
 
-            </div>
-        </div>
-        <div class="cs_height_100 cs_height_lg_70"></div>
-    </section>
-    <!-- End Services Section -->
-    <!-- Start Testimonial Section -->
-    <section class="cs_gray_bg">
-        <div class="cs_height_100 cs_height_lg_70"></div>
-        <div class="container">
-            <div class="text-center">
-                <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0 wow fadeInDown">TESTIMONIAL</h3>
-            </div>
-            <div class="cs_height_64 cs_height_lg_50"></div>
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="cs_slider cs_style_1">
-                        <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0"
-                            data-variable-width="0" data-slides-per-view="1">
-                            <div class="cs_slider_wrapper">
-                                {% for testimonial in testimonials %}
-                                <div class="cs_slide">
-                                    <div class="cs_testimonial cs_style_1 text-center wow fadeInUp" data-wow-delay="{{ forloop.counter0|divisibleby:2|yesno:'0.2s,0.4s' }}">
-                                        <blockquote class="cs_testimonial_blockquote cs_heading_color cs_fs_32 cs_bold cs_mb_48">
-                                            {{ testimonial.message|safe }}
-                                        </blockquote>
-                                        <div class="cs_testimonial_meta">
-                                            <h4 class="cs_testimonial_avatar cs_bold cs_fs_16 cs_mb_2">{{ testimonial.name|upper }}</h4>
-                                            {% if testimonial.role %}
-                                            <p class="cs_testimonial_avatar_designation mb-0">{{ testimonial.role }}</p>
-                                            {% endif %}
+{% load static %}
+
+{% block content %}
+
+
+    <section class="hero-slider-active-1">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="hero-side" style="background-image: url({% static 'assets/img/47.webp' %})">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="hero-content-1">
+                                        <div class="subtitle" data-animation="animate__fadeInUp" data-delay="0.3s">
+                                            <img src="{% static 'assets/img/icons/icon-1.svg' %}" alt="icon-1" />
+                                            <span>Des solutions vertes pour tous</span>
+                                        </div>
+                                        <div class="title" data-animation="animate__fadeInUp" data-delay="0.4s">
+                                            <h1>
+                                                Responsabilité collective  <span>pour une planète durable</span>
+                                            </h1>
+                                        </div>
+                                        <div class="text" data-animation="animate__fadeInUp" data-delay="0.5s">
+                                            <p>
+                                                Bâtir un avenir durable, c’est concilier performance économique et respect de la planète.
+                                            </p>
+                                        </div>
+                                        <div class="join-us" data-animation="animate__fadeInUp" data-delay="0.6s">
+                                            <a class='e-primary-btn has-icon' href='donations.html'>
+                                                Se connecter
+                                                <span class="icon-wrap"><span class="icon"><i
+                                                            class="fa-regular fa-arrow-right"></i><i
+                                                            class="fa-regular fa-arrow-right"></i></span></span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                                {% endfor %}
                             </div>
                         </div>
-                        <div class="cs_slider_arrows cs_style_2">
-                            <div class="cs_left_arrow cs_heading_color">
-                                <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M0.499953 9.00005C0.499953 8.80823 0.573265 8.61623 0.719703 8.4698L8.2197 0.969797C8.51277 0.676734 8.98733 0.676734 9.2802 0.969797C9.57308 1.26286 9.57327 1.73742 9.2802 2.0303L2.31045 9.00005L9.2802 15.9698C9.57327 16.2629 9.57327 16.7374 9.2802 17.0303C8.98714 17.3232 8.51258 17.3234 8.2197 17.0303L0.719703 9.5303C0.573265 9.38386 0.499953 9.19186 0.499953 9.00005Z"
-                                        fill="currentColor" />
-                                </svg>
+                        <div class="group-shape-1">
+                            <img src="{% static 'assets/img/shapes/group-shape-1.webp' %}" alt="group-shape-1" />
+                        </div>
+                        <div class="s-shape-1">
+                            <img src="{% static 'assets/img/shapes/shape-2.webp' %}" alt="s-shape-1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="hero-side" style="background-image: url({% static 'assets/img/9.jpg' %})">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="hero-content-1">
+                                        <div class="subtitle" data-animation="animate__fadeInUp" data-delay="0.3s">
+                                            <img src="{% static 'assets/img/icons/icon-1.svg' %}" alt="icon-1" />
+                                            <span>Des solutions vertes pour tous</span>
+                                        </div>
+                                        <div class="title" data-animation="animate__fadeInUp" data-delay="0.4s">
+                                            <h1>
+                                                Penser durable,
+                                                <span>agir responsable.</span>
+                                            </h1>
+                                        </div>
+                                        <div class="text" data-animation="animate__fadeInUp" data-delay="0.5s">
+                                            <p>
+                                                Bâtir une entreprise qui prend soin de la planète et des personnes, c’est concilier performance économique et respect de la planète.
+                                            </p>
+                                        </div>
+                                        <div class="join-us" data-animation="animate__fadeInUp" data-delay="0.6s">
+                                            <a class='e-primary-btn has-icon' href='credit-carbone/'>
+                                                Credit Carbon
+                                                <span class="icon-wrap"><span class="icon"><i
+                                                            class="fa-regular fa-arrow-right"></i><i
+                                                            class="fa-regular fa-arrow-right"></i></span></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="cs_right_arrow cs_heading_color">
-                                <svg width="10" height="18" viewBox="0 0 10 18" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M9.50005 8.99995C9.50005 9.19177 9.42673 9.38377 9.2803 9.5302L1.7803 17.0302C1.48723 17.3233 1.01267 17.3233 0.719797 17.0302C0.426922 16.7371 0.426734 16.2626 0.719797 15.9697L7.68955 8.99995L0.719797 2.0302C0.426734 1.73714 0.426734 1.26258 0.719797 0.969702C1.01286 0.676826 1.48742 0.67664 1.7803 0.969702L9.2803 8.4697C9.42673 8.61614 9.50005 8.80814 9.50005 8.99995Z"
-                                        fill="currentColor" />
-                                </svg>
+                        </div>
+                        <div class="group-shape-1">
+                            <img src="{% static 'assets/img/shapes/group-shape-1.webp' %}" alt="group-shape-1" />
+                        </div>
+                        <div class="s-shape-1">
+                            <img src="{% static 'assets/img/shapes/shape-2.webp' %}" alt="s-shape-1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="hero-side" style="background-image: url({% static 'assets/img/45.webp' %})">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="hero-content-1">
+                                        <div class="subtitle" data-animation="animate__fadeInUp" data-delay="0.3s">
+                                            <img src="{% static 'assets/img/icons/icon-1.svg' %}" alt="icon-1" />
+                                            <span>Sauvone la nature</span>
+                                        </div>
+                                        <div class="title" data-animation="animate__fadeInUp" data-delay="0.4s">
+                                            <h1>
+                                                favoriser une économie circulaire, <span>innovante et équitable.</span>
+                                            </h1>
+                                        </div>
+                                        <div class="text" data-animation="animate__fadeInUp" data-delay="0.5s">
+                                            <p>
+                                                Nos engagements RSE traduisent notre volonté d’allier performance, éthique et durabilité.
+                                            </p>
+                                        </div>
+                                        <div class="join-us" data-animation="animate__fadeInUp" data-delay="0.6s">
+                                            <a class='e-primary-btn has-icon' href='energie/'>
+                                                Energies Renouvelables
+                                                <span class="icon-wrap"><span class="icon"><i
+                                                            class="fa-regular fa-arrow-right"></i><i
+                                                            class="fa-regular fa-arrow-right"></i></span></span>
+                                            </a>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="group-shape-1">
+                            <img src="{% static 'assets/img/shapes/group-shape-1.webp' %}" alt="group-shape-1" />
+                        </div>
+                        <div class="s-shape-1">
+                            <img src="{% static 'assets/img/shapes/shape-2.webp' %}" alt="s-shape-1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="hero-side" style="background-image: url({% static 'assets/img/44.webp' %})">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="hero-content-1">
+                                        <div class="subtitle" data-animation="animate__fadeInUp" data-delay="0.3s">
+                                            <img src="{% static 'assets/img/icons/icon-1.svg' %}" alt="icon-1" />
+                                            <span>Moins d’empreinte, plus d’impact positif</span>
+                                        </div>
+                                        <div class="title" data-animation="animate__fadeInUp" data-delay="0.4s">
+                                            <h1>
+                                                Innover pour un avenir plus
+                                                <span>vert et plus juste.</span>
+                                            </h1>
+                                        </div>
+                                        <div class="text" data-animation="animate__fadeInUp" data-delay="0.5s">
+                                            <p>
+                                                La RSE, au cœur de notre stratégie pour un développement équilibré et respectueux.
+                                            </p>
+                                        </div>
+                                        <div class="join-us" data-animation="animate__fadeInUp" data-delay="0.6s">
+                                            <a class='e-primary-btn has-icon' href='donations.html'>
+                                                Se connecter
+                                                <span class="icon-wrap"><span class="icon"><i
+                                                            class="fa-regular fa-arrow-right"></i><i
+                                                            class="fa-regular fa-arrow-right"></i></span></span>
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group-shape-1">
+                            <img src="{% static 'assets/img/shapes/group-shape-1.webp' %}" alt="group-shape-1" />
+                        </div>
+                        <div class="s-shape-1">
+                            <img src="{% static 'assets/img/shapes/shape-2.webp' %}" alt="s-shape-1" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="cs_height_100 cs_height_lg_70"></div>
-    </section>
-    <!-- End Testimonial Section -->
-    <!-- Start Works Section -->
-    <section>
-        <div class="cs_height_100 cs_height_lg_70"></div>
-        <div class="container">
-            <div class="cs_section_heading cs_style_2 cs_color_1">
-                <h2 class="cs_section_title cs_fs_80 mb-0 wow fadeInDown">DECOUVREZ NOS<span> DERNIÈRES RÉALISATIONS </span> ET <br>FORUM
-                    <span>POUR LE CLIMAT</span></h2>
-                <div class="cs_section_right">
-                    <h3 class="cs_brackets_title cs_normal cs_fs_16 mb-0">WORKS</h3>
-                </div>
+        <div class="hero-slider-pagination-1"></div>
+        <div class="hero-slider-social">
+            <div class="social-links">
+                <a href="https://facebook.com">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
             </div>
-            <div class="cs_height_64 cs_height_lg_50"></div>
-            <div class="cs_full_width_slider_section">
-                <div class="cs_slider cs_style_1 cs_slider_gap_24">
-                    <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0"
-                        data-variable-width="1" data-slides-per-view="1">
-                        <div class="cs_slider_wrapper">
-                            <div class="cs_slide">
-                                <div class="cs_card cs_style_4">
-                                    <div class="cs_card_thumb cs_bg_filed cs_mb_40"
-                                        data-src="{% static 'assets/img/dambe.jpg' %}"></div>
-                                    <div class="cs_card_info">
-                                        <ul class="cs_card_info_list cs_mp_0">
-                                            <li>
-                                                <p class="mb-0">NAME</p>
-                                                <h3 class="mb-0 cs_fs_20 cs_bold">SERENE RETREAT</h3>
-                                            </li>
-                                            <li>
-                                                <p class="mb-0">LOCATION</p>
-                                                <h3 class="mb-0 cs_fs_20 cs_bold">SUNNYVALE, CA</h3>
-                                            </li>
-                                        </ul>
-                                        <div class="cs_card_text">A tranquil garden oasis perfect for your relaxation time
-                                            with family or alone within your comfortable home.</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cs_slide">
-                                <div class="cs_card cs_style_4">
-                                    <div class="cs_card_thumb cs_bg_filed cs_mb_40"
-                                        data-src="{% static 'assets/img/torture.jpeg' %}"></div>
-                                    <div class="cs_card_info">
-                                        <ul class="cs_card_info_list cs_mp_0">
-                                            <li>
-                                                <p class="mb-0">NAME</p>
-                                                <h3 class="mb-0 cs_fs_20 cs_bold">COMBATTONS</h3>
-                                            </li>
-                                            <li>
-                                                <p class="mb-0">LOCATION</p>
-                                                <h3 class="mb-0 cs_fs_20 cs_bold">SUNNYVALE, CA</h3>
-                                            </li>
-                                        </ul>
-                                        <div class="cs_card_text">A tranquil garden oasis perfect for your relaxation time
-                                            with family or alone within your comfortable home.</div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="text">Join Social:</div>
+        </div>
+    </section>
+    <!-- hero-section end -->
 
+    <!-- about-us-section start -->
+    <section class="about-us-section m-t-120 m-t-md-100 m-t-xs-80">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6">
+                    <div class="shape-wrapped-thumb-1" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="{% static 'assets/img/1.jpg' %}" alt="thumb" />
+                        <div class="experience-shape-2">
+                            <h3>
+                                <span class="purecounter" data-purecounter-duration="2"
+                                    data-purecounter-end="3">0</span>+
+                            </h3>
+                            <p>Années d'expérience</p>
+                        </div>
+                        <div class="award-shape" style="background-image: url({% static 'assets/img/shapes/shape-18.webp' %})">
+                            <img src="{% static 'assets/img/icons/icon-6.svg' %}" alt="icon" />
+                            <p>2023 REBOISEMENT A BASSAMBA</p>
+                        </div>
+                        <div class="box-shape">
+                            <img src="{% static 'assets/img/shapes/shape-14.webp' %}" alt="box-shape" />
+                        </div>
+                        <div class="positioned-shape">
+                            <div class="shape-wrapped-thumb-2">
+                                <div class="video-thumb">
+                                    <img src="{% static 'assets/img/3.jpg' %}" alt="thumb" />
+                                    <a href="https://www.youtube.com/watch?v=fLeJJPxua3E&amp;ab_channel=Motiversity"
+                                        data-fancybox="" class="video-play-btn">
+                                        <i class="fa-solid fa-play"></i>
+                                    </a>
+                                </div>
+                                <div class="vector-shape">
+                                    <img src="{% static 'assets/img/shapes/shape-19.webp' %}" alt="vector-shape" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="cs_slider_arrows cs_style_3 cs_hide_lg">
-                        <div class="cs_right_arrow cs_heading_color cs_fs_20 cs_center">
-                            <span class="cs_center">NEXT</span>
+                </div>
+                <div class="col-xl-6">
+                    <div class="about-us-content px-xxl-5 px-3" data-aos="fade-up" data-aos-duration="1000"
+                        data-aos-delay="400">
+                        <div class="common-subtitle">
+                            <img src="{% static 'assets/img/icons/icon-2.svg' %}" alt="icon-2" />
+                            <span>A propos</span>
+                        </div>
+                        <div class="common-title text-start">
+                            <h2>Renforcer la RSE pour une durabilité à long terme</h2>
+                        </div>
+                        <div class="c-tabs-wrapper">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="c-tab-1" data-bs-toggle="tab"
+                                        data-bs-target="#c-tab-1-pane" type="button" role="tab"
+                                        aria-controls="c-tab-1-pane" aria-selected="true">
+                                        Notre Histoire
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="c-tab-2" data-bs-toggle="tab"
+                                        data-bs-target="#c-tab-2-pane" type="button" role="tab"
+                                        aria-controls="c-tab-2-pane" aria-selected="false">
+                                        Notre Mission
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="c-tab-3" data-bs-toggle="tab"
+                                        data-bs-target="#c-tab-3-pane" type="button" role="tab"
+                                        aria-controls="c-tab-3-pane" aria-selected="false">
+                                        Notre Vision
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="c-tab-1-pane" role="tabpanel"
+                                    aria-labelledby="c-tab-1" tabindex="0">
+                                    <div class="text">
+                                        <p>
+                                            Liyok Green a été fondée en 2022 par un groupe d'entrepreneurs passionnés par la protection de l'environnement et la durabilité. Depuis sa création, Liyok Green a été à la vanguardie des efforts pour promouvoir une société plus durable et plus responsable.
+                                        </p>
+                                    </div>
+                                    <div class="benefits">
+                                        <ul>
+                                            <li>
+                                                Protection de l'environnement, encouragement du reboursement
+                                        
+                                            </li>
+                                            <li>
+                                                Promotion de la durabilité, encouragement du développement durable, l'adoptions des energies renouvelables
+                                            </li>
+                                            <li>Encouragement du développement économique et social</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="c-tab-2-pane" role="tabpanel" aria-labelledby="c-tab-2"
+                                    tabindex="0">
+                                    <div class="text">
+                                        <p>
+                                            Contribuer activement à la protection de l'environnement et à la lutte contre le changement climatique
+                                        </p>
+                                    </div>
+                                    <div class="benefits">
+                                        <ul>
+                                            <li>
+                                                Développer et proposer des projets permettant aux entreprises d'acquérir des crédits carbone
+                                            </li>
+                                            <li>
+                                                Organiser des formations et des ateliers pour sensibiliser les acteurs de la chaîne logistique aux enjeux
+                                                environnementaux et aux meilleures pratiques durables.
+                                            </li>
+                                            <li>Faciliter l'adoption de pratiques durables à travers des projets spécifiques, incluant l'achat de crédits carbone.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="c-tab-3-pane" role="tabpanel" aria-labelledby="c-tab-3"
+                                    tabindex="0">
+                                    <div class="text">
+                                        <p>
+                                            aspire à devenir un leader reconnu dans le domaine de la durabilité, avec un impact tangible sur la réduction des
+                                            émissions de CO2 et l'amélioration des pratiques RSE au sein de la chaîne logistique mondiale.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="annual-donation-wrap">
+                            <a class='e-primary-btn has-icon' href=''>
+                                Devenir partenaire
+                                <span class="icon-wrap"><span class="icon"><i class="fa-regular fa-arrow-right"></i><i
+                                            class="fa-regular fa-arrow-right"></i></span></span>
+                            </a>
+                            <div class="rating-wrap">
+                                <div class="star-rating">
+                                    
+                                    <div class="stars">
+                                        <i class="fa-solid fa-star-sharp"></i>
+                                        <i class="fa-solid fa-star-sharp"></i>
+                                        <i class="fa-solid fa-star-sharp"></i>
+                                        <i class="fa-solid fa-star-sharp"></i>
+                                        <i class="fa-solid fa-star-sharp"></i>
+                                    </div>
+                                </div>
+                                <p></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="cs_height_100 cs_height_lg_70"></div>
     </section>
-    <!-- End Works Section -->
-    <!-- Start CTA Section -->
-    <section class="cs_cta cs_style_1 cs_heading_bg cs_bg_filed" data-src="{% static 'assets/img/cta_bg.jpg' %}">
-        <div class="cs_height_100 cs_height_lg_70"></div>
+    <!-- about-us-section end -->
+
+    <!-- company-achievements-section start -->
+    <section class="company-achievements-section m-t-60">
         <div class="container">
-            <div class="cs_cta_in">
-                <h2 class="cs_cta_title cs_fs_80 cs_white_color cs_mb_40 wow fadeInDown">PRES A TRANSFORMER NOTRE<br> PLANETES VERS UNE VIE PLUS DURABLE
-                </h2>
-                <a href="contact.html" class="cs_btn cs_style_1 cs_bold cs_heading_color cs_white_bg wow fadeInUp">Contact
-                    Us</a>
+            <div class="company-achievements" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="achievement">
+                    <i class="fa-light fa-chart-mixed"></i>
+                    <h2>
+                        <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="9">0</span>
+                    </h2>
+                    <p>Projets en cours</p>
+                </div>
+                <div class="achievement">
+                    <i class="fa-light fa-lightbulb-exclamation-on"></i>
+                    <h2>
+                        <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="4">0</span>+
+                    </h2>
+                    <p>Solution numériques</p>
+                </div>
+                <div class="achievement">
+                    <i class="fa-light fa-thumbs-up"></i>
+                    <h2>
+                        <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="1000">0</span>k
+                    </h2>
+                    <p>Plants plantées</p>
+                </div>
+                <div class="achievement">
+                    <i class="fa-light fa-users-medical"></i>
+                    <h2>
+                        <span class="purecounter" data-purecounter-duration="2" data-purecounter-end="3">0</span>+
+                    </h2>
+                    <p>Partenaires</p>
+                </div>
             </div>
         </div>
-        <div class="cs_height_100 cs_height_lg_70"></div>
     </section>
+
+    <!-- company-achievements-section end -->
+
+    <!-- what-we-do-section start -->
+    <section class="what-we-do-section m-t-80 p-t-100 p-b-120 p-b-md-100 p-t-xs-80 p-b-xs-80"
+        style="background-image: url({% static 'assets/img/bg/what-we-do-bg.webp' %})">
+        <div class="container">
+            <div class="section-top-2">
+                <div class="left">
+                    <div class="common-subtitle" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="{% static 'assets/img/icons/icon-1.svg' %}" alt="icon-1" />
+                        <span>Que faisons nous ?</span>
+                    </div>
+                    <div class="common-title text-start" data-aos="fade-up" data-aos-duration="1000"
+                        data-aos-delay="400">
+                        <h2>Nos differents services que nous proposons</h2>
+                    </div>
+                </div>
+                <div class="right" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                    <p>
+                        “Atteindre vos objectifs en matière de développement durable.”
+                    </p>
+                    <a class='service-btn e-primary-btn has-icon' href='{}'>
+                        En savoir plus...
+                        <span class="icon-wrap">
+                            <span class="icon"><i class="fa-regular fa-arrow-right"></i><i
+                                    class="fa-regular fa-arrow-right"></i></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="row row-gap-md-5 row-gap-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+
+
+                <div class="col-xl-4 col-md-6 col-sm-12">
+                    <div class="project-card">
+                        <div class="thumb">
+                            <a href='services-details.html'>
+                                <img src="{% static 'assets/img/thumbs/thumb-16.webp' %}" alt="thumb-16" />
+                            </a>
+                            <div class="number">
+                                <a href='services-details.html'>No - 03</a>
+                            </div>
+                            <div class="content">
+                                <h5>Plastic Recycling</h5>
+                                <p>
+                                    Energy consulting involves providing of advice and
+                                    guidance on energy
+                                </p>
+                                <div class="details-btn">
+                                    <a class='e-primary-btn has-icon is-hover-white' href='services-details.html'>
+                                        Read More
+                                        <span class="icon-wrap">
+                                            <span class="icon"><i class="fa-regular fa-arrow-right"></i><i
+                                                    class="fa-regular fa-arrow-right"></i></span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shape-10">
+            <img src="{% static 'assets/img/shapes/shape-10.webp' %}" alt="shape-10" />
+        </div>
+        <div class="shape-11">
+            <img src="{% static 'assets/img/shapes/shape-11.webp' %}" alt="shape-11" />
+        </div>
+    </section>
+    <!-- what-we-do-section end -->
+
+    <!-- why-us-section start -->
+    <section class="why-us-section p-t-100 p-b-100 p-t-xs-80 p-b-xs-80"
+        style="background-image: url({% static 'assets/img/bg/why-us-bg.webp' %})">
+        <div class="container">
+            <div class="row row-gap-5 align-items-center">
+                <div class="col-xl-6">
+                    <div class="thumb px-xl-5 left" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <div class="thumb-1">
+                            <img alt="thumb-1" src="{% static 'assets/img/62.jpg' %}">
+                            <div class="s-shape-1"><img alt="shape-1" src="{% static 'assets/img/shapes/shape-14.webp' %}"></div>
+                        </div>
+                        <div class="thumb-2"><img alt="thumb-2" src="{% static 'assets/img/77.jpg' %}"></div>
+                        <div class="thumb-3">
+                            <div class="shape-wrapped-thumb">
+                                <img alt="thumb-3" src="{% static 'assets/img/65.jpg' %}">
+                                <div class="s-shape-1"><img alt="shape-1" src="{% static 'assets/img/shapes/shape-13.webp' %}"></div>
+                                <div class="s-shape-2"><img alt="shape-2" src="{% static 'assets/img/shapes/shape-15.webp' %}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="why-us-content" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                        <div class="common-subtitle">
+                            <img alt="icon-2" src="{% static 'assets/img/icons/icon-2.svg' %}"> <span>Pourquoi Liyok Green ?</span>
+                        </div>
+                        <div class="common-title text-start">
+                            <h2>Les raisons de choisir Liyok Green</h2>
+                        </div>
+                        <div class="text">
+                            <p>Nous sommes l'une des principales entreprises de compensation carbone, nous avons pour mission de contribuer à la protection de l'environnement en offrant des solutions durables et écologiques.</p>
+                        </div>
+                        <div class="services">
+                            <div class="service-left">
+                                <div class="service">
+                                    <i class="fa-solid fa-check"></i>
+                                    <p>Identifier et mesurer</p>
+                                </div>
+                                <div class="service">
+                                    <i class="fa-solid fa-check"></i>
+                                    <p>Apprendre et compenser</p>
+                                </div>
+                            </div>
+                            <div class="service-right">
+                                <div class="service">
+                                    <i class="fa-solid fa-check"></i>
+                                    <p>Impact et présenter</p>
+                                </div>
+                                <div class="service">
+                                    <i class="fa-solid fa-check"></i>
+                                    <p>Protéger et concerver</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="annual-donation-wrap">
+                            <a class='e-primary-btn has-icon' href='project.html'>Empreinte carbone
+                                <span class="icon-wrap"><span class="icon"><i class="fa-regular fa-arrow-right"></i> <i
+                                            class="fa-regular fa-arrow-right"></i></span></span></a>
+                            <div class="annual-donation">
+                                <img alt="icon-4" src="{% static 'assets/img/icons/icon-4.svg' %}">
+                                <div class="annual-text">
+                                    <p>Credit Carbon</p>
+                                    <h5></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- why-us-section end -->
+
+    <!-- our-camping start -->
+    <section class="our-camping-section overflow-x-clip p-t-100 p-b-100 p-t-xs-80 p-b-xs-80"
+        style="background-image: url({% static 'assets/img/bg/our-camping-bg.webp' %})">
+        <div class="container">
+            <div class="row m-b-50 m-b-xs-40">
+                <div class="col-xl-12">
+                    <div class="text-center">
+                        <div class="common-subtitle" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                            <img alt="icon-2" src="{% static 'assets/img/icons/icon-2.svg' %}"> <span>Nos Evenements</span>
+                        </div>
+                        <div class="common-title mb-0" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                            <h2>Evenements a venir</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="camping-slider-active" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="camping-card">
+                                        <div class="thumb">
+                                            <a href='camping-donation.html'><img alt="thumb-2"
+                                                    src="{% static 'assets/img/thumbs/thumb-4.webp' %}"></a>
+                                            <div class="category">
+                                                <a href='camping-donation.html'>Animal</a>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <div class="content-top">
+                                                <div class="date">
+                                                    <img alt="calendar-icon" src="{% static 'assets/img/icons/calendar.svg' %}">
+                                                    <span>29 Days Left</span>
+                                                </div>
+                                                <div class="title">
+                                                    <h3>
+                                                        <a href='camping-donation.html'>Protecting Endangered Species
+                                                            and Their Habitats</a>
+                                                    </h3>
+                                                </div>
+                                                <div class="text">
+                                                    <p>Excepteur occaecat cupidatat officia the implant fixture is first
+                                                        placed.</p>
+                                                </div>
+                                            </div>
+                                            <div class="donation-wrap">
+                                                <div class="d-top">
+                                                    <p>Donation Complete</p>
+                                                    <p>89%</p>
+                                                </div>
+                                                <div aria-label="Basic example" aria-valuemax="100" aria-valuemin="0"
+                                                    aria-valuenow="89" class="progress" role="progressbar">
+                                                    <div class="progress-bar" style="width: 89%"></div>
+                                                </div>
+                                                <div class="fund">
+                                                    <p>Raised: <span>$13,650</span></p>
+                                                    <p>Goal: <span>$16,560</span></p>
+                                                </div>
+                                                <div class="d-bottom">
+                                                    <a class='e-primary-btn has-icon d-btn'
+                                                        href='camping-donation.html'>
+                                                        Donate Now
+                                                        <span class="icon-wrap"><span class="icon"><i
+                                                                    class="fa-regular fa-arrow-right"></i> <i
+                                                                    class="fa-regular fa-arrow-right"></i></span></span>
+                                                    </a>
+                                                    <button class="d-wishlist">
+                                                        <i class="fa-regular fa-heart"></i>
+                                                        <span>259</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="camping-pagination-wrap">
+                            <div class="camping-pagination"></div>
+                        </div>
+                        <div class="camping-button-prev">
+                            <i class="fa-regular fa-arrow-left"></i>
+                        </div>
+                        <div class="camping-button-next">
+                            <i class="fa-regular fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- our-camping end -->
+
+    <!-- volunteer-section start -->
+    <section class="volunteer-section p-t-100 p-b-100 p-t-xs-80 p-b-xs-80">
+        <div class="container text-center">
+            <div class="text-center m-b-50 m-b-xs-40">
+                <div class="common-subtitle" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                    <img alt="icon-2" src="{% static 'assets/img/icons/icon-2.svg' %}"> <span>Nous sommes Liyok Green</span>
+                </div>
+                <div class="common-title mb-0" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                    <h2>Membres</h2>
+                </div>
+            </div>
+            <div class="row row-gap-4 p-b-60" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="volunteer-card">
+                        <a href='volunteer-details.html'>
+                            <div class="thumb"><img alt="thumb-20" src="{% static 'assets/img/thumbs/thumb-20.webp' %}"></div>
+                            <div class="author-info">
+                                <h5>Denial Pasha</h5>
+                                <p>Volunteer</p>
+                            </div>
+                        </a>
+                        <div class="socials">
+                            <button class="share-button"><i class="fa-light fa-share-nodes"></i></button>
+                            <div class="social-links">
+                                <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com"><i class="fab fa-x-twitter"></i></a>
+                                <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-details" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="details-btn">
+                    <a class='e-primary-btn has-icon' href='volunteer.html'>Voir tous les membres
+                        <span class="icon-wrap"><span class="icon"><i class="fa-regular fa-arrow-right"></i> <i
+                                    class="fa-regular fa-arrow-right"></i></span></span></a>
+                </div>
+                <div class="join-us-btn">
+                    <img alt="shape-12" src="{% static 'assets/img/shapes/shape-12.webp' %}">
+                    <a class='review-btn' href='be-volunteer.html'><span>Devenir Partenaire</span>
+                        <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- volunteer-section end -->
+
+    <!-- completed-project start -->
+    <section class="completed-project-section">
+        <div class="completed-project-top" style="background-image: url({% static 'assets/img/bg/completed-project-bg.webp' %})">
+            <div class="container">
+                <div class="row align-items-end m-b-60 m-b-xs-40">
+                    <div class="col-xl-6 col-lg-6 col-md-7">
+                        <div class="common-subtitle style-color-2" data-aos="fade-up" data-aos-delay="200"
+                            data-aos-duration="1000">
+                            <img alt="icon-1" src="{% static 'assets/img/icons/icon-1.svg' %}"> <span>Projet réalisés</span>
+                        </div>
+                        <div class="common-title style-color-light text-start m-b-0" data-aos="fade-up"
+                            data-aos-delay="400" data-aos-duration="1000">
+                            <h2>Explorez nos projets realisés 😍</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-5 text-md-end">
+                        <a class='e-primary-btn is-hover-white has-icon' data-aos-delay='600' data-aos-duration='1000'
+                            data-aos='fade-up' href='project.html'>Voir tous les projets
+                            <span class="icon-wrap"><span class="icon"><i class="fa-regular fa-arrow-right"></i> <i
+                                        class="fa-regular fa-arrow-right"></i></span></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="shape-8"><img alt="shape-8" src="{% static 'assets/img/shapes/shape-8.webp' %}"></div>
+            <div class="shape-9"><img alt="shape-9" src="{% static 'assets/img/shapes/shape-9.webp' %}"></div>
+        </div>
+        <div class="completed-project-bottom">
+            <div class="completed-project-slider-active" data-aos="fade-up" data-aos-delay="800"
+                data-aos-duration="1000">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="project-card">
+                                <div class="thumb">
+                                    <a href='project.html'><img alt="thumb-12"
+                                            src="{% static 'assets/img/thumbs/thumb-12.webp' %}"></a>
+                                    <div class="number">
+                                        <a href='project.html'>No - 03</a>
+                                    </div>
+                                    <div class="content">
+                                        <h5>Waste Management</h5>
+                                        <p>Energy consulting involves providing of advice and guidance on energy</p>
+                                        <div class="details-btn">
+                                            <a class='e-primary-btn is-hover-white has-icon' href='project.html'>View
+                                                All Projects
+                                                <span class="icon-wrap"><span class="icon"><i
+                                                            class="fa-regular fa-arrow-right"></i> <i
+                                                            class="fa-regular fa-arrow-right"></i></span></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="completed-project-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- completed-project end -->
+
+    <!-- testimonial start -->
+    <!-- <section class="testimonial p-t-120 p-t-md-100 p-t-xs-80">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-xl-4 m-b-lg-60 m-b-md-60 m-b-xs-60">
+                    <div class="testimonial-content" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <div class="common-subtitle">
+                            <img alt="icon-2" src="{% static 'assets/img/icons/icon-2.svg' %}"> <span>Testimonials</span>
+                        </div>
+                        <div class="common-title text-start">
+                            <h2>Why They Believe <span><i class="fa-solid fa-quote-right"></i> In Us</span></h2>
+                        </div>
+                        <div class="text">
+                            <p>Llikely to then a dental prosthetic is added then dental prosthetic occaecat laborum.</p>
+                        </div>
+                        <div class="reviews">
+                            <h3>
+                                <span class="purecounter" data-purecounter-duration="1"
+                                    data-purecounter-end="99">0</span>%
+                            </h3><img alt="favicon" src="{% static 'assets/img/logo/favicon.webp' %}">
+                            <h5>Positive Reviews</h5>
+                        </div>
+                        <a class='review-btn' href='contact.html'><img alt="icon" src="{% static 'assets/img/icons/icon-3.svg' %}">
+                            <span><span>Write your honest review</span> <i
+                                    class="fa-solid fa-arrow-right-long"></i></span></a>
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div class="testimonial-slider-active" data-aos="fade-up" data-aos-delay="400"
+                        data-aos-duration="1000">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="thumb">
+                                            <img alt="thumb-10" src="{% static 'assets/img/thumbs/thumb-10.webp' %}">
+                                            <a class="video-play-btn" data-fancybox=""
+                                                href="https://www.youtube.com/watch?v=fLeJJPxua3E&ab_channel=Motiversity">Play</a>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="rating">
+                                                <p>Rating</p><i class="fa-solid fa-star-sharp"></i> <span>5.0</span>
+                                            </div>
+                                            <div class="review">
+                                                <p>I was very impressed 😍 involves providing of advice and guidance on
+                                                    energy-related for matters. Understand the advantages hiring
+                                                    professionals to design and maintain your garden. 🙋</p>
+                                            </div>
+                                            <div class="author-details">
+                                                <h5>Penelope Miller <span>(Arjun)</span></h5>
+                                                <h6>Sr. Volunteer</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="thumb">
+                                            <img alt="thumb-10" src="{% static 'assets/img/thumbs/thumb-10.2.webp' %}">
+                                            <a class="video-play-btn" data-fancybox=""
+                                                href="https://www.youtube.com/watch?v=fLeJJPxua3E&ab_channel=Motiversity">Play</a>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="rating">
+                                                <p>Rating</p><i class="fa-solid fa-star-sharp"></i> <span>5.0</span>
+                                            </div>
+                                            <div class="review">
+                                                <p>I was very impressed 😍 involves providing of advice and guidance on
+                                                    energy-related for matters. Understand the advantages hiring
+                                                    professionals to design and maintain your garden. 🙋</p>
+                                            </div>
+                                            <div class="author-details">
+                                                <h5>Penelope Miller <span>(Arjun)</span></h5>
+                                                <h6>Sr. Volunteer</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="thumb">
+                                            <img alt="thumb-10" src="{% static 'assets/img/thumbs/thumb-10.3.webp' %}">
+                                            <a class="video-play-btn" data-fancybox=""
+                                                href="https://www.youtube.com/watch?v=fLeJJPxua3E&ab_channel=Motiversity">Play</a>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="rating">
+                                                <p>Rating</p><i class="fa-solid fa-star-sharp"></i> <span>5.0</span>
+                                            </div>
+                                            <div class="review">
+                                                <p>I was very impressed 😍 involves providing of advice and guidance on
+                                                    energy-related for matters. Understand the advantages hiring
+                                                    professionals to design and maintain your garden. 🙋</p>
+                                            </div>
+                                            <div class="author-details">
+                                                <h5>Penelope Miller <span>(Arjun)</span></h5>
+                                                <h6>Sr. Volunteer</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial-card">
+                                        <div class="thumb">
+                                            <img alt="thumb-10" src="{% static 'assets/img/thumbs/thumb-10.2.webp' %}">
+                                            <a class="video-play-btn" data-fancybox=""
+                                                href="https://www.youtube.com/watch?v=fLeJJPxua3E&ab_channel=Motiversity">Play</a>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="rating">
+                                                <p>Rating</p><i class="fa-solid fa-star-sharp"></i> <span>5.0</span>
+                                            </div>
+                                            <div class="review">
+                                                <p>I was very impressed 😍 involves providing of advice and guidance on
+                                                    energy-related for matters. Understand the advantages hiring
+                                                    professionals to design and maintain your garden. 🙋</p>
+                                            </div>
+                                            <div class="author-details">
+                                                <h5>Penelope Miller <span>(Arjun)</span></h5>
+                                                <h6>Sr. Volunteer</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- testimonial end -->
+
+    <!-- major-partners start -->
+    <section class="major-partners p-t-80 p-b-140 p-b-lg-120 p-b-md-100 p-b-xs-80">
+        <div class="container">
+            <div class="partners-title" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="line-right"><img alt="shape-4" src="{% static 'assets/img/shapes/shape-4.webp' %}"></div>
+                <h3>Nos Partenaires Majeurs</h3>
+                <div class="line"><img alt="shape-4" src="{% static 'assets/img/shapes/shape-4.webp' %}"></div>
+            </div>
+            <div class="row p-t-60 p-b-60">
+                <div class="col-xl-12">
+                    <div class="partner-marquee">
+                        <div class="partner-marquee-layout">
+                            <div class="partner-1"><img alt="partner-logo" src="{% static 'assets/img/logo/logo-2.webp' %}"></div>
+                        </div>
+                        <div class="partner-marquee-layout">
+                            <div class="partner-1"><img alt="partner-logo" src="{% static 'assets/img/logo/logo-7.webp' %}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="partner-btn text-center" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
+                <a class='e-primary-btn has-icon' href='contact.html'>
+                    devenir partenaire
+                    <span class="icon-wrap"><span class="icon"><i class="fa-regular fa-arrow-right"></i> <i
+                                class="fa-regular fa-arrow-right"></i></span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- major-partners end -->
+
+    <!-- contact-us start -->
+    <section class="contact-us" style="background-image: url({% static 'assets/img/bg/contact-us-bg.webp' %})">
+        <div class="container">
+            <div class="contact-form" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="form-content">
+                    <div class="form-content-top">
+                        <h3>Donnez un coup de main<br>
+                            <span>Que vous soyez un particulier ou un professionnel</span>
+                        </h3>
+                        <p>Envoyez-nous un message</p>
+                    </div>
+                    <form id="contact-form" action="https://econest-html.netlify.app/econest/assets/mail.php"
+                        method="post">
+                        <div class="input-wrap-3 m-b-15">
+                            <input placeholder="Ashikul Islam Sihan" type="text" name="name">
+                        </div>
+                        <div class="input-wrap-3 m-b-15">
+                            <input placeholder="example@gmail.com" type="email" name="email">
+                        </div>
+                        <div class="input-wrap-3 m-b-15">
+                            <input placeholder="+1 xxx xxx xxxx" type="text" name="phone">
+                        </div>
+                        <div class="input-wrap-3 m-b-15">
+                            <textarea placeholder="Say Something..." name="message"></textarea>
+                        </div>
+                        <button class="e-primary-btn is-hover-white has-icon" type="submit">Submit Now
+                            <span class="icon-wrap"><span class="icon"><i class="fa-regular fa-arrow-right"></i><i
+                                        class="fa-regular fa-arrow-right"></i></span></span>
+                        </button>
+                    </form>
+                    <p class="form-message"></p>
+                    <div class="shape"><img alt="shape-5" src="{% static 'assets/img/shapes/shape-5.webp' %}"></div>
+                </div>
+            </div>
+        </div>
+        <div class="shape-6"><img alt="shape-6" src="{% static 'assets/img/shapes/shape-6.webp' %}"></div>
+        <div class="shape-7"><img alt="shape-7" src="{% static 'assets/img/shapes/shape-7.webp' %}"></div>
+    </section>
+    <!-- contact-us end -->
+
+    <!-- our-events-section start -->
+    <!-- our-events-section end -->
+
+    <!-- latest-blog-section start -->
+    <section class="latest-blog-section p-t-100 p-t-xs-80 p-b-60 p-b-xs-20 p-b-md-20 p-b-lg-20 p-b-xl-20"
+        style="background-image: url({% static 'assets/img/bg/latest-blog-bg.webp' %})">
+        <div class="container">
+            <div class="row justify-content-between m-b-150 m-b-xl-120 m-b-lg-100 m-b-md-80 m-b-xs-80">
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="latest-blog-content" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                        <div class="common-subtitle">
+                            <img alt="icon-2" src="{% static 'assets/img/icons/icon-2.svg' %}"> <span>Actualités</span>
+                        </div>
+                        <div class="common-title text-start">
+                            <h2>Actualités</h2>
+                        </div>
+                        <div class="text">
+                            <p>Restez informé des dernières actualités environnementales et des actions durables que nous mettons en place pour protéger notre planète.</p>
+                        </div>
+                        <div class="blog-btn">
+                            <a class='e-primary-btn has-icon' href='blog-grid.html'>Voir plus...
+                                <span class="icon-wrap"><span class="icon"><i class="fa-regular fa-arrow-right"></i><i
+                                            class="fa-regular fa-arrow-right"></i></span></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-md-6 col-12">
+                    <div class="blog-slider-active" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <div class="blog-card">
+                                        <div class="thumb">
+                                            <a href='blog-details.html'><img alt="thumb-6"
+                                                    src="{% static 'assets/img/thumbs/thumb-6.webp' %}"></a>
+                                            <div class="category">
+                                                <a href='blog-details.html'>Recycle</a>
+                                            </div>
+                                            <div class="event-date">
+                                                <h2>24</h2>
+                                                <h5>Feb</h5><span>2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <div class="content-top p-0 m-b-20">
+                                                <div class="title">
+                                                    <h3><a href='blog-details.html'>Waste Management</a></h3>
+                                                </div>
+                                                <div class="text">
+                                                    <p>Energy consulting involves providing of advice and guidance on
+                                                        energy</p>
+                                                </div>
+                                            </div>
+                                            <div class="content-bottom">
+                                                <a class='e-primary-btn has-icon has-small'
+                                                    href='blog-details.html'>Read
+                                                    More
+                                                    <span class="icon-wrap"><span class="icon"><i
+                                                                class="fa-regular fa-arrow-right"></i><i
+                                                                class="fa-regular fa-arrow-right"></i></span></span></a>
+                                                <div class="social-share">
+                                                    <button class="total-shared"><i class="fa-solid fa-share-nodes"></i>
+                                                        <span>367</span></button>
+                                                    <div class="social-links">
+                                                        <a href="https://facebook.com"><i
+                                                                class="fab fa-facebook-f"></i></a>
+                                                        <a href="https://twitter.com"><i
+                                                                class="fab fa-x-twitter"></i></a>
+                                                        <a href="https://www.instagram.com"><i
+                                                                class="fab fa-instagram"></i></a>
+                                                        <a href="https://linkedin.com"><i
+                                                                class="fab fa-linkedin-in"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-pagination"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="latest-blog-row-bottom" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div class="row-bottom-thumb">
+                    <div class="thumb"><img alt="thumb" src="{% static 'assets/img/81.png' %}"></div>
+                </div>
+                <div class="row row-gap-4 align-items-center">
+                    <div class="col-md-6 col-12">
+                        <div class="common-title text-start">
+                            <h2>Restez informé <span><img alt="icon" src="{% static 'assets/img/icons/icon-12.svg' %}"></span> par mail
+                                <span><i class="fa-solid fa-arrow-right-long"></i></span>
+                            </h2>
+                        </div>
+                        <p></p>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <form class="form-1">
+                            <div class="input-wrap-2 m-b-20">
+                                <input placeholder="example@gmail.com" type="email">
+                            </div>
+                            <button class="e-primary-btn has-icon" type="submit">S'abonner
+                                <span class="icon-wrap"><span class="icon"><i class="fa-regular fa-arrow-right"></i><i
+                                            class="fa-regular fa-arrow-right"></i></span></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shape"><img alt="shape" src="{% static 'assets/img/shapes/shape-38.webp' %}"></div>
+    </section>
+    <!-- latest-blog-section end -->
+
+
+
 {% endblock %}
