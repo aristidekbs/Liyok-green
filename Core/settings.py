@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-loe-b-^z4_m_ga_xg3=shkucgi7nz-6@58nl_mn99+b203(_l3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'liyok-green.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
