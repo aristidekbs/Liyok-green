@@ -3,6 +3,7 @@ from django.utils.text import slugify
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+from ckeditor.fields import RichTextField 
 
 class SiteSetting(models.Model):
     site_name = models.CharField(max_length=150, default="Liyok Green")
@@ -18,7 +19,6 @@ class SiteSetting(models.Model):
     
 
 class section(models.Model):
-    Service = models.ForeignKey('Service', on_delete=models.CASCADE, related_name='sections')
     oder = models.IntegerField()
     title = models.CharField(max_length=255 , verbose_name="Titre", blank=True, null=True)
     subtitle = models.CharField(max_length=255 , verbose_name="Sous-titre", blank=True, null=True)
@@ -68,20 +68,6 @@ class Media(models.Model):
             ).exclude(id=self.id).update(main_image=False)
 
         super().save(*args, **kwargs)
-
-    
-
-
-class Banner(models.Model):
-    title = models.CharField(max_length=255)
-    subtitle = models.CharField(max_length=50, blank=True, null=True)
-    image = models.ImageField(upload_to='banners/')
-    button_text = models.CharField(max_length=100, blank=True, null=True)
-    button_link = models.URLField(blank=True, null=True)
-    description = models.TextField(blank = False, null = False , max_length = 300)
-
-    def __str__(self):
-        return self.title
 
 
 class TeamMember(models.Model):
@@ -325,31 +311,39 @@ class EventRegistration(models.Model):
 
 
 
-
-
-
-
 class Service(models.Model):
-    """Modèle pour gérer les services proposés"""
-
+    name = models.CharField(max_length=200, verbose_name="Nom du service", blank=False, null=False)
+    slug = models.SlugField(unique=True, blank=True)
     
-    is_active = models.BooleanField(default=True, verbose_name='Actif')
+    # Images
+    main_image = models.ImageField(upload_to='services/' , blank=False, null=False, default="")
+    secondary_image = models.ImageField(upload_to='services/', blank=True, null=True, default="")
+
+    # --- LE CONTENU ---
+    # Au lieu de title_1, desc_1, etc., on fait des blocs logiques
+    
+    # Bloc d'intro (ex: Le premier H1 et la première description)
+    intro_content = RichTextField(verbose_name="Contenu Introduction", blank=False, null=False, default="")
+    
+    # Bloc Détails (ex: Le gros du texte au milieu)
+    details_content = RichTextField(verbose_name="Contenu Détaillé", blank=False, null=False, default="")
+    
+    # Bloc Conclusion ou autre
+    extra_content = RichTextField(verbose_name="Contenu Supplémentaire", blank=True, null=True, default="")
+
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    order = models.PositiveIntegerField(default=0, verbose_name="Ordre d'affichage")
-
-    class Meta:
-        ordering = ['order', '-created_at']
-        verbose_name = 'Service'
-        verbose_name_plural = 'Services'
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.title
+        return self.name
+
+class CarouselImage(models.Model):
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='carousel_images')
+    image = models.ImageField(upload_to='services/carousel/')
+    order = models.PositiveIntegerField(default=0)
+
+
+
+
 
 
 

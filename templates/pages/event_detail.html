@@ -1,0 +1,470 @@
+{% extends 'bases/base1.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- On garde ton CSS intact, je l'ai juste minifié pour la lisibilité ici, 
+     mais tu peux garder ton bloc <style> tel quel dans ton fichier -->
+<style>
+    :root {
+        --primary: #2563eb;
+        --secondary: #0f172a;
+        --text: #334155;
+        --bg-light: #f1f5f9;
+    }
+
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text);
+        line-height: 1.6;
+    }
+
+    /* Hero dynamique */
+    .event-hero {
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 50px;
+        color: white;
+        position: relative;
+    }
+
+    .event-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.8));
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+        margin: 0 0 10px 0;
+        line-height: 1.2;
+    }
+
+    .hero-meta {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        display: flex;
+        gap: 20px;
+    }
+
+    .hero-meta i {
+        color: #fbbf24;
+        margin-right: 8px;
+    }
+
+    /* Layout */
+    .content-wrapper {
+        display: flex;
+        gap: 40px;
+        margin-top: -40px;
+        margin-bottom: 60px;
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .main-content {
+        flex: 2;
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .sidebar-card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 20px;
+    }
+
+    /* Typography */
+    h2 {
+        color: var(--secondary);
+        margin-top: 0;
+        font-size: 1.8rem;
+    }
+
+    .event-intro {
+        font-size: 1.1rem;
+        color: #475569;
+        margin-bottom: 30px;
+        font-weight: 500;
+    }
+
+    /* Listes Sidebar */
+    .info-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+    }
+
+    .info-list li {
+        padding: 10px 0;
+        border-bottom: 1px dashed #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .info-list span {
+        color: #64748b;
+    }
+
+    .info-list strong {
+        color: var(--secondary);
+    }
+
+    /* Boutons */
+    .btn-register-lg {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background: var(--primary);
+        color: white;
+        text-align: center;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 20px;
+    }
+
+    .btn-register-lg:hover {
+        background: #1d4ed8;
+        transform: translateY(-2px);
+    }
+
+    .btn-disabled {
+        background-color: #cbd5e1;
+        cursor: not-allowed;
+        color: #64748b;
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    /* Modal */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-overlay.show {
+        display: flex;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 40px;
+        border-radius: 16px;
+        width: 90%;
+        max-width: 500px;
+        position: relative;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #334155;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    /* Messages Django */
+    .alert {
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .alert-success {
+        background-color: #dcfce7;
+        color: #166534;
+        border: 1px solid #bbf7d0;
+    }
+
+    .alert-error {
+        background-color: #fee2e2;
+        color: #991b1b;
+        border: 1px solid #fecaca;
+    }
+
+    @media (max-width: 768px) {
+        .content-wrapper {
+            flex-direction: column-reverse;
+            margin-top: 0;
+        }
+
+        .event-hero {
+            height: 300px;
+        }
+
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+
+        .sidebar-card {
+            position: static;
+        }
+    }
+</style>
+
+<!-- 1. HERO HEADER DYNAMIQUE -->
+<!-- On essaie de récupérer la première image liée (EventMedia) ou une image par défaut -->
+{% with cover=event.media.first %}
+<header class="event-hero"
+    style="background-image: url('{% if cover and cover.image %}{{ cover.image.url }}{% else %}https://placehold.co/1600x900?text=No+Image{% endif %}');">
+    {% endwith %}
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-meta">
+                <span><i class="fa-solid fa-calendar"></i> {{ event.start_date|date:"d F Y" }}</span>
+                <!-- Affiche le statut ou une catégorie si tu en ajoutes une plus tard -->
+                <span><i class="fa-solid fa-tag"></i> {{ event.get_status_display }}</span>
+            </div>
+            <h1>{{ event.title }}</h1>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Zone de messages (Succès / Erreur) -->
+    {% if messages %}
+    <div style="margin-top: 20px;">
+        {% for message in messages %}
+        <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-error{% endif %}">
+            <i class="fa-solid fa-circle-info"></i> {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="content-wrapper">
+
+        <!-- A. COLONNE GAUCHE (Détails) -->
+        <div class="main-content">
+            <h2>À propos de l'événement</h2>
+
+            <!-- Description Courte (Intro) -->
+            {% if event.short_description %}
+            <div class="event-intro">
+                {{ event.short_description|linebreaks }}
+            </div>
+            {% endif %}
+
+            <!-- Description Complète (HTML accepté via |safe si tu utilises CKEditor) -->
+            <div class="event-body">
+                {{ event.description|safe|linebreaks }}
+            </div>
+
+            <!-- NOTE: Pour les sections "Programme" et "Intervenants" -->
+            <!-- Comme ton modèle n'a pas encore de champs spécifiques pour ça, -->
+            <!-- tu devras les inclure dans le champ 'description' via l'éditeur texte de l'admin. -->
+            <!-- OU BIEN tu peux créer des modèles 'AgendaItem' et 'Speaker' plus tard. -->
+
+            <!-- Galerie (Si des médias existent) -->
+            {% if event.media.all %}
+            <h3 style="margin-top:40px;"><i class="fa-solid fa-images"></i> Galerie</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;">
+                {% for media in event.media.all %}
+                {% if media.image %}
+                <img src="{{ media.image.url }}" alt="Media"
+                    style="width:100%; height:100px; object-fit:cover; border-radius:8px;">
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- B. SIDEBAR (Info & Inscription) -->
+        <aside class="sidebar">
+            <div class="sidebar-card">
+                <h2>Infos Pratiques</h2>
+                <ul class="info-list">
+                    <li>
+                        <span>Date :</span>
+                        <strong>{{ event.start_date|date:"d M, Y" }}</strong>
+                    </li>
+                    <li>
+                        <span>Heure :</span>
+                        <!-- Gestion de l'affichage de l'heure de fin si elle existe -->
+                        <strong>
+                            {{ event.start_date|date:"H:i" }}
+                            {% if event.end_date %} - {{ event.end_date|date:"H:i" }}{% endif %}
+                        </strong>
+                    </li>
+                    <li>
+                        <span>Lieu :</span>
+                        <strong>{{ event.location }}</strong>
+                    </li>
+
+                    <!-- Affichage conditionnel de l'adresse si elle existe -->
+                    {% if event.address %}
+                    <li style="flex-direction: column; align-items: flex-start;">
+                        <span>Adresse :</span>
+                        <strong style="font-size: 0.9rem; margin-top:5px;">{{ event.address }}</strong>
+                    </li>
+                    {% endif %}
+
+                    <!-- Gestion des places -->
+                    {% if event.max_participants %}
+                    <li>
+                        <span>Places :</span>
+                        <!-- On pourrait calculer les places restantes ici -->
+                        <strong style="color: {% if event.max_participants > 0 %}#ef4444{% else %}green{% endif %};">
+                            Max {{ event.max_participants }}
+                        </strong>
+                    </li>
+                    {% endif %}
+
+                    <li>
+                        <span>Prix :</span>
+                        <strong style="color: var(--primary); font-size: 1.2rem;">
+                            {% if event.is_free %}Gratuit{% else %}{{ event.price }} €{% endif %}
+                        </strong>
+                    </li>
+                </ul>
+
+                <!-- CARTE MAP (Lien dynamique vers Google Maps) -->
+                {% if event.address or event.location %}
+                <div
+                    style="width: 100%; height: 150px; background: #e2e8f0; border-radius: 8px; margin-bottom: 20px; overflow: hidden; position: relative;">
+                    <!-- Image statique placeholder -->
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ event.location }}&zoom=13&size=400x200&sensor=false&key=YOUR_API_KEY_HERE"
+                        alt="Carte" style="width:100%; height:100%; object-fit: cover;"
+                        onerror="this.src='https://placehold.co/400x200?text=Map';"> <!-- Fallback si pas de clé API -->
+                    <a href="https://www.google.com/maps/search/?api=1&query={{ event.address|default:event.location }}"
+                        target="_blank" style="position: absolute; inset:0;"></a>
+                </div>
+                {% endif %}
+
+                <!-- LE BOUTON D'ACTION -->
+                {% if event.registration_open %}
+                <button class="btn-register-lg" onclick="openModal('{{ event.title|escapejs }}')">
+                    Je m'inscris !
+                </button>
+                {% if event.registration_deadline %}
+                <p style="text-align: center; font-size: 0.8rem; color: #64748b; margin-top: 10px;">
+                    Clôture le {{ event.registration_deadline|date:"d/m/Y à H:i" }}
+                </p>
+                {% endif %}
+                {% else %}
+                <div class="btn-disabled">Inscriptions fermées</div>
+                {% endif %}
+            </div>
+        </aside>
+    </div>
+</div>
+
+<!-- 3. LE POP-UP (MODAL) -->
+<div id="registrationModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h3 style="margin-top: 0;">Finaliser l'inscription</h3>
+        <p style="color: #64748b;">Événement : <b id="modalEventName">...</b></p>
+
+        <!-- Formulaire connecté à Django -->
+        <form method="POST" action="">
+            {% csrf_token %}
+
+            <div style="display: flex; gap: 15px;">
+                <div class="form-group" style="flex:1">
+                    <label>Prénom</label>
+                    <input type="text" name="first_name" required>
+                </div>
+                <div class="form-group" style="flex:1">
+                    <label>Nom</label>
+                    <input type="text" name="last_name" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Téléphone</label>
+                <input type="tel" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label>Entreprise (Optionnel)</label>
+                <input type="text" name="company">
+            </div>
+
+            <button type="submit" class="btn-register-lg">Valider</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('registrationModal');
+    const eventNameSpan = document.getElementById('modalEventName');
+
+    function openModal(eventName) {
+        eventNameSpan.textContent = eventName;
+        modal.classList.add('show');
+    }
+    function closeModal() {
+        modal.classList.remove('show');
+    }
+    window.onclick = function (e) {
+        if (e.target == modal) closeModal();
+    }
+</script>
+
+{% endblock %}

@@ -14,10 +14,10 @@
                         <div class="breadcrumb-nav" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                             <ul>
                                 <li>
-                                    <a href='index.html'>Home</a>
+                                    <a href='{% url "index" %}'>Home</a>
                                 </li>
                                 <li>
-                                    <a href="services.html#">Service</a>
+                                    <a href="">Service</a>
                                 </li>
                             </ul>
                         </div>
@@ -54,23 +54,49 @@
             <div class="row" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                 <div class="col-xl-4 m-b-30">
                     <div class="project-card style-service">
+                        {% for service in services %}
                         <div class="thumb">
-                            <a href='{% url "services_detail" %}'><img alt="thumb-63"
-                                    src="{% static 'assets/img/thumbs/thumb-63.webp' %}"></a>
+                            <!-- Lien et Image -->
+                            <a href="{% url 'services_detail' service.slug %}">
+                                {% if service.main_image %}
+                                <img alt="{{ service.name }}" src="{{ service.main_image.url }}">
+                                {% else %}
+                                <!-- Image placeholder au cas où -->
+                                <img alt="Default image" src="https://placehold.co/600x400?text=No+Image">
+                                {% endif %}
+                            </a>
+                    
+                            <!-- Numéro automatique (01, 02, etc.) -->
                             <div class="tag">
-                                <p>No - 01</p>
+                                <p>No - {{ forloop.counter|stringformat:"02d" }}</p>
                             </div>
+                    
                             <div class="content">
-                                <h5>Waste Management</h5>
-                                <p>Energy consulting involves providing of advice and guidance on energy</p>
+                                <!-- Titre du service -->
+                                <h5>{{ service.name }}</h5>
+                    
+                                <!-- Résumé (On prend le contenu de l'intro, on enlève le HTML et on coupe) -->
+                                <p>{{ service.intro_content|striptags|truncatewords:15 }}</p>
+                    
                                 <div class="join-us">
-                                    <a class='e-primary-btn has-icon is-hover-white' href='{% url "services_detail" %}'>Read More
-                                        <span class="icon-wrap"><span class="icon"><i class="fa-regular fa-arrow-right"></i>
-                                                <i class="fa-regular fa-arrow-right"></i></span></span></a>
+                                    <a class='e-primary-btn has-icon is-hover-white' href='{% url "services_detail" service.slug %}'>
+                                        Voir plus
+                                        <span class="icon-wrap">
+                                            <span class="icon">
+                                                <i class="fa-regular fa-arrow-right"></i>
+                                                <i class="fa-regular fa-arrow-right"></i>
+                                            </span>
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        {% empty %}
+                        <!-- Message si aucun service n'existe -->
+                        <div class="col-12">
+                            <p>Aucun service disponible pour le moment.</p>
+                        </div>
+                        {% endfor %}              </div>
                 </div>
             </div>
         </div>

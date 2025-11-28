@@ -1,7 +1,7 @@
 from django.urls import include, path 
 from .views import (
     index, services, social, economique, solution, project, 
-    calcul, about, blog, event, credit, service_detail, energie, member_detail, team_list
+    calcul, about, blog, event, credit, service_detail, energie, member_detail, team_list, event_detail
 )
 
 urlpatterns = [
@@ -17,7 +17,8 @@ urlpatterns = [
     path('equipe/', team_list, name='team_list'),
     path('blog/', blog, name='blog'),
     path('event/', event, name='event'),
+    path('event/<slug:slug>/', event_detail, name='event_detail'),
     path('credit-carbone/', credit, name='credit'),
-    path('services_detail/', service_detail, name='services_detail'),  # Alternative URL for better UX
+    path('services/<slug:slug>/', service_detail, name='services_detail'),
     path('energie/', energie, name='energie'),
 ]

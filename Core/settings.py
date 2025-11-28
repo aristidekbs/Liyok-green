@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'User',
     'Managements',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 os.makedirs(MEDIA_ROOT, exist_ok=True)
 
+
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+        'height': 300,
+        'width': '100%',
+    },
+}
