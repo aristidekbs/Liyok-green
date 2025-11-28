@@ -7,7 +7,9 @@ from django.utils import timezone
 # Create your views here.
 def index(request):
     team = TeamMember.objects.all()
-    return render(request, 'pages/index.html', context={'team': team})
+    services = Service.objects.all()
+    events = Event.objects.all()
+    return render(request, 'pages/index.html', context={'team': team, 'services': services, 'events': events})
 
 def social(request):
     return render(request, 'pages/social.html', context={})

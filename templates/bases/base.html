@@ -1,6 +1,6 @@
 {% load static %}
-
-
+{% load event_tags %}
+{% get_next_event as my_event %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,14 +46,27 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="top-bar-content text-center">
+                            {% if my_event %}
                             <div class="text-wrap">
                                 <img src="{% static 'assets/img/icons/calendar-time.svg' %}" alt="icon" />
-                                <span> <a href="">Rejoindre Notre Événement (28 Nov, 2025) Lomé, Togo.</a></span>
+                                <span>
+                                    <a href="{% url 'event_detail' my_event.slug %}">
+                                        Rejoindre : {{ my_event.title }} ({{ my_event.start_date|date:"d M Y" }}) - {{ my_event.location }}
+                                    </a>
+                                </span>
                             </div>
-                            <a class='e-primary-btn is-hover-white top-btn' href=''>
+                        
+                            {% if my_event.is_registration_open %}
+                            <a class='e-primary-btn is-hover-white top-btn' href='{% url ' event_detail' my_event.slug %}'>
                                 S'inscrire
                             </a>
-                        </div>
+                            {% endif %}
+                            {% else %}
+                            <!-- Cas où il n'y a pas d'événement -->
+                            <div class="text-wrap">
+                                <span>Bienvenue sur notre plateforme ! Découvrez nos services.</span>
+                            </div>
+                            {% endif %}                  </div>          
                     </div>
                 </div>
             </div>
